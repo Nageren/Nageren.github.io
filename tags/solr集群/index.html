@@ -6,25 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.top.com">
-  <title>Java垃圾回收机制 | 个人博客</title>
+  <title>Tag: solr集群 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java垃圾回收机制1.对于Java的GC哪些内存需要回收​    内存运行时JVM会有一个运行时数据区来管理内存.主要包括5大部分: 程序计数器(Program Counter Register) ,虚拟机栈(JVM Stack) , 本地方法栈(Native Method Stack), 方法区(Method Area) , 堆(Heap) . ​    而其中程序计数器,虚拟机栈,本地方法栈">
-<meta name="keywords" content="java,垃圾回收">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java垃圾回收机制">
-<meta property="og:url" content="http://www.top.com/2017/12/24/JVM垃圾回收/index.html">
+  <meta name="description" content="一点一滴的成长">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://www.top.com/tags/solr集群/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Java垃圾回收机制1.对于Java的GC哪些内存需要回收​    内存运行时JVM会有一个运行时数据区来管理内存.主要包括5大部分: 程序计数器(Program Counter Register) ,虚拟机栈(JVM Stack) , 本地方法栈(Native Method Stack), 方法区(Method Area) , 堆(Heap) . ​    而其中程序计数器,虚拟机栈,本地方法栈">
-<meta property="og:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/l2CbHmh9GL.png?imageslim">
-<meta property="og:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/k2emL7Bg3k.png?imageslim">
-<meta property="og:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/Bl47HFhdl2.png?imageslim">
-<meta property="og:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/BjjDaB3i30.png?imageslim">
-<meta property="og:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/kg7ggAJBj0.png?imageslim">
-<meta property="og:updated_time" content="2017-12-24T02:56:44.905Z">
+<meta property="og:description" content="一点一滴的成长">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java垃圾回收机制">
-<meta name="twitter:description" content="Java垃圾回收机制1.对于Java的GC哪些内存需要回收​    内存运行时JVM会有一个运行时数据区来管理内存.主要包括5大部分: 程序计数器(Program Counter Register) ,虚拟机栈(JVM Stack) , 本地方法栈(Native Method Stack), 方法区(Method Area) , 堆(Heap) . ​    而其中程序计数器,虚拟机栈,本地方法栈">
-<meta name="twitter:image" content="http://ozaomob5f.bkt.clouddn.com/images/171224/l2CbHmh9GL.png?imageslim">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="一点一滴的成长">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -160,234 +152,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM垃圾回收" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java垃圾回收机制
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/15/Solr开发/" class="archive-article-date">
+  	<time datetime="2017-12-15T14:27:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/15/Solr开发/">Redis的五种数据类型</a>
     </h1>
   
 
-        
-        <a href="/2017/12/24/JVM垃圾回收/" class="archive-article-date">
-  	<time datetime="2017-12-24T02:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java垃圾回收机制"><a href="#Java垃圾回收机制" class="headerlink" title="Java垃圾回收机制"></a>Java垃圾回收机制</h1><h2 id="1-对于Java的GC哪些内存需要回收"><a href="#1-对于Java的GC哪些内存需要回收" class="headerlink" title="1.对于Java的GC哪些内存需要回收"></a>1.对于Java的GC哪些内存需要回收</h2><p>​    内存运行时JVM会有一个运行时数据区来管理内存.主要包括5大部分: 程序计数器(Program Counter Register) ,虚拟机栈(JVM Stack) , 本地方法栈(Native Method Stack), 方法区(Method Area) , 堆(Heap) .</p>
-<p>​    而其中程序计数器,虚拟机栈,本地方法栈是每个线程私有的内存空间,随线程而生,随线程而死亡.列如栈中的每一个栈帧中分配多少内存基本上在类结构确定是哪个就已知了,因此3个区域的内存分配和回收都是确定的,无需考虑内存回收的问题.</p>
-<p>​    但是方法区和堆就不同了,一个接口的多个实现类需要的内存可能不一样,我们在运行期间才会知道会创建哪些对象,这部分内存的分配和回收都是动态的,GC主要关注的就是这部分内存</p>
-<p>​    </p>
-<h2 id="2-Java-的-GC-什么时候回收垃圾"><a href="#2-Java-的-GC-什么时候回收垃圾" class="headerlink" title="2.Java 的 GC 什么时候回收垃圾 "></a>2.Java 的 GC 什么时候回收垃圾 </h2><p>在面试中经常会碰到这样一个问题（事实上笔者也碰到过） ：如何判断一个对象已经死去？<br>很容易想到的一个答案是：对一个对象添加引用计数器。每当有地方引用它时，计数器值加 1；当引用失效时，计<br>数器值减 1.而当计数器的值为 0 时这个对象就不会再被使用，判断为已死。是不是简单又直观。然而，很遗憾。这种做法是错误的！为什么是错的呢？事实上，用引用计数法确实在大部分情况下是一个不错的解决方案，而在实际的应用中也有不少案例，但它却无法解决对象之间的循环引用问题。比如对象 A 中有一个字段指向了对象 B，而对象 B 中也有一个字段指向了对象 A，而事实上他们俩都不再使用，但计数器的值永远都不可能为 0，也就不会被回收，然后就发生了内存泄露。<br>所以，正确的做法应该是怎样呢？</p>
-<p>在 Java， C#等语言中，比较主流的判定一个对象已死的方法是：可达性分析(Reachability Analysis).<br>所有生成的对象都是一个称为”GC Roots”的根的子树。从 GC Roots 开始向下搜索，搜索所经过的路径称为引用链<br>(Reference Chain)，当一个对象到 GC Roots 没有任何引用链可以到达时，就称这个对象是不可达的（不可引用的），也就是可以被 GC 回收了。</p>
-<p>无论是引用计数器还是可达性分析，判定对象是否存活都与引用有关！那么，如何定义对象的引用呢？<br>我们希望给出这样一类描述：当内存空间还够时，能够保存在内存中；如果进行了垃圾回收之后内存空间仍旧非<br>常紧张，则可以抛弃这些对象。所以根据不同的需求，给出如下四种引用，根据引用类型的不同， GC 回收时也会有不同的操作：<br>1)强引用(Strong Reference):Object obj = new Object();只要强引用还存在， GC 永远不会回收掉被引用的对象。</p>
-<p>2)软引用(Soft Reference)：描述一些还有用但非必需的对象。在系统将会发生内存溢出之前，会把这些对象列入<br>回收范围进行二次回收（即系统将会发生内存溢出了，才会对他们进行回收。</p>
-<p>3)弱引用(Weak Reference):程度比软引用还要弱一些。这些对象只能生存到下次 GC 之前。当 GC 工作时，无论内<br>存是否足够都会将其回收（即只要进行 GC，就会对他们进行回收)</p>
-<p>4)虚引用(Phantom Reference):一个对象是否存在虚引用，完全不会对其生存时间构成影响。<br>关于方法区中需要回收的是一些废弃的常量和无用的类。</p>
-<p>1.废弃的常量的回收。这里看引用计数就可以了。没有对象引用该常量就可以放心的回收了。<br>2.无用的类的回收。什么是无用的类呢？<br>A.该类所有的实例都已经被回收。也就是 Java 堆中不存在该类的任何实例；<br>B.加载该类的 ClassLoader 已经被回收；<br>C.该类对应的 java.lang.Class 对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</p>
-<p>总而言之:<br>​    对于堆中的对象，主要用可达性分析判断一个对象是否还存在引用，如果该对象没有任何引用就应该被回收。而根据我们实际对引用的不同需求，又分成了 4 中引用，每种引用的回收机制也是不同的。对于方法区中的常量和类，当一个常量没有任何对象引用它，它就可以被回收了。而对于类，如果可以判定它为无用类，就可以被回收了。 </p>
-<h2 id="3-JVM内存模型"><a href="#3-JVM内存模型" class="headerlink" title="3. JVM内存模型"></a>3. JVM内存模型</h2><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/l2CbHmh9GL.png?imageslim" alt="mark"></p>
-<h2 id="4-java虚拟机JVM垃圾收集算法有四种："><a href="#4-java虚拟机JVM垃圾收集算法有四种：" class="headerlink" title="4. java虚拟机JVM垃圾收集算法有四种："></a>4. java虚拟机JVM垃圾收集算法有四种：</h2><ol>
-<li><p>标记-清除算法</p>
-<p> 这是JVM最基础的垃圾收集算法。 该算法分为两个阶段：“标记”和“清除”。首先标记处所有需要回收的对象，然后统一清除被标记的对象。 该算法，标记和清除两个阶段的效率不高。此外，回收后会产生大量的不连续的内存碎片，进一步会导致垃圾回收次数的增加。</p>
-<p> <img src="http://ozaomob5f.bkt.clouddn.com/images/171224/k2emL7Bg3k.png?imageslim" alt="mark"></p>
-</li>
-<li><p>复制算法</p>
-<p>​     为了解决标记-清除算法的效率问题，出现了复制算法，如下图： 该算法的思想是将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这块的内存用完了，则将还存活的对象复制到另外一块内存上去，然后再把刚使用过的内存空间一次清理掉。从而达到了每次垃圾回收时只是针对其中一块，避免了产生内存碎片等情况。该算法的代价是只是使用了其中一本的内存，代价有点高。</p>
-<p>​      随着研究的不断发现，商业虚拟机在该算法中不断进行优化尝试。比如在HotSpot虚拟机中，新生代中Eden和Survivor的大小比例为8：:1，因为新生代的对象需要回收的概率大（对象的生命周期短，存活率低），所以内存的可用率达到了90%（新生代分为：Eden和两块Survivor）。每次都是把Eden和Survivor中存活的对象拷贝到另一块Survivor中，然后清理掉Eden和Survivor空间。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/Bl47HFhdl2.png?imageslim" alt="mark"></p>
-</li>
-<li><p>标记-整理算法</p>
-<p>  当复制收集算法面对的回收对象为存活率较高的情况时，要执行较多的复制操作，效率会变低。为了提高这些对象垃圾回收效率，充分利用可用内存，标记-整理算法出现了。如下图：</p>
-<p>​        <img src="http://ozaomob5f.bkt.clouddn.com/images/171224/BjjDaB3i30.png?imageslim" alt="mark"></p>
-<p>​      该算法集成了标记-清除和复制收集算法的优点。第一个阶段仍是进行标记，第二个阶段是把所有存活的对象都向一端移动，按顺序排放，然后直接清理掉端边界意外的内存。该算法避免了标记-清除的内存碎片问题以及复制算法的空间问题。该算法适合于老年代对象的回收。</p>
-</li>
-<li><p>分代收集算法</p>
-<p>  这是目前大多数虚拟机采用的垃圾回收算法。基于对象的生命周期划分为新生代、老年代以及持久代。比如新生代就采用复制收集算法，而老年代就采用标记-清除或者标记-整理算法。如下图： 对于分代收集，虚拟机需要区分对象的分配年代，是放在新生代还是否放在老年代？。解决的办法是：jvm为每个对象定义了一个对象年龄计数器。如果对象在Eden出生并且经过第一次新生代GC（Minor GC）后仍然存活并且能被Survivor容纳，则该对象将被移动到另一块Survivor空间，并将对象年龄计数器加1。对象在Survivor区中每经历过一次Minor GC，年龄计数器就加1，当它的年龄达到设定的阈值（默认是15）时，则被移动到老年代中。阈值的设置通过参数-XX：MaxTenuringThreshold设置。</p>
-<p>​      当然，并不是一定达到阈值才被移动到老年代，为了适应复杂的情况，动态的判定对象年龄，虚拟机规定：如果Survivor空间中相同年龄的所有对象大小的总和大于Survivor空间的一半，对象的年龄大于或者等于该年龄的对象就可以直接进入老年代，不必等到达到设定的阈值。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/kg7ggAJBj0.png?imageslim" alt="mark"></p>
-</li>
-</ol>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozaomob5f.bkt.clouddn.com/images/171125/ef9KcFa8H3.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">solr</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">垃圾回收</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solr集群</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2017/12/24/JVM垃圾回收/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/24/JVM参数设置/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JVM参数设置
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/12/15/Solr开发/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis的五种数据类型</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://www.top.com/2017/12/24/JVM垃圾回收/",
-  owner: 'Nageren',
-  repo: 'pinglun',
-  oauth: {
-    client_id: 'c64ab6a271cb9680007d',
-    client_secret: '83a9109b4b0f5f8f30480e90390fb3fe55a2f651',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -410,9 +232,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
