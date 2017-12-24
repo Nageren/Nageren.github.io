@@ -154,6 +154,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Solr开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Solr单机版的使用"><a href="#Solr单机版的使用" class="headerlink" title="Solr单机版的使用"></a>Solr单机版的使用</h1><p>在虚拟机上模拟solr单机版和集群的使用,和实际开发其实是差不多的</p>
+<p>准备tomcat  solr的安装包</p>
+<h2 id="1-安装单机版的solr"><a href="#1-安装单机版的solr" class="headerlink" title="1.安装单机版的solr"></a>1.安装单机版的solr</h2><p> mkdir  singleSolr<br> 在singleSolr目录下<br> 导入apache-tomcat-7.0.52  解压   重命名为tomcat-solr<br> 导入solr-4.10.3.tgz.tgz  tar zxvf  solr-4.10.3.tgz.tgz  </p>
+<h2 id="2-部署solr"><a href="#2-部署solr" class="headerlink" title="2.部署solr"></a>2.部署solr</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把war包放入 tomcat  webapp</span><br><span class="line">cp solr-4.10.3/example/webapps/solr.war  tomcat-solr/webapps/</span><br></pre></td></tr></table></figure>
+<h2 id="3-导入依赖jar包"><a href="#3-导入依赖jar包" class="headerlink" title="3.导入依赖jar包"></a>3.导入依赖jar包</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd solr-4.10.3/example/lib/ext/</span><br><span class="line">把ext下的所有jar包  复制到tomcat-solr/webapps/solr/WEB-INF/lib/</span><br><span class="line">复制到cp -r solr-4.10.3/example/lib/ext/*  tomcat-solr/webapps/solr/WEB-INF/lib/</span><br></pre></td></tr></table></figure>
+<h2 id="4-拷贝solr-4-10-3-example-solr到-singleSolr目录下"><a href="#4-拷贝solr-4-10-3-example-solr到-singleSolr目录下" class="headerlink" title="4.拷贝solr-4.10.3/example/solr到  singleSolr目录下"></a>4.拷贝solr-4.10.3/example/solr到  singleSolr目录下</h2><p>这一步是配置仓库的路径</p>
+<pre><code>cp -r solr-4.10.3/example/solr   .    注意 . 代表当前目录
+windows下配置 catalina.bat  set JAVA_OPTS=-&quot;Dsolr.solr.home=E:\solr&quot;
+Linux下配置   catalina.sh   export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot;
+</code></pre><h2 id="5-依赖类库"><a href="#5-依赖类库" class="headerlink" title="5.依赖类库"></a>5.依赖类库</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd solr-4.10.3/   </span><br><span class="line">拷贝solr-4.10./3 下的  contrib   contrib</span><br><span class="line">到4中的索引库目录下</span><br><span class="line">命令: cd  singleSolr/solr</span><br><span class="line">  cp  -r  ../solr-4.10.3/contrib/  ../solr-4.10.3/dist/  .    </span><br><span class="line">   不要忘记. 当前目录(singleSolr/solr)  ---&gt; 索引库的目录</span><br></pre></td></tr></table></figure>
+<h2 id="6-修改索引库下的配置-singleSolr-solr"><a href="#6-修改索引库下的配置-singleSolr-solr" class="headerlink" title="6.修改索引库下的配置(singleSolr/solr)"></a>6.修改索引库下的配置(singleSolr/solr)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mv collection1 item   --把索引库名字改成item</span><br><span class="line">cd  item/</span><br><span class="line">vim  core.properties   把name=collection1改为name=item</span><br><span class="line">这样索引库的名字才是修改成功了</span><br><span class="line"></span><br><span class="line">再修改配置文件</span><br><span class="line">cd  item/conf</span><br><span class="line">修改 item/conf下的   vim solrconfig.xml</span><br></pre></td></tr></table></figure>
+<p>  修改引入jar包的位置 </p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/extraction/lib"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-cell-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/clustering/lib/"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-clustering-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/langid/lib/"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-langid-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/velocity/lib"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-velocity-\d.*\.jar"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>这一步做个说明  这个是solr的索引库的位置
+export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot;
+</code></pre><h2 id="7-启动solr服务-查看是否配置成功"><a href="#7-启动solr服务-查看是否配置成功" class="headerlink" title="7.启动solr服务  查看是否配置成功"></a>7.启动solr服务  查看是否配置成功</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh  tomcat-solr/bin/startup.sh       		-- 启动sol服务</span><br><span class="line">tail -f  tomcat-solr/logs/catalina.out 	-- 查看进程</span><br></pre></td></tr></table></figure>
+<h2 id="8-安装ak分词器"><a href="#8-安装ak分词器" class="headerlink" title="8.安装ak分词器"></a>8.安装ak分词器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">首先需要在项目下导入jar包</span><br><span class="line">cd  /usr/local/hadoop/singleSolr/tomcat-solr/webapps/solr/WEB-INF/lib</span><br><span class="line"></span><br><span class="line">导入分词器的 jar包      IKAnalyzer2012FF_u1.jar</span><br><span class="line"></span><br><span class="line">在/usr/local/hadoop/singleSolr/tomcat-solr/webapps/solr/WEB-INF下导入分词器的配置文件</span><br><span class="line"></span><br><span class="line">创建  classes 文件夹(如过没有的话)</span><br><span class="line">ext.dic</span><br><span class="line">IKAnalyzer.cfg.xml</span><br><span class="line">log4j.properties</span><br><span class="line">stopword.dic</span><br><span class="line"></span><br><span class="line"> Ik分词器的环境准备好了</span><br></pre></td></tr></table></figure>
+<h2 id="9-再去配置索引仓库"><a href="#9-再去配置索引仓库" class="headerlink" title="9.再去配置索引仓库"></a>9.再去配置索引仓库</h2><pre><code>/usr/local/hadoop/singleSolr/solr/item/conf  下的 schema.xml 
+</code></pre><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置域字段类型,测试是否配置成功 --&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 域字段  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"username_ik"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置域类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"text_ik"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzer"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置好 --&gt;</span></span><br><span class="line"> sh tomcat-solr/bin/shutdown.sh</span><br><span class="line"><span class="comment">&lt;!--  让配置生效 --&gt;</span></span><br><span class="line"> sh tomcat-solr/bin/startup.sh</span><br><span class="line"><span class="comment">&lt;!--  查看进程 --&gt;</span></span><br><span class="line">tail -f tomcat-solr/logs/catalina.out</span><br></pre></td></tr></table></figure>
+<h2 id="10-要导入索引库"><a href="#10-要导入索引库" class="headerlink" title="10.要导入索引库"></a>10.要导入索引库</h2><p>问题1:</p>
+<pre><code>首先要配置索引域字段(创建数据库字段)
+应该把参与搜索的数据库数据导入索引库
+确定参与搜索字段:
+    商品表:id,title,sell_point,price,image
+    商品描述表:item_desc
+    商品分类表:category_name
+</code></pre><p>把以上三张表数据导入索引库,实现搜索业务<br>问题2:配置索引域字段<br>    一个字段对应需求导入索引库数据库的一个字段</p>
+<p>导入数据的过程:<br>    1.查询数据库(三张表)<br>    2.把查询数据库写入索引库</p>
+<p>注意:查询时要注意商品的状态<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.id,</span><br><span class="line">	a.title,</span><br><span class="line">	a.sell_point,</span><br><span class="line">	a.price,</span><br><span class="line">	a.image,</span><br><span class="line">	b.item_desc,</span><br><span class="line">	c.name category_name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  	tb_item a,</span><br><span class="line">  	tb_item_desc b,</span><br><span class="line"> 	tb_item_cat c</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	a.id = b.item_id</span><br><span class="line"><span class="keyword">AND</span></span><br><span class="line">	a.cid = c.id </span><br><span class="line"><span class="keyword">AND</span></span><br><span class="line">	a.status = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>索引域字段的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;field name=&quot;item_title&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_sell_point&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_price&quot; type=&quot;long&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_image&quot; type=&quot;string&quot; indexed=&quot;false&quot; stored=&quot;true&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_category_name&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_desc&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;false&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_keywords&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;false&quot; multiValued=&quot;true&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_title&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_sell_point&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_category_name&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_desc&quot; dest=&quot;item_keywords&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>​<br>工作1:配置索引域字段—(创建数据库表字段)<br>问题1:应该把哪些数据导入索引库?</p>
+<pre><code>应该把参与搜索的数据库数据导入索引库
+确定参与搜索字段
+商品表:id,title,sell_point,price,image
+商品描述表:item_desc
+商品分类表:category_name
+
+以上三张表数据导入索引库,实现搜索业务
+</code></pre><p>问题2:配置索引域字段<br>    一个字段对应需求导入索引库</p>
+<pre><code>导入数据过程:    
+</code></pre><p>1.创建SearchItemMapper.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询索引库域字段对应数据库值写入索引库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"cn.e3.search.mapper.SearchItemMapper"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findDataBaseToSolrIndex"</span> <span class="attr">resultType</span>=<span class="string">"searchItem"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		a.id,</span><br><span class="line">		a.title,</span><br><span class="line">		a.sell_point,</span><br><span class="line">		a.price,</span><br><span class="line">		a.image,</span><br><span class="line">		b.item_desc,</span><br><span class="line">		c.name category_name</span><br><span class="line">		FROM</span><br><span class="line">		tb_item a,</span><br><span class="line">		tb_item_desc b,</span><br><span class="line">		tb_item_cat c</span><br><span class="line">		WHERE</span><br><span class="line">		a.id = b.item_id</span><br><span class="line">		AND</span><br><span class="line">		a.cid = c.id</span><br><span class="line">		AND</span><br><span class="line">		a.status = 1;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.查询索引域字段对应数据值写入索引库   业务代码的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 需求:查询索引域字段对应数据值写入索引库</span></span><br><span class="line"><span class="comment"> * 参数:无</span></span><br><span class="line"><span class="comment"> * 返回值:E3mallResult </span></span><br><span class="line"><span class="comment"> * 发布服务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E3mallResult <span class="title">findDataBaseToSolrIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		List&lt;SearchItem&gt; list = searchItemMapper.findDataBaseToSolrIndex();</span><br><span class="line">		<span class="comment">//循环集合数据,把数据封装到doc文档对象,实现索引库的写入</span></span><br><span class="line">		<span class="keyword">for</span> (SearchItem searchItem : list) &#123;</span><br><span class="line">			<span class="comment">//创建一个文档对象,封装索引库域字段对应的值</span></span><br><span class="line">			SolrInputDocument doc = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">			<span class="comment">//封装文档域所对应的值</span></span><br><span class="line">			doc.addField(<span class="string">"id"</span>, searchItem.getId());</span><br><span class="line">			<span class="comment">//标题</span></span><br><span class="line">			doc.addField(<span class="string">"item_title"</span>, searchItem.getTitle());</span><br><span class="line">			<span class="comment">//卖点</span></span><br><span class="line">			doc.addField(<span class="string">"item_sell_point"</span>, searchItem.getSell_point());</span><br><span class="line">			<span class="comment">//价格</span></span><br><span class="line">			doc.addField(<span class="string">"item_price"</span>, searchItem.getPrice());</span><br><span class="line">			<span class="comment">//图片地址</span></span><br><span class="line">			doc.addField(<span class="string">"item_image"</span>, searchItem.getImage());</span><br><span class="line">			<span class="comment">//商品分类名称  item_category_name</span></span><br><span class="line">			doc.addField(<span class="string">"item_category_name"</span>, searchItem.getCategory_name());</span><br><span class="line">			<span class="comment">//商品描述  item_desc  </span></span><br><span class="line">			doc.addField(<span class="string">"item_desc"</span>, searchItem.getItem_desc());</span><br><span class="line">			<span class="comment">//写入索引库</span></span><br><span class="line">			solrServer.add(doc);</span><br><span class="line">		&#125;</span><br><span class="line">		solrServer.commit();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回值</span></span><br><span class="line">	<span class="keyword">return</span> E3mallResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Solr集群版的使用"><a href="#Solr集群版的使用" class="headerlink" title="Solr集群版的使用"></a>Solr集群版的使用</h1><h2 id="zookeeper原理"><a href="#zookeeper原理" class="headerlink" title="zookeeper原理:"></a>zookeeper原理:</h2><p>概念:zookeeper是一个服务协调者</p>
+<h3 id="1-注册中心-分布式服务"><a href="#1-注册中心-分布式服务" class="headerlink" title="1.注册中心(分布式服务)"></a>1.注册中心(分布式服务)</h3><p>​    把对象注册到注册中心,让服务消费者和服务提供者解耦合<br>​    让服务消费者和服务器提供者实现异步调用</p>
+<h3 id="2-配置中心-集群服务-本地模拟实现"><a href="#2-配置中心-集群服务-本地模拟实现" class="headerlink" title="2.配置中心(集群服务)   本地模拟实现:"></a>2.配置中心(集群服务)   本地模拟实现:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr1</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr2</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr3</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr4</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:36 tomcat1</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat2</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat3</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat4</span><br><span class="line">drwxr-xr-x. 10 git  games     4096 11月  5 2012 zookeeper1</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper2</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper3</span><br></pre></td></tr></table></figure>
+<p>配置集群redis集群<br>cd zookeeper1/conf  下<br>mv zoo_sample.cfg  zoo.cfg</p>
+<p>修改这三行:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataDir=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>clusterSolr<span class="regexp">/zookeeper1/</span>data</span><br><span class="line">dataLogDir=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>clusterSolr<span class="regexp">/zookeeper1/</span>log</span><br><span class="line">clientPort=<span class="number">2182</span></span><br></pre></td></tr></table></figure>
+<p>配置集群之间通信:</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server<span class="meta">.1</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2881</span>:<span class="number">3881</span></span><br><span class="line">server<span class="meta">.2</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2882</span>:<span class="number">3882</span></span><br><span class="line">server<span class="meta">.3</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2883</span>:<span class="number">3883</span></span><br></pre></td></tr></table></figure>
+<p>在zookeeper1下创建data和log<br>在data目录下<br> touch myid<br>  vim myid    写入:1<br>在zookeeper2下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:2<br>在zookeeper3下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:3<br>三台同样操作</p>
+<h3 id="3-配置tomcat集群"><a href="#3-配置tomcat集群" class="headerlink" title="3.配置tomcat集群"></a>3.配置tomcat集群</h3><p>1.tomcat1<br>    vim tomcat1/conf/server.xml<br>    修给端口:  8010 9000  8011</p>
+<p>2.指定索引库的路径<br>设置tomcat启动时,启动solr,加载solr索引库的位置,还有zookeer的集群服务器地址IP<br>vim tomcat1/bin/catalina.sh<br>在catalina.sh中:<br>    export JAVA_OPTS =”-Dsolr.solr.home=/usr/local/hadoop/clusterSolr/solr1/ -DzkHost=192.168.65.150:2182,192.1<br>            68.65.150:2183,192.168.65.150:2184”<br>在配置tomcat1中的solr对应索引库solr1下:<br>vim   solr1/solr.xml<br>让监控端口和tomcat的启动端口一致</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">int</span> <span class="attr">name</span>=<span class="string">"hostPort"</span>&gt;</span>$&#123;jetty.port:9000&#125;<span class="tag">&lt;/<span class="name">int</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重复4次上面的操作  修改相应的位置<br>8010 9001  8011<br>8012 9002  8013<br>8014 9003  8015<br>8016 9004  8017</p>
+<p>把 solr 集群配置文件交给 Zookeeper 注册中心管理<br>把仓库核心配置文件放入 Zookeeper 注册中心， 当 solr 集群需要加载配置文件，只需要从 Zookeeper 中获取配置文件。<br>./zkcli.sh -zkhost 192.168.65.150:2182,192.168.65.150:2183,192.168.65.150:2184 -cmd upconfig -confdir /usr/local/hadoop/clusterSolr/solr1/item/conf/ -confname myconf</p>
+<p>登录zookeeper集群:<br>命令:./zkCli.sh -server 192.168.65.150:2182<br>solr集群分片命令：<br><a href="http://192.168.65.150:9000/solr/admin/collections?action=CREATE&amp;name=products&amp;numShards=2&amp;replicationFactor=2&amp;maxShardsPerNode=8&amp;property.schema=schema.xml&amp;property.config=solrconfig.xml" target="_blank" rel="noopener">http://192.168.65.150:9000/solr/admin/collections?action=CREATE&amp;name=products&amp;numShards=2&amp;replicationFactor=2&amp;maxShardsPerNode=8&amp;property.schema=schema.xml&amp;property.config=solrconfig.xml</a><br>删除旧solrCloud集群分片：<br><a href="http://192.168.65.150:9000/solr/admin/collections?action=DELETE&amp;name=item" target="_blank" rel="noopener">http://192.168.65.150:9000/solr/admin/collections?action=DELETE&amp;name=item</a></p>
+<p>这样的话,solr集群就搭建完成了<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​     </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/24/Solr开发/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JVM参数设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1100,14 +1208,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1116,19 +1216,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tomcat优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jvm参数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
