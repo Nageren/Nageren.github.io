@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.top.com">
-  <title>map集合遍历的四种方式 | 个人博客</title>
+  <title>设计模式 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta name="keywords" content="map,map遍历">
+  <meta name="description" content="1.单列设计模式单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。 注意： 1、单例类只能有一个实例。 2、单例类必须自己创建自己的唯一实例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="map集合遍历的四种方式">
-<meta property="og:url" content="http://www.top.com/2017/12/28/map集合遍历的四种方式/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="http://www.top.com/2017/12/28/设计模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta property="og:updated_time" content="2017-12-28T15:08:23.469Z">
+<meta property="og:description" content="1.单列设计模式单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。 注意： 1、单例类只能有一个实例。 2、单例类必须自己创建自己的唯一实例">
+<meta property="og:updated_time" content="2017-12-28T17:51:11.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="map集合遍历的四种方式">
-<meta name="twitter:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="1.单列设计模式单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。 这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。 注意： 1、单例类只能有一个实例。 2、单例类必须自己创建自己的唯一实例">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -154,27 +153,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-map集合遍历的四种方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      map集合遍历的四种方式
+      设计模式
     </h1>
   
 
         
-        <a href="/2017/12/28/map集合遍历的四种方式/" class="archive-article-date">
-  	<time datetime="2017-12-28T15:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
+        <a href="/2017/12/28/设计模式/" class="archive-article-date">
+  	<time datetime="2017-12-28T15:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="map集合遍历的方式"><a href="#map集合遍历的方式" class="headerlink" title="map集合遍历的方式"></a>map集合遍历的方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"a"</span>);</span><br><span class="line">        map.put(<span class="number">2</span>, <span class="string">"b"</span>);</span><br><span class="line">        map.put(<span class="number">3</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);<span class="comment">// 和上面相同 ， 会自己筛选</span></span><br><span class="line">        System.out.println(map.size());</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 第一种：</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Set&lt;Integer&gt; set = map.keySet(); //得到所有key的集合</span></span><br><span class="line"><span class="comment">         * </span></span><br><span class="line"><span class="comment">         * for (Integer in : set) &#123; String str = map.get(in);</span></span><br><span class="line"><span class="comment">         * System.out.println(in + "     " + str); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"第一种：通过Map.keySet遍历key和value："</span>);</span><br><span class="line">        <span class="keyword">for</span> (Integer in : map.keySet()) &#123;</span><br><span class="line">            <span class="comment">//map.keySet()返回的是所有key的值</span></span><br><span class="line">            String str = map.get(in);<span class="comment">//得到每个key多对用value的值</span></span><br><span class="line">            System.out.println(in + <span class="string">"     "</span> + str);</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第二种：</span></span><br><span class="line">        System.out.println(<span class="string">"第二种：通过Map.entrySet使用iterator遍历key和value："</span>);</span><br><span class="line">        Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; it = map.entrySet().iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">             Map.Entry&lt;Integer, String&gt; entry = it.next();</span><br><span class="line">               System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第三种：推荐，尤其是容量大时</span></span><br><span class="line">        System.out.println(<span class="string">"第三种：通过Map.entrySet遍历key和value"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            <span class="comment">//Map.entry&lt;Integer,String&gt; 映射项（键-值对）  有几个方法：用上面的名字entry</span></span><br><span class="line">            <span class="comment">//entry.getKey() ;entry.getValue(); entry.setValue();</span></span><br><span class="line">            <span class="comment">//map.entrySet()  返回此映射中包含的映射关系的 Set视图。</span></span><br><span class="line">            System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span></span><br><span class="line">                    + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第四种：</span></span><br><span class="line">        System.out.println(<span class="string">"第四种：通过Map.values()遍历所有的value，但不能遍历key"</span>);</span><br><span class="line">        <span class="keyword">for</span> (String v : map.values()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"value= "</span> + v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="1-单列设计模式"><a href="#1-单列设计模式" class="headerlink" title="1.单列设计模式"></a>1.单列设计模式</h1><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
+<p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
+<p><strong>注意：</strong></p>
+<p>1、单例类只能有一个实例。</p>
+<p>2、单例类必须自己创建自己的唯一实例。</p>
+<p>3、单例类必须给所有其他对象提供这一实例。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>意图：</strong>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<p><strong>主要解决：</strong>一个全局使用的类频繁地创建与销毁。</p>
+<p><strong>何时使用：</strong>当您想控制实例数目，节省系统资源的时候。</p>
+<p><strong>如何解决：</strong>判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</p>
+<p><strong>关键代码：</strong>构造函数是私有的。</p>
+<p><strong>应用实例：</strong> 1、一个党只能有一个主席。 2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。 3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</p>
+<p><strong>优点：</strong> 1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。 2、避免对资源的多重占用（比如写文件操作）。</p>
+<p><strong>缺点：</strong>没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p>
+<p><strong>使用场景：</strong> 1、要求生产唯一序列号。 2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。 3、创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</p>
+<p><strong>注意事项：</strong>getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *类一加载,单列初始化已经完成,保证getInstance的时候,单列已经是存在的了</span></span><br><span class="line"><span class="comment"> *所有懒汉式是线程安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</span><br><span class="line">	<span class="comment">//直接创建对象</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> SingleTon instance = <span class="keyword">new</span> SingleTon();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//私有化构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//返回对象实列</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> * 只有当调用getInstance的时候,才去初始化单列,是线程非安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</span><br><span class="line">	<span class="comment">//声明变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> SingleTon singleton = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//私有化构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//提供对方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (SingleTon.class) &#123;</span><br><span class="line">				singleton = <span class="keyword">new</span> SingleTon();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-装饰模式"><a href="#2-装饰模式" class="headerlink" title="2.装饰模式"></a>2.装饰模式</h1><p>装饰者模式</p>
+<p>Decorator模式（别名Wrapper）：动态将职责附加到对象上，若要扩展功能，装饰者提供了比继承更具弹性的代替方案。</p>
+<p>意图：</p>
+<p>动态地给一个对象添加一些额外的职责。就增加功能来说，Decorator模式相比生成子类更为灵活。</p>
+<p>设计原则：</p>
+<ol>
+<li>多用组合，少用继承。</li>
+</ol>
+<p>利用继承设计子类的行为，是在编译时静态决定的，而且所有的子类都会继承到相同的行为。然而，如果能够利用组合的做法扩展对象的行为，就可以在运行时动态地进行扩展。</p>
+<ol>
+<li>类应设计的对扩展开放，对修改关闭。</li>
+</ol>
+<p>要点：</p>
+<p>1． 装饰者和被装饰对象有相同的超类型。</p>
+<p>2． 可以用一个或多个装饰者包装一个对象。</p>
+<p>3． 装饰者可以在所委托被装饰者的行为之前或之后，加上自己的行为，以达到特定的目的。</p>
+<p>4． 对象可以在任何时候被装饰，所以可以在运行时动态的，不限量的用你喜欢的装饰者来装饰对象。</p>
+<p>5． 装饰模式中使用继承的关键是想达到装饰者和被装饰对象的类型匹配，而不是获得其行为。</p>
+<p>6． 装饰者一般对组件的客户是透明的，除非客户程序依赖于组件的具体类型。在实际项目中可以根据需要为装饰者添加新的行为，做到“半透明”装饰者。</p>
+<p>7． 适配器模式的用意是改变对象的接口而不一定改变对象的性能，而装饰模式的用意是保持接口并增加对象的职责。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Component：</span><br><span class="line"></span><br><span class="line">定义一个对象接口，可以给这些对象动态地添加职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Component</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Concrete Component：</span><br><span class="line"></span><br><span class="line">定义一个对象，可以给这个对象添加一些职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteComponent</span> <span class="keyword">implements</span> <span class="title">Component</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">// Write your code here</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Decorator：</span><br><span class="line"></span><br><span class="line">维持一个指向Component对象的引用，并定义一个与 Component接口一致的接口。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">implements</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Component component)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.component = component;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		component.operation();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Component component;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Concrete Decorator：</span><br><span class="line"></span><br><span class="line">在Concrete Component的行为之前或之后，加上自己的行为，以“贴上”附加的职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//addBehavior也可以在前面</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">super</span>.operation();</span><br><span class="line">		</span><br><span class="line">		addBehavior();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addBehavior</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//your code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -209,21 +245,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">map遍历</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -274,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2017/12/28/map集合遍历的四种方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2017/12/28/设计模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +309,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/28/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/12/排序/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式
+          排序
         
       </div>
     </a>
   
   
-    <a href="/2017/12/28/Autowired-Resource-Qualifier的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">@Autowired @Resource @Qualifier的区别</div>
+    <a href="/2017/12/28/map集合遍历的四种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">map集合遍历的四种方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -338,7 +359,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://www.top.com/2017/12/28/map集合遍历的四种方式/",
+  id: "http://www.top.com/2017/12/28/设计模式/",
   owner: 'Nageren',
   repo: 'pinglun',
   oauth: {

@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.top.com">
-  <title>map集合遍历的四种方式 | 个人博客</title>
+  <title>排序 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta name="keywords" content="map,map遍历">
+  <meta name="description" content="一点一滴的成长">
 <meta property="og:type" content="article">
-<meta property="og:title" content="map集合遍历的四种方式">
-<meta property="og:url" content="http://www.top.com/2017/12/28/map集合遍历的四种方式/index.html">
+<meta property="og:title" content="排序">
+<meta property="og:url" content="http://www.top.com/2018/01/12/排序/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta property="og:updated_time" content="2017-12-28T15:08:23.469Z">
+<meta property="og:description" content="一点一滴的成长">
+<meta property="og:updated_time" content="2018-01-12T14:15:54.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="map集合遍历的四种方式">
-<meta name="twitter:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
+<meta name="twitter:title" content="排序">
+<meta name="twitter:description" content="一点一滴的成长">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -154,28 +153,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-map集合遍历的四种方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      map集合遍历的四种方式
+      排序
     </h1>
   
 
         
-        <a href="/2017/12/28/map集合遍历的四种方式/" class="archive-article-date">
-  	<time datetime="2017-12-28T15:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
+        <a href="/2018/01/12/排序/" class="archive-article-date">
+  	<time datetime="2018-01-12T14:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="map集合遍历的方式"><a href="#map集合遍历的方式" class="headerlink" title="map集合遍历的方式"></a>map集合遍历的方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"a"</span>);</span><br><span class="line">        map.put(<span class="number">2</span>, <span class="string">"b"</span>);</span><br><span class="line">        map.put(<span class="number">3</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);<span class="comment">// 和上面相同 ， 会自己筛选</span></span><br><span class="line">        System.out.println(map.size());</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 第一种：</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Set&lt;Integer&gt; set = map.keySet(); //得到所有key的集合</span></span><br><span class="line"><span class="comment">         * </span></span><br><span class="line"><span class="comment">         * for (Integer in : set) &#123; String str = map.get(in);</span></span><br><span class="line"><span class="comment">         * System.out.println(in + "     " + str); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"第一种：通过Map.keySet遍历key和value："</span>);</span><br><span class="line">        <span class="keyword">for</span> (Integer in : map.keySet()) &#123;</span><br><span class="line">            <span class="comment">//map.keySet()返回的是所有key的值</span></span><br><span class="line">            String str = map.get(in);<span class="comment">//得到每个key多对用value的值</span></span><br><span class="line">            System.out.println(in + <span class="string">"     "</span> + str);</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第二种：</span></span><br><span class="line">        System.out.println(<span class="string">"第二种：通过Map.entrySet使用iterator遍历key和value："</span>);</span><br><span class="line">        Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; it = map.entrySet().iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">             Map.Entry&lt;Integer, String&gt; entry = it.next();</span><br><span class="line">               System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第三种：推荐，尤其是容量大时</span></span><br><span class="line">        System.out.println(<span class="string">"第三种：通过Map.entrySet遍历key和value"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            <span class="comment">//Map.entry&lt;Integer,String&gt; 映射项（键-值对）  有几个方法：用上面的名字entry</span></span><br><span class="line">            <span class="comment">//entry.getKey() ;entry.getValue(); entry.setValue();</span></span><br><span class="line">            <span class="comment">//map.entrySet()  返回此映射中包含的映射关系的 Set视图。</span></span><br><span class="line">            System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span></span><br><span class="line">                    + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第四种：</span></span><br><span class="line">        System.out.println(<span class="string">"第四种：通过Map.values()遍历所有的value，但不能遍历key"</span>);</span><br><span class="line">        <span class="keyword">for</span> (String v : map.values()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"value= "</span> + v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -209,21 +207,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">map遍历</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -274,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2017/12/28/map集合遍历的四种方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2018/01/12/排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +271,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/28/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          设计模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/28/Autowired-Resource-Qualifier的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">@Autowired @Resource @Qualifier的区别</div>
+    <a href="/2017/12/28/设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -338,7 +312,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://www.top.com/2017/12/28/map集合遍历的四种方式/",
+  id: "http://www.top.com/2018/01/12/排序/",
   owner: 'Nageren',
   repo: 'pinglun',
   oauth: {

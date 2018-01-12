@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.top.com">
-  <title>map集合遍历的四种方式 | 个人博客</title>
+  <title>个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta name="keywords" content="map,map遍历">
-<meta property="og:type" content="article">
-<meta property="og:title" content="map集合遍历的四种方式">
-<meta property="og:url" content="http://www.top.com/2017/12/28/map集合遍历的四种方式/index.html">
+  <meta name="description" content="一点一滴的成长">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://www.top.com/page/2/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
-<meta property="og:updated_time" content="2017-12-28T15:08:23.469Z">
+<meta property="og:description" content="一点一滴的成长">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="map集合遍历的四种方式">
-<meta name="twitter:description" content="map集合遍历的方式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657import java.util.HashMap;import java.util.Iterator;import java.util.Map;public class">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="一点一滴的成长">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -154,56 +152,132 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-map集合遍历的四种方式" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-mysql02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      map集合遍历的四种方式
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/mysql02/">mysql学习</a>
     </h1>
   
 
         
-        <a href="/2017/12/28/map集合遍历的四种方式/" class="archive-article-date">
-  	<time datetime="2017-12-28T15:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
+        <a href="/2017/11/27/mysql02/" class="archive-article-date">
+  	<time datetime="2017-11-27T06:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="map集合遍历的方式"><a href="#map集合遍历的方式" class="headerlink" title="map集合遍历的方式"></a>map集合遍历的方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"a"</span>);</span><br><span class="line">        map.put(<span class="number">2</span>, <span class="string">"b"</span>);</span><br><span class="line">        map.put(<span class="number">3</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);<span class="comment">// 和上面相同 ， 会自己筛选</span></span><br><span class="line">        System.out.println(map.size());</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 第一种：</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Set&lt;Integer&gt; set = map.keySet(); //得到所有key的集合</span></span><br><span class="line"><span class="comment">         * </span></span><br><span class="line"><span class="comment">         * for (Integer in : set) &#123; String str = map.get(in);</span></span><br><span class="line"><span class="comment">         * System.out.println(in + "     " + str); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"第一种：通过Map.keySet遍历key和value："</span>);</span><br><span class="line">        <span class="keyword">for</span> (Integer in : map.keySet()) &#123;</span><br><span class="line">            <span class="comment">//map.keySet()返回的是所有key的值</span></span><br><span class="line">            String str = map.get(in);<span class="comment">//得到每个key多对用value的值</span></span><br><span class="line">            System.out.println(in + <span class="string">"     "</span> + str);</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第二种：</span></span><br><span class="line">        System.out.println(<span class="string">"第二种：通过Map.entrySet使用iterator遍历key和value："</span>);</span><br><span class="line">        Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; it = map.entrySet().iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">             Map.Entry&lt;Integer, String&gt; entry = it.next();</span><br><span class="line">               System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第三种：推荐，尤其是容量大时</span></span><br><span class="line">        System.out.println(<span class="string">"第三种：通过Map.entrySet遍历key和value"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            <span class="comment">//Map.entry&lt;Integer,String&gt; 映射项（键-值对）  有几个方法：用上面的名字entry</span></span><br><span class="line">            <span class="comment">//entry.getKey() ;entry.getValue(); entry.setValue();</span></span><br><span class="line">            <span class="comment">//map.entrySet()  返回此映射中包含的映射关系的 Set视图。</span></span><br><span class="line">            System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span></span><br><span class="line">                    + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第四种：</span></span><br><span class="line">        System.out.println(<span class="string">"第四种：通过Map.values()遍历所有的value，但不能遍历key"</span>);</span><br><span class="line">        <span class="keyword">for</span> (String v : map.values()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"value= "</span> + v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="01-SQL高级查询-排序："><a href="#01-SQL高级查询-排序：" class="headerlink" title="01.SQL高级查询_排序："></a>01.SQL高级查询_排序：</h4><pre><code>1.使用的关键字：order by 字段名 ASC(升序--默认) / DESC(降序)
+  例如：查询所有商品，要求结果按价格从小到大排序
+    SELECT * FROM product ORDER BY proDate ASC;
+2.注意：升序可以不写asc关键字，例如：
+    select * from product order by proData;//升序
+3.排序：
+    升序(ASC):从小到大；
+    降序(DESC):从大到小；
+4.对多列进行排序：
+  例如：对多列进行排序：按金额排序，如果金额相同，按生产日期升序排序
+    SELECT * FROM product ORDER BY price ASC,proDate ASC;
+    先按第一个字段排序，在第一个字段值相同的情况下，再按第二个字段排。
+5.如果有查询条件，写法：
+    select * from 表名 where 条件  order by 字段 ... ;
+</code></pre><h4 id="02-SQL高级查询-聚合函数："><a href="#02-SQL高级查询-聚合函数：" class="headerlink" title="02.SQL高级查询_聚合函数："></a>02.SQL高级查询_聚合函数：</h4><pre><code>1.我经常会有需求，对某列进行汇总，这就需要使用&quot;聚合函数&quot;；
+2.今天我们掌握的五个聚合函数：
+    a).count(*/字段名)：统计指定列不为NULL的记录行数--任何数据类型
+        例如：查询电脑类别的商品，共有多少种
+        SELECT COUNT(*) FROM product WHERE categoryName = &apos;电脑&apos;;
+    b).sum(列名)：计算指定列的数值和，如果指定列类型不是数值类型，那么计算结果为0--数值类型的列
+        例如：查询电脑类商品的价格总数是多少？
+        select sum(price) from product where categoryName = &apos;电脑&apos;;
+    c).max(列名)：计算指定列的最大值，如果指定列是字符串类型，那么使用字符串排序运算--数值类型、日期类型
+        例如：查询电脑类商品的最高价格？
+        select max(price) from product where categoryName = &apos;电脑&apos;;
+    d).min(列名)：计算指定列的最小值，如果指定列是字符串类型，那么使用字符串排序运算
+        例如：查询电脑类商品的最低价格？
+        select min(price) from product where categoryName = &apos;电脑&apos;;
+    e).avg(列名)：计算指定列的平均值，如果指定列类型不是数值类型，那么计算结果为0
+        例如：查询电脑类商品的平均价格？
+        select avg(price) from product where categoryName = &apos;电脑&apos;;
+        注意：计算记录的总数量时，不包含NULL的记录。
+              所以如果计算的列中有NULL值，则结果不准确。
+3.注意：聚合查询的结果，只能包含&quot;聚合结果列&quot;，不要包含其他列，要包含，其结果是无意义的。
+        聚合的结果是&quot;计算的结果&quot;，跟某行数据无关，所以不能关联显示其它字段。
+</code></pre><h4 id="03-SQL高级查询-分组："><a href="#03-SQL高级查询-分组：" class="headerlink" title="03.SQL高级查询_分组："></a>03.SQL高级查询_分组：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1.分组：对某列中"相同的值"作为一组，进行分组。分组只是手段，后续经常需要进行汇总：</span><br><span class="line">2.例如：一条语句查询出每种商品的最高价格是多少？</span><br><span class="line">	<span class="keyword">SELECT</span> categoryName,<span class="keyword">MAX</span>(price) <span class="keyword">FROM</span> product <span class="keyword">GROUP</span> <span class="keyword">BY</span> categoryName;</span><br><span class="line">	练习：查询每种商品的价格的总和</span><br><span class="line">	<span class="keyword">SELECT</span> categoryName,<span class="keyword">SUM</span>(price) <span class="keyword">FROM</span> product <span class="keyword">GROUP</span> <span class="keyword">BY</span> categoryName;</span><br><span class="line">	练习：查询每种商品的商品数量是多少</span><br><span class="line">	<span class="keyword">SELECT</span> categoryName,<span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> product <span class="keyword">GROUP</span> <span class="keyword">BY</span> categoryname;</span><br><span class="line">3.注意：</span><br><span class="line">   1).分组查询的结果字段中，只能包含"分组字段"，"聚合结果字段"。不能再包含其他字段，如果包含，其结果也是无意义的。</span><br><span class="line">4.having子句：</span><br><span class="line">   1).由于where不能对聚合后的结果进行筛选。所以要对聚合后的结果进行筛选，需要使用having子句。</span><br><span class="line">	例如：查询每种商品的价格总额，结果保留大于1000元的。</span><br><span class="line">		<span class="keyword">select</span> categoryName,<span class="keyword">sum</span>(price) <span class="keyword">from</span> product <span class="keyword">group</span> <span class="keyword">by</span> categoryName <span class="keyword">having</span> <span class="keyword">sum</span>(price) &gt; <span class="number">1000</span>;</span><br><span class="line">5.对多列进行分组：</span><br><span class="line">    收支流水表：trans</span><br><span class="line">    id		收支项		账户		金额</span><br><span class="line">    1		工资收入	工商银行	1000</span><br><span class="line">    2		红包收入	工商银行	500</span><br><span class="line">    3		收入		交通银行	3000</span><br><span class="line">    4		支出		工商银行	300</span><br><span class="line">    5		支出		交通银行	770</span><br><span class="line"></span><br><span class="line">    需求：查询出每个账户的收支总额，分别是多少？</span><br><span class="line">	账户		收支项		总金额</span><br><span class="line">	工商银行	收入		1500</span><br><span class="line">	工商银行	支出		300</span><br><span class="line">	交通银行	收入		3000</span><br><span class="line">	交通银行	支出		770</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">select</span> 账户,收支项,<span class="keyword">sum</span>(金额) <span class="keyword">from</span> trans <span class="keyword">group</span> <span class="keyword">by</span> 账户,收支项;//先按账户分，再按收支项分。</span><br></pre></td></tr></table></figure>
+<h4 id="04-SQL语句的执行顺序："><a href="#04-SQL语句的执行顺序：" class="headerlink" title="04.SQL语句的执行顺序："></a>04.SQL语句的执行顺序：</h4><pre><code>1).from
+2).where
+3).group by
+4).having
+5).select
+6).distinct
+7).order by
+</code></pre><p>   SQL语句的编写顺序：<br>    select … from …  where … group by … having … order by …;</p>
+<h4 id="05-分页查询："><a href="#05-分页查询：" class="headerlink" title="05.分页查询："></a>05.分页查询：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1).基本语句：<span class="keyword">select</span> * <span class="keyword">from</span> 表名 <span class="keyword">limit</span> M,N;</span><br><span class="line">             M值：从第几条(第一条记录为0)记录开始取。</span><br><span class="line">	     N值：取几条记录</span><br><span class="line">2).例如：查询所有的商品，每页显示5条：</span><br><span class="line">	第一页：</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">5</span>;</span><br><span class="line">	第二页：</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">limit</span> <span class="number">5</span>,<span class="number">5</span>;</span><br><span class="line">	第三页：</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">limit</span> <span class="number">10</span>,<span class="number">5</span></span><br><span class="line"></span><br><span class="line">	固定算法：</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">limit</span> (当前的页数 - <span class="number">1</span>) * 每页显示的条数</span><br><span class="line"><span class="number">3</span>).注意：M值和N值，只要是正数，不会抛异常，可能会返回空结果集。</span><br><span class="line">         但如果是负数，会抛异常。</span><br></pre></td></tr></table></figure>
+<h4 id="06-备份和恢复数据库："><a href="#06-备份和恢复数据库：" class="headerlink" title="06.备份和恢复数据库："></a>06.备份和恢复数据库：</h4><pre><code>1).备份：在要备份的数据库上右键--&gt;备份/导出--&gt;以SQL转储文件备份数据库
+2).恢复：在SQLYog左侧右键--&gt;导入--&gt;从SQL转储文件导入数据库
+</code></pre><h4 id="07-SQL的约束："><a href="#07-SQL的约束：" class="headerlink" title="07.SQL的约束："></a>07.SQL的约束：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">1).主键约束：</span><br><span class="line">	1).主键的作用：唯一标识表中一条记录。用于作为条件，方便的进行增删改查操作。</span><br><span class="line">	2).定义主键：</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">table</span> product(</span><br><span class="line">			pid <span class="built_in">int</span> primary <span class="keyword">key</span>,</span><br><span class="line">			..其它字段..</span><br><span class="line">			..</span><br><span class="line">		)</span><br><span class="line">	<span class="number">3</span>).一个表中只能有一个主键；</span><br><span class="line">	<span class="number">4</span>).一个主键，可以由一个或多个字段组成[很少用]；复合主键，联合主键</span><br><span class="line">		客户信息表：将<span class="string">"客户姓名"</span> + <span class="string">"工作单位"</span> 同时作为一个主键</span><br><span class="line">		客户姓名	工作单位	性别	年龄</span><br><span class="line">		张三		人事部		男	<span class="number">20</span></span><br><span class="line">		李四		人事部		女	<span class="number">22</span></span><br><span class="line">		张三		业务部		男	<span class="number">23</span></span><br><span class="line">		张三		人事部		男	<span class="number">18</span> //错误的数据</span><br><span class="line">	<span class="number">5</span>).任何类型的字段都可以做主键。当前使用<span class="built_in">int</span>类型。后期<span class="built_in">varchar</span></span><br><span class="line">	<span class="number">6</span>).为某个字段添加了<span class="string">"主键约束"</span>，也同时自动添加：唯一约束、非空约束</span><br><span class="line">	<span class="number">7</span>).删除主键约束：</span><br><span class="line">		<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span>;</span><br><span class="line">2).自动增长：</span><br><span class="line">	1).自动增长：让某列的值根据某个基数，进行自增。这种约束通常用于"主键".</span><br><span class="line">	2).添加自动增长约束：</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">table</span> product(</span><br><span class="line">			pid <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">			....</span><br><span class="line">		)</span><br><span class="line">	<span class="number">3</span>).清空表对自动增长列的基数的变化：</span><br><span class="line">		<span class="number">1</span>).delete <span class="keyword">from</span> 表名:逐行删除。不改变自动增长的基数。</span><br><span class="line">		<span class="number">2</span>).truncate 表名【效率高】：摧毁表，重建表。将自动增长的基数重新设置为<span class="number">1.</span></span><br><span class="line"><span class="number">3</span>).非空约束：<span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">	<span class="number">1</span>).作用：强制某列的数据不能包含<span class="literal">NULL</span>值；</span><br><span class="line">	<span class="number">2</span>).添加非空约束：</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">table</span> product(</span><br><span class="line">			pid <span class="built_in">int</span> primary <span class="keyword">key</span>,</span><br><span class="line">			pname <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">			....</span><br><span class="line">		)</span><br><span class="line">		如下添加，会抛出异常：</span><br><span class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> product <span class="keyword">values</span>(<span class="literal">null</span>,<span class="literal">null</span>,...);//第二个null是错误，pname字段不允许null值</span><br><span class="line">	3).删除非空约束 </span><br><span class="line">		<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">MODIFY</span> 列名 数据类型[长度] (后面不出现<span class="keyword">not</span> <span class="literal">null</span>约束即可，就表示删除了<span class="keyword">not</span> <span class="literal">NULL</span>约束) </span><br><span class="line"><span class="number">4</span>).唯一约束：<span class="keyword">unique</span></span><br><span class="line">	<span class="number">1</span>).作用：表示本列的值是唯一的</span><br><span class="line">	<span class="number">2</span>).添加唯一约束：</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">table</span> product(</span><br><span class="line">			pid <span class="built_in">int</span> primary <span class="keyword">key</span>,</span><br><span class="line">			pname <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">unique</span>,</span><br><span class="line">			...</span><br><span class="line">		)</span><br><span class="line">	   如果向pname字段添加重复的值，数据库会抛出异常。</span><br><span class="line">	<span class="number">3</span>).如果字段设置了唯一约束，可以写入<span class="string">"空字符串"</span>，但只能有一条。</span><br><span class="line">	   也可以写入<span class="literal">NULL</span>值，可以写入多条。</span><br><span class="line">	<span class="number">4</span>).删除唯一约束：</span><br><span class="line">		<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">DROP</span> <span class="keyword">INDEX</span> 名称;</span><br><span class="line">		如果添加唯一约束时，没有设置约束名称，默认是当前字段的字段名</span><br><span class="line">	5).主键与唯一约束的区别：</span><br><span class="line">		主键：代表：唯一、非空；一个表只能有一个主键；</span><br><span class="line">		唯一：只代表：唯一；可以有多个NULL值；一个表可以有多个字段被设置为唯一约束；</span><br><span class="line">5).默认约束：default 值;</span><br><span class="line">	1).作用：可以设置某列的默认值，在添加数据时，可以不指定这列的数据，而使用默认值。</span><br><span class="line">	2).设置默认约束：</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">table</span> student(</span><br><span class="line">			<span class="keyword">id</span>	<span class="built_in">int</span>	primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">			stuName	<span class="built_in">varchar</span>(<span class="number">20</span>)	<span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">			sex	<span class="built_in">char</span>(<span class="number">5</span>)	<span class="keyword">default</span> <span class="string">'男'</span></span><br><span class="line">		)</span><br><span class="line">		在添加时，如果要使用默认值：</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> student <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">'bbb'</span>,<span class="keyword">DEFAULT</span>);</span><br><span class="line">	3).删除默认约束：</span><br><span class="line">		<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">MODIFY</span> 列名 数据类型[长度](后面不要出现<span class="keyword">default</span>关键字即可)</span><br></pre></td></tr></table></figure>
+<h4 id="08-多表-分表的作用："><a href="#08-多表-分表的作用：" class="headerlink" title="08.多表_分表的作用："></a>08.多表_分表的作用：</h4><pre><code>1.在制作表时要注意：一个表只描述一件事情。如果需要描述多件事情，可以创建多表，然后通过某个字段去引用
+                    另一个表的数据。这样可以使每个表的数据单独管理，互不影响。
+
+2.分表后：
+    主表：被其它表引用的表；
+    从表：引用其它表的表；
+    3.作用：
+            避免主键冲突，减少数据冗余
+</code></pre><h4 id="09-多表-表和表之间的关系："><a href="#09-多表-表和表之间的关系：" class="headerlink" title="09.多表_表和表之间的关系："></a>09.多表_表和表之间的关系：</h4><pre><code>1.一对多关系【最常用】：
+    1).应用场景：客户和订单；分类和商品；部门和员工
+        客户表:主表                订单表：从表                            外键
+        ----------------------------------------------------------------------------------------
+        客户ID    登录名    支付宝            订单ID    订单时间    总金额        客户ID
+        001    zhangsan  xxx            001    xxx        xxx        001
+                              002    xxx        xxx        001
+
+    2).建表原则：在从表(多方)创建一个字段，字段作为外键指向主表(一方)的主键.
+
+2.多对多关系【较常用】：
+    1).应用场景：订单和商品、用户和角色
+        订单表                    商品表：
+        -----------------------------------------------------------------------------------------
+        订单ID    订单日期   总金额          商品ID    名称    单价    
+        d001    2017-07-04  100            p001    奥利奥    5.5
+        d002    2017-07-05  200            p002    红牛    4
+                            p003    啤酒    2.00
+
+                    订单_商品_关系表
+                    订单Id        商品ID    数量    总价
+                    d001        p001    2    11
+                    d001        p002    3    12
+                    d001        p003    
+                    d002        p001
+    2).建表原则：需要创建第三张表,中间表中至少两个字段，这两个字段分别作为外键指向各自一方的主键。
+3.一对一关系【不建议用】：
+    1).客户信息表：                        地址表
+        姓名    性别    年龄    地址ID            id    省    市    区    街道门牌
+        张三    男    22    01            01    北京    北京    顺义    99号
+        李四    女    23    02            02    河北    廊坊    安次    88号
+    ------------------------------------------------------------------------------------------------
+       合并为一个客户表：
+        姓名    性别    年龄    省    市    区    街道门牌
+        张三    男    22    北京    北京    顺义    99号
+        李四    女    23    河北    廊坊    安次    88号
+</code></pre><h4 id="10-外键约束："><a href="#10-外键约束：" class="headerlink" title="10.外键约束："></a>10.外键约束：</h4><pre><code>1).作用：设置在&quot;从表&quot;的外键字段上，可以强制外键字段的值必须参考主表中的主键字段的值。
+2).设置外键约束：
+    alter table 从表 add [constraint] [外键名称] foreign key (从表外键字段名) references 主表 (主表的主键);
+3).使用外键目的：
+    保证数据完整性
+</code></pre><h4 id="学习目标总结："><a href="#学习目标总结：" class="headerlink" title="学习目标总结："></a>学习目标总结：</h4><p>3，能够使用SQL语句进行排序<br>a，    说出排序语句中的升序和降序关键字</p>
+<pre><code>order by 字段名 ASC(升序-默认) / DESC(降序)
+</code></pre><p>b，    写出排序语句<br>        select <em> from product order by price desc;<br>4，能够使用聚合函数<br>a，    写出获取总记录数的SQL语句<br>        select count(</em>) from product;<br>b，    写出获取某一列数据总和的SQL语句<br>        select sum(price) from product;<br>c，    写出获取某一列数据平均值的SQL语句<br>        select avg(price) …<br>d，    写出获取某一列数据的最大值的SQL语句<br>        select max(price) …<br>e，    写出获取某一列数据的最小值的SQL语句<br>        select min(price) …<br>5，能够使用SQL语句进行分组查询<br>a，    写出分组的SQL语句<br>        group by 字段名<br>b，    写出分组后条件过滤器的SQL语句<br>        gruup by 字段名 having 聚合函数 条件;<br>6，能够完成数据的备份和恢复<br>    1.备份：在要备份的数据库上右键–&gt;备份/导出–&gt;以SQL转储文件备份数据库<br>    2.恢复：在SQLYog左边右键–&gt;导入–&gt;以SQL转储文件导入数据库。<br>7，能够使用可视化工具连接数据库,操作数据库<br>    使用SQLYog连接数据库。操作数据库</p>
+<p>8，能够说出多表之间的关系及其建表原则<br>a，    说出一对多的应用场景及其建表原则<br>        1).应用场景：客户和订单，分类和商品，部门和员工.<br>        2).在从表(多方)创建一个字段，字段作为外键指向主表(一方)的主键.<br>b，    说出多对多的应用场景及其建表原则<br>        1).应用场景：学生和课程、用户和角色<br>        2).需要创建第三张表,中间表中至少两个字段，这两个字段分别作为外键指向各自一方的主键.<br>9，能够理解外键约束<br>a，    说出外键约束的作用<br>        作用：强制外键字段的值必须参考主表中主键字段的值。<br>b，    写出创建外键的SQL语句<br>        alter table product add constraint fk_fkname foreign key (categoryid) references category (cid);<br>c，    通过sql语句能够建立多表及其关系<br>        创建表的外键，并且创建外键约束。</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozaomob5f.bkt.clouddn.com/images/171125/ef9KcFa8H3.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -214,11 +288,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">map遍历</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -227,84 +301,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/mysql02/">more >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2017/12/28/map集合遍历的四种方式/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/28/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          设计模式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/12/28/Autowired-Resource-Qualifier的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">@Autowired @Resource @Qualifier的区别</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -324,30 +330,133 @@
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-mysql01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/mysql01/">mysql学习</a>
+    </h1>
   
 
+        
+        <a href="/2017/11/26/mysql01/" class="archive-article-date">
+  	<time datetime="2017-11-26T06:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="01-数据库的概念："><a href="#01-数据库的概念：" class="headerlink" title="01.数据库的概念："></a>01.数据库的概念：</h4><pre><code>1).数据库的概念：数据库(Database)，就是存储,维护，管理数据的仓库。
+2).作用：用来存储和管理大量数据的。内部采用了非常便于查询的机制来存储数据，能保证我们在大量数据的情况下
+         可以很快，并且很准确为我们查询到所需记录。
+3).什么是数据库管理系统：指一种操作和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行统一管理和控制，以保证数据库的安全性和完整性。用户通过数据库管理系统访问数据库中表内的数据。
+</code></pre><h4 id="02-数据库内部的结构："><a href="#02-数据库内部的结构：" class="headerlink" title="02.数据库内部的结构："></a>02.数据库内部的结构：</h4><pre><code>数据库软件：
+   |--逻辑数据库(跟项目相关)
+    |--表
+        |--列
+        |--行(记录)
+    |--表
+    ....
+   |--逻辑数据库(跟项目相关)
+   ....
+</code></pre><h4 id="03-Java和数据库的对应关系："><a href="#03-Java和数据库的对应关系：" class="headerlink" title="03.Java和数据库的对应关系："></a>03.Java和数据库的对应关系：</h4><p>java        数据库</p>
+<pre><code>项目        逻辑数据库
+类        表
+类中成员属性    表的字段(列)
+属性的数据类型    字段的数据类型
+对象        表中的一行记录
+</code></pre><h4 id="04-常见的数据库管理系统"><a href="#04-常见的数据库管理系统" class="headerlink" title="04.常见的数据库管理系统"></a>04.常见的数据库管理系统</h4><pre><code>MYSQL    ：开源免费的数据库，小型的数据库.已经被Oracle收购了.MySQL6.x版本也开始收费。
+Oracle    ：收费的大型数据库，Oracle公司的产品。Oracle收购SUN公司，收购MYSQL。
+DB2：IBM公司的数据库产品,收费的。常应用在银行系统中.
+SQLServer：MicroSoft 公司收费的中型的数据库。C#、.net等语言常使用。
+SyBase    ：已经淡出历史舞台。提供了一个非常专业数据建模的工具PowerDesigner。
+SQLite    : 嵌入式的小型数据库，应用在手机端。
+常用数据库：MYSQL，Oracle．
+这里使用MySQL数据库。MySQL中可以有多个数据库，数据库是真正存储数据的地方。
+</code></pre><h4 id="05-MySQL的安装和客户端连接："><a href="#05-MySQL的安装和客户端连接：" class="headerlink" title="05.MySQL的安装和客户端连接："></a>05.MySQL的安装和客户端连接：</h4><pre><code>1.连接MySQL服务器端：
+    1).使用命令行：
+        mysql -uroot -p密码 (回车)
+    2).使用SQLYog客户端:
+        直接启动，在连接界面填写：服务器IP，端口，用户名、密码，点击：连接
+</code></pre><h4 id="06-SQL语句的介绍："><a href="#06-SQL语句的介绍：" class="headerlink" title="06.SQL语句的介绍："></a>06.SQL语句的介绍：</h4><pre><code>1.普通话：标准的SQL语言，各个数据库厂商必须遵守的。
+2.方言：个数据库厂商自己开发的基于的SQL的一些新功能的语法。只在自己的数据库
+        上有效。
+</code></pre><h4 id="07-SQL语言的分类："><a href="#07-SQL语言的分类：" class="headerlink" title="07.SQL语言的分类："></a>07.SQL语言的分类：</h4><p>（结构化查询语言）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.DDL:数据定义语言,来定义数据库对象：逻辑数据库，表，列等。关键字：</span><br><span class="line"><span class="keyword">create</span>（创建），<span class="keyword">alter</span>（修改），<span class="keyword">drop</span>（删除）等</span><br><span class="line"><span class="number">2.</span>DCL:数据控制语言.用来定义数据库的访问权限和安全级别，及创建用户。</span><br><span class="line"><span class="keyword">grant</span> ,<span class="keyword">revoke</span>,if.</span><br><span class="line"><span class="number">3.</span>DML【重点掌握】:数据操作语言。用来对数据库中表的<span class="string">"记录"</span>进行更新。</span><br><span class="line">关键字：<span class="keyword">insert</span>（添加），<span class="keyword">delete</span>（删除），<span class="keyword">update</span>（修改）等</span><br><span class="line"><span class="number">4.</span>DQL【重点掌握】:数据查询语言。用来查询数据库中表的<span class="string">"记录"</span>。</span><br><span class="line">关键字：<span class="keyword">select</span>，<span class="keyword">from</span>，<span class="keyword">where</span>,groud <span class="keyword">by</span> ,<span class="keyword">order</span> <span class="keyword">by</span>,<span class="keyword">having</span> ,<span class="keyword">limit</span> 聚合函数等</span><br></pre></td></tr></table></figure>
+<h4 id="08-SQL通用语法："><a href="#08-SQL通用语法：" class="headerlink" title="08.SQL通用语法："></a>08.SQL通用语法：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.SQL语句可以单行或多行书写，以分号结尾</span><br><span class="line">2.可使用空格和缩进来增强语句的可读性</span><br><span class="line">3.MySQL数据库的SQL语句不区分大小写，关键字建议使用大写</span><br><span class="line">  例如：<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span>。</span><br><span class="line"><span class="number">4.</span>注释：</span><br><span class="line">	<span class="number">1</span>).#单行注释</span><br><span class="line">	<span class="number">2</span>).<span class="comment">--(空格)单行注释</span></span><br><span class="line">	<span class="number">3</span>).<span class="comment">/* ... */</span> 多行注释</span><br></pre></td></tr></table></figure>
+<h4 id="09-数据库操作的相关语句："><a href="#09-数据库操作的相关语句：" class="headerlink" title="09.数据库操作的相关语句："></a>09.数据库操作的相关语句：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.创建数据库：</span><br><span class="line">	<span class="keyword">create</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line">	或者</span><br><span class="line">	<span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="built_in">character</span> <span class="keyword">set</span> 字符集;</span><br><span class="line">2.查看所有数据库：</span><br><span class="line">	<span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line">3.查看某个数据库的定义的信息:	</span><br><span class="line">	<span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line">4.删除数据库：</span><br><span class="line">	<span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line">5.查看当前正在使用的数据库：</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">database</span>();</span><br><span class="line">6.切换数据库：</span><br><span class="line">	<span class="keyword">use</span> 数据库名；</span><br></pre></td></tr></table></figure>
+<h4 id="10-表操作的相关语句："><a href="#10-表操作的相关语句：" class="headerlink" title="10.表操作的相关语句："></a>10.表操作的相关语句：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.创建表：</span><br><span class="line">	<span class="keyword">create</span> <span class="keyword">table</span> 表名(</span><br><span class="line">		字段名<span class="number">1</span>  数据类型[长度]  [约束],</span><br><span class="line">		字段名<span class="number">2</span>  数据类型[长度]  [约束],</span><br><span class="line">		...</span><br><span class="line">		字段名n  数据类型[长度]  [约束]</span><br><span class="line">	);</span><br><span class="line">   例如创建一个学员信息表，存储：学号、姓名、性别、年龄</span><br><span class="line">	<span class="keyword">create</span> <span class="keyword">table</span> student(</span><br><span class="line">		stuNo <span class="built_in">int</span>,</span><br><span class="line">		stuName	<span class="built_in">varchar</span>(<span class="number">200</span>),</span><br><span class="line">		stuSex	<span class="built_in">char</span>(<span class="number">5</span>),</span><br><span class="line">		stuAge	<span class="built_in">int</span></span><br><span class="line">	);</span><br><span class="line">2.Java的数据类型与MySQL中的数据类型</span><br><span class="line">	java数据类型		MySQL数据类型</span><br><span class="line">  <span class="comment">------------------------------------------------------------</span></span><br><span class="line">        整数:</span><br><span class="line">	int			int</span><br><span class="line"></span><br><span class="line">	小数：</span><br><span class="line">	float/double		float/double/decimal(m,n)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">	字符：</span><br><span class="line">	char			char</span><br><span class="line"></span><br><span class="line">	字符串：</span><br><span class="line">	String			char(定长)/varchar(不定长)</span><br><span class="line">	在Java中char表示一个字符；而MySQL中的char表示：可变的字符串；</span><br><span class="line"></span><br><span class="line">        =============================================================================================================</span><br><span class="line">	在MySQL中char和varchar的区别：</span><br><span class="line">	1.char:定长字符串：例如定义字段为：char(5):</span><br><span class="line">	   表示最多存储5个字符，如果不足5个字符，剩下的用空字符填充。</span><br><span class="line">	   例如：定义char(5)<span class="comment">--&gt;要存储字符串"abc"--&gt;在硬盘上存储的格式--&gt;"abc  "</span></span><br><span class="line">			        要存储字符串"abcd"<span class="comment">--&gt;在硬盘上存储的格式--&gt;"abcd "</span></span><br><span class="line"></span><br><span class="line">	2.varchar:不定长字符串：例如定义字段为：</span><br><span class="line">		varchar(5)表示最多存储5个字符，如果不足5个字符，不填充空字符。</span><br><span class="line">		例如：定义varchar(5)<span class="comment">--&gt;要存储字符串"abc"--&gt;在硬盘上存储的格式--&gt;"abc"</span></span><br><span class="line">			     要存储字符串"abcd"<span class="comment">--&gt;在硬盘上存储的格式--&gt;"abcd"</span></span><br><span class="line"></span><br><span class="line">	注意：</span><br><span class="line">	1.char类型的在查询效率上要高于varchar，所以，尽量选择char类型；</span><br><span class="line">	2.对于字段的平均长度相同或者变化不大的数据，优先使用char类型。</span><br><span class="line">		例如：手机号码、身份证号、银行卡号....</span><br><span class="line">	3.对于字段的平均长度相差比较大的数据，建议使用varchar类型。</span><br><span class="line">		例如：个人介绍......</span><br><span class="line"></span><br><span class="line">	=============================================================================================================</span><br><span class="line">	日期类型：</span><br><span class="line">	String</span><br><span class="line">	Date		date(日期常用)	范围：YYYY-MM-DD 1000-01-01~9999-12-3</span><br><span class="line">				datetime【常用】(日期和时间)范围：YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00~ 9999-12-31 23:59:59</span><br><span class="line">	大文本：</span><br><span class="line">	String			Text</span><br><span class="line"></span><br><span class="line">	文本二进制</span><br><span class="line">	byte[]			binary</span><br><span class="line"></span><br><span class="line">	二进制(图片，视频)</span><br><span class="line">	byte[]			Blob</span><br><span class="line">3.查看数据库中的所有表：</span><br><span class="line">	<span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line">4.查看表结构：</span><br><span class="line">	desc 表名;</span><br><span class="line">5.删除表：</span><br><span class="line">	<span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br><span class="line">6.修改表：</span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 列名 类型(长度) [约束];	</span><br><span class="line">	作用：修改表添加列. </span><br><span class="line">	例如：</span><br><span class="line">	#1，为分类表添加一个新的字段为分类描述 varchar(20)</span><br><span class="line">	<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="keyword">ADD</span> <span class="string">`desc`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">modify</span> 列名 类型(长度) 约束;</span><br><span class="line">	作用：修改表修改列的类型长度及约束.</span><br><span class="line">	例如：</span><br><span class="line">	#2, 为分类表的描述字段进行修改，类型varchar(50) 添加约束 not null</span><br><span class="line">	<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="keyword">MODIFY</span> <span class="string">`desc`</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">change</span> 旧列名 新列名 类型(长度) 约束; </span><br><span class="line">	作用：修改表修改列名.</span><br><span class="line">	例如：</span><br><span class="line">	#3, 为分类表的分类名称字段进行更换更换为 snamesname varchar(30)</span><br><span class="line">	<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="keyword">CHANGE</span> <span class="string">`desc`</span>description <span class="built_in">VARCHAR</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">drop</span> 列名;	</span><br><span class="line">	作用：修改表删除列.</span><br><span class="line">	例如：</span><br><span class="line">	#4, 删除分类表中snamename这列</span><br><span class="line">	<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="keyword">DROP</span> description;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">rename</span> <span class="keyword">table</span> 表名 <span class="keyword">to</span> 新表名;</span><br><span class="line">	作用：修改表名</span><br><span class="line">	例如：</span><br><span class="line">	#5, 为分类表category改名成 category2</span><br><span class="line">	<span class="keyword">RENAME</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="keyword">TO</span> category2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="built_in">character</span> <span class="keyword">set</span> 字符集;</span><br><span class="line">	作用：修改表的字符集</span><br><span class="line">	例如：</span><br><span class="line">	#6, 为分类表 category 的编码表进行修改，修改成 gbk</span><br><span class="line">	<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">category</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> gbk;</span><br></pre></td></tr></table></figure>
+<h4 id="11-表记录操作相关的语句："><a href="#11-表记录操作相关的语句：" class="headerlink" title="11.表记录操作相关的语句："></a>11.表记录操作相关的语句：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">1.添加数据：<span class="keyword">insert</span> <span class="keyword">into</span></span><br><span class="line">	两种格式：</span><br><span class="line">	<span class="number">1.</span><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(值<span class="number">1</span>，值<span class="number">2</span>，.....，值n)<span class="comment">--全字段添加</span></span><br><span class="line">	  注意：</span><br><span class="line">	  <span class="number">1</span>).后面值列表中的数量必须跟表中列的数量匹配，而且顺序也要匹配。</span><br><span class="line">	  <span class="number">2</span>).值：数值类型，可以不用单引号(用也可以)</span><br><span class="line">	         字符串类型，一定要使用单引号。</span><br><span class="line">        <span class="number">2.</span><span class="keyword">insert</span> <span class="keyword">into</span> 表名(字段<span class="number">1</span>,字段<span class="number">2</span>,.....,字段n) <span class="keyword">values</span>(值<span class="number">1</span>,值<span class="number">2</span>,....,值n)<span class="comment">--部分字段添加，剩余字段添加：NULL</span></span><br><span class="line">	  注意：</span><br><span class="line">	  <span class="number">1</span>).字段列表：可以是表的部分字段，也可以不按照定义顺序；</span><br><span class="line">	  <span class="number">2</span>).值列表：必须跟字段列表的数量和顺序要匹配。</span><br><span class="line">	  <span class="number">3</span>).未指定的字段，添加：<span class="literal">NULL</span>值。(前提是：字段允许<span class="literal">NULL</span>值)</span><br><span class="line"><span class="number">2.</span>修改数据：<span class="keyword">update</span></span><br><span class="line">	格式：<span class="keyword">update</span> 表名 <span class="keyword">set</span> 字段名<span class="number">1</span> = 值<span class="number">1</span> , 字段名<span class="number">2</span> = 值<span class="number">2</span> , .... , 字段名n = 值n   <span class="keyword">where</span> 条件；</span><br><span class="line"><span class="number">3.</span>删除数据：<span class="keyword">delete</span> <span class="keyword">from</span></span><br><span class="line">	格式：<span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件;</span><br><span class="line">  清空表：</span><br><span class="line">	1).delete from 表名;逐行删除，效率低；不清空auto_increment记录数</span><br><span class="line">	2).truncate 表名;先摧毁表，然后按照原结构再创建一个新表，效率高；auto_increment将置为零，从新开始</span><br><span class="line"></span><br><span class="line">4.查询数据：<span class="keyword">select</span> 字段名 <span class="keyword">from</span> 表名 <span class="keyword">where</span> 字段的筛选条件</span><br><span class="line">	<span class="number">1.</span>简单查询：</span><br><span class="line">		<span class="number">1</span>).查询所有字段的所有记录：</span><br><span class="line">			<span class="keyword">select</span> pid,pname,price,categoryName <span class="keyword">from</span> product;</span><br><span class="line">			或者</span><br><span class="line">			<span class="keyword">select</span> * <span class="keyword">from</span> product;</span><br><span class="line">		2).查询部分字段的所有记录：</span><br><span class="line">			<span class="keyword">select</span> pname,price <span class="keyword">from</span> product;</span><br><span class="line">		3).使用别名：</span><br><span class="line">			a).列别名：</span><br><span class="line">				<span class="keyword">SELECT</span> pname <span class="keyword">AS</span> <span class="string">'商品名称'</span> , price <span class="keyword">AS</span> <span class="string">'价格'</span> <span class="keyword">FROM</span> product;</span><br><span class="line">			b).表别名：</span><br><span class="line">				<span class="keyword">SELECT</span> p.pname,p.price <span class="keyword">FROM</span> product p;//一般在多表中使用别名</span><br><span class="line">		4).去掉重复值</span><br><span class="line">				<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> price <span class="keyword">FROM</span> product;</span><br><span class="line">		5).对查询结果进行运算：</span><br><span class="line">			例如：将所有查询结果的商品的价格加100显示：</span><br><span class="line">			<span class="keyword">select</span> pname,price + <span class="number">100</span> <span class="keyword">from</span> product;</span><br><span class="line">		        注意：只对查询结果进行更改，原数据没有更改。</span><br><span class="line">	2.条件查询：</span><br><span class="line">		1).比较运算符：</span><br><span class="line">			1)."&gt;":大于。例如：查询价格大于2000元的商品		--针对数值类型查询</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt; <span class="number">2000</span>;</span><br><span class="line">			2)."&lt;":小于。例如：查询价格小于2000元的商品		--针对数值类型查询</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &lt; <span class="number">2000</span>;</span><br><span class="line">			3)."&gt;=":大于等于。例如：查询价格大于等于2000元的商品	--针对数值类型查询</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt;= <span class="number">2000</span>;</span><br><span class="line">			4)."&lt;=":小于等于。例如：查询价格小于等于2000元的商品	--针对数值类型查询</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &lt;= <span class="number">2000</span>;</span><br><span class="line">			5)."&lt;&gt;":不等于。例如：查询价格不等于2000元的商品	--针对各种类型</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &lt;&gt; <span class="number">2000</span>;</span><br><span class="line">			   "!=":不等于						<span class="comment">--针对各种类型</span></span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price != <span class="number">2000</span>;</span><br><span class="line">			6)."=" :等于.例如：查询价格等于2000元的商品		<span class="comment">--针对各种类型</span></span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price = <span class="number">2000</span>;</span><br><span class="line">		2).逻辑运算符：</span><br><span class="line">			1).and : 语义：并且</span><br><span class="line">				例如：查询所有商品价格大于2000元的电脑类商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt; <span class="number">2000</span> <span class="keyword">and</span> categoryName = <span class="string">'电脑'</span>;</span><br><span class="line">			2).or  : 语义：或者</span><br><span class="line">				例如：查询所有商品价格大于2000元，或者价格低于1000元的所有商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt; <span class="number">2000</span> <span class="keyword">or</span> price &lt; <span class="number">1000</span>;</span><br><span class="line">			3).not : 语义：非</span><br><span class="line">				例如：查询商品价格不大于2000元的所有商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> <span class="keyword">not</span>(price &gt; <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line">			注意：如果多个and和or运算，中间不要加逗号，可以使用()改变运算顺序。</span><br><span class="line">			例如：查询所有价格大于2000元的电脑类商品或者服装类商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt; <span class="number">2000</span> <span class="keyword">and</span> (categoryName = <span class="string">'电脑'</span> <span class="keyword">or</span> categoryName = <span class="string">'服装'</span>);</span><br><span class="line">		3).范围查询：between ... and ...(可以用于数值类型，也可以用于日期类型)</span><br><span class="line">			1).用于查询数值范围：between(包含)....and(包含)...</span><br><span class="line">			   例如：查询价格在1000元(包含)到2000元(包含)之间的所有商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price &gt;= <span class="number">1000</span> <span class="keyword">and</span> price &lt;= <span class="number">2000</span>;</span><br><span class="line">				或者</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price <span class="keyword">between</span> <span class="number">1000</span> <span class="keyword">and</span> <span class="number">2000</span>;</span><br><span class="line">			2).用于查询日期范围：</span><br><span class="line">			    例如：查询生产日期在2017年1月份的所有商品</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> proDate <span class="keyword">between</span> <span class="string">'2017-01-01'</span> <span class="keyword">and</span> <span class="string">'2017-01-31'</span>;</span><br><span class="line">		4).多个值的判断：in(值列表)</span><br><span class="line">			例如：查询商品价格为200元，500元，1000元，2000元的商品信息</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price = <span class="number">200</span> <span class="keyword">or</span> price = <span class="number">500</span> <span class="keyword">or</span> price = <span class="number">1000</span> <span class="keyword">or</span> price = <span class="number">2000</span>;</span><br><span class="line">				或者使用in查询</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> price <span class="keyword">in</span> (<span class="number">200</span>,<span class="number">500</span>,<span class="number">1000</span>,<span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line">		5).模糊查询：like 两个通配符：1)"%" : 任意的0到多个字符；2)"_":任意的1个字符</span><br><span class="line">			例如：查询商品名称中包含"花"的商品信息</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> pname <span class="keyword">like</span> <span class="string">'%花%'</span>;</span><br><span class="line">			      查询商品名称中以"花"字开头的商品：</span><br><span class="line">			        <span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> pname <span class="keyword">like</span> <span class="string">'花%'</span>;</span><br><span class="line">			      商品名称以"花花"开头，全名是四个字的商品：</span><br><span class="line">			        <span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> pname <span class="keyword">like</span> <span class="string">'花花__'</span>;</span><br><span class="line">		6).查询空字段：</span><br><span class="line">			1).添加一条记录时，不添加的字段可以指定为NULL值，例如：</span><br><span class="line">				<span class="keyword">insert</span> <span class="keyword">into</span> product <span class="keyword">values</span>(<span class="number">14</span>,<span class="string">'果10'</span>,<span class="number">200</span>,<span class="string">'食品'</span>,<span class="literal">NULL</span>);</span><br><span class="line">			   要查询所有"生产日期"没有添加的所有商品：</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> proDate <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line">			3).添加一条记录：</span><br><span class="line">				<span class="keyword">insert</span> <span class="keyword">into</span> product <span class="keyword">values</span>(<span class="number">15</span>,<span class="string">'果11'</span>,<span class="number">300</span>,<span class="string">''</span>,<span class="literal">null</span>);</span><br><span class="line">			   要查询出来这条记录：</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> product <span class="keyword">where</span> proDate = <span class="string">''</span>;</span><br></pre></td></tr></table></figure>
+<p>##### </p>
+<p>##### </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/26/mysql01/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://www.top.com/2017/12/28/map集合遍历的四种方式/",
-  owner: 'Nageren',
-  repo: 'pinglun',
-  oauth: {
-    client_id: 'c64ab6a271cb9680007d',
-    client_secret: '83a9109b4b0f5f8f30480e90390fb3fe55a2f651',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -370,8 +479,8 @@ gitment.render('gitment-ctn')
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

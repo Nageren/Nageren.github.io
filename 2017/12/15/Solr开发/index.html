@@ -216,7 +216,7 @@ export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot
 </code></pre><p>问题2:配置索引域字段<br>    一个字段对应需求导入索引库</p>
 <pre><code>导入数据过程:    
 </code></pre><p>1.创建SearchItemMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询索引库域字段对应数据库值写入索引库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"cn.e3.search.mapper.SearchItemMapper"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findDataBaseToSolrIndex"</span> <span class="attr">resultType</span>=<span class="string">"searchItem"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		a.id,</span><br><span class="line">		a.title,</span><br><span class="line">		a.sell_point,</span><br><span class="line">		a.price,</span><br><span class="line">		a.image,</span><br><span class="line">		b.item_desc,</span><br><span class="line">		c.name category_name</span><br><span class="line">		FROM</span><br><span class="line">		tb_item a,</span><br><span class="line">		tb_item_desc b,</span><br><span class="line">		tb_item_cat c</span><br><span class="line">		WHERE</span><br><span class="line">		a.id = b.item_id</span><br><span class="line">		AND</span><br><span class="line">		a.cid = c.id</span><br><span class="line">		AND</span><br><span class="line">		a.status = 1;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询索引库域字段对应数据库值写入索引库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"cn.e3.search.mapper.SearchItemMapper"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findDataBaseToSolrIndex"</span> <span class="attr">resultType</span>=<span class="string">"searchItem"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		a.id,</span><br><span class="line">		a.title,</span><br><span class="line">		a.sell_point,</span><br><span class="line">		a.price,</span><br><span class="line">		a.image,</span><br><span class="line">		b.item_desc,</span><br><span class="line">		c.name category_name</span><br><span class="line">		FROM</span><br><span class="line">		tb_item a,</span><br><span class="line">		tb_item_desc b,</span><br><span class="line">		tb_item_cat c</span><br><span class="line">		WHERE</span><br><span class="line">		a.id = b.item_id</span><br><span class="line">		AND</span><br><span class="line">		a.cid = c.id</span><br><span class="line">		AND</span><br><span class="line">		a.status = 1;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>2.查询索引域字段对应数据值写入索引库   业务代码的实现</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 需求:查询索引域字段对应数据值写入索引库</span></span><br><span class="line"><span class="comment"> * 参数:无</span></span><br><span class="line"><span class="comment"> * 返回值:E3mallResult </span></span><br><span class="line"><span class="comment"> * 发布服务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E3mallResult <span class="title">findDataBaseToSolrIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		List&lt;SearchItem&gt; list = searchItemMapper.findDataBaseToSolrIndex();</span><br><span class="line">		<span class="comment">//循环集合数据,把数据封装到doc文档对象,实现索引库的写入</span></span><br><span class="line">		<span class="keyword">for</span> (SearchItem searchItem : list) &#123;</span><br><span class="line">			<span class="comment">//创建一个文档对象,封装索引库域字段对应的值</span></span><br><span class="line">			SolrInputDocument doc = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">			<span class="comment">//封装文档域所对应的值</span></span><br><span class="line">			doc.addField(<span class="string">"id"</span>, searchItem.getId());</span><br><span class="line">			<span class="comment">//标题</span></span><br><span class="line">			doc.addField(<span class="string">"item_title"</span>, searchItem.getTitle());</span><br><span class="line">			<span class="comment">//卖点</span></span><br><span class="line">			doc.addField(<span class="string">"item_sell_point"</span>, searchItem.getSell_point());</span><br><span class="line">			<span class="comment">//价格</span></span><br><span class="line">			doc.addField(<span class="string">"item_price"</span>, searchItem.getPrice());</span><br><span class="line">			<span class="comment">//图片地址</span></span><br><span class="line">			doc.addField(<span class="string">"item_image"</span>, searchItem.getImage());</span><br><span class="line">			<span class="comment">//商品分类名称  item_category_name</span></span><br><span class="line">			doc.addField(<span class="string">"item_category_name"</span>, searchItem.getCategory_name());</span><br><span class="line">			<span class="comment">//商品描述  item_desc  </span></span><br><span class="line">			doc.addField(<span class="string">"item_desc"</span>, searchItem.getItem_desc());</span><br><span class="line">			<span class="comment">//写入索引库</span></span><br><span class="line">			solrServer.add(doc);</span><br><span class="line">		&#125;</span><br><span class="line">		solrServer.commit();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回值</span></span><br><span class="line">	<span class="keyword">return</span> E3mallResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Solr集群版的使用"><a href="#Solr集群版的使用" class="headerlink" title="Solr集群版的使用"></a>Solr集群版的使用</h1><h2 id="zookeeper原理"><a href="#zookeeper原理" class="headerlink" title="zookeeper原理:"></a>zookeeper原理:</h2><p>概念:zookeeper是一个服务协调者</p>
@@ -224,9 +224,9 @@ export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot
 <h3 id="2-配置中心-集群服务-本地模拟实现"><a href="#2-配置中心-集群服务-本地模拟实现" class="headerlink" title="2.配置中心(集群服务)   本地模拟实现:"></a>2.配置中心(集群服务)   本地模拟实现:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr1</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr2</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr3</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr4</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:36 tomcat1</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat2</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat3</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat4</span><br><span class="line">drwxr-xr-x. 10 git  games     4096 11月  5 2012 zookeeper1</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper2</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper3</span><br></pre></td></tr></table></figure>
 <p>配置集群redis集群<br>cd zookeeper1/conf  下<br>mv zoo_sample.cfg  zoo.cfg</p>
 <p>修改这三行:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataDir=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>clusterSolr<span class="regexp">/zookeeper1/</span>data</span><br><span class="line">dataLogDir=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>clusterSolr<span class="regexp">/zookeeper1/</span>log</span><br><span class="line">clientPort=<span class="number">2182</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/hadoop/clusterSolr/zookeeper1/data</span><br><span class="line">dataLogDir=/usr/local/hadoop/clusterSolr/zookeeper1/log</span><br><span class="line">clientPort=2182</span><br></pre></td></tr></table></figure>
 <p>配置集群之间通信:</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server<span class="meta">.1</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2881</span>:<span class="number">3881</span></span><br><span class="line">server<span class="meta">.2</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2882</span>:<span class="number">3882</span></span><br><span class="line">server<span class="meta">.3</span>=<span class="number">192.168</span><span class="meta">.65</span><span class="meta">.150</span>:<span class="number">2883</span>:<span class="number">3883</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.1=192.168.65.150:2881:3881</span><br><span class="line">server.2=192.168.65.150:2882:3882</span><br><span class="line">server.3=192.168.65.150:2883:3883</span><br></pre></td></tr></table></figure>
 <p>在zookeeper1下创建data和log<br>在data目录下<br> touch myid<br>  vim myid    写入:1<br>在zookeeper2下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:2<br>在zookeeper3下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:3<br>三台同样操作</p>
 <h3 id="3-配置tomcat集群"><a href="#3-配置tomcat集群" class="headerlink" title="3.配置tomcat集群"></a>3.配置tomcat集群</h3><p>1.tomcat1<br>    vim tomcat1/conf/server.xml<br>    修给端口:  8010 9000  8011</p>
 <p>2.指定索引库的路径<br>设置tomcat启动时,启动solr,加载solr索引库的位置,还有zookeer的集群服务器地址IP<br>vim tomcat1/bin/catalina.sh<br>在catalina.sh中:<br>    export JAVA_OPTS =”-Dsolr.solr.home=/usr/local/hadoop/clusterSolr/solr1/ -DzkHost=192.168.65.150:2182,192.1<br>            68.65.150:2183,192.168.65.150:2184”<br>在配置tomcat1中的solr对应索引库solr1下:<br>vim   solr1/solr.xml<br>让监控端口和tomcat的启动端口一致</p>
@@ -418,7 +418,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 马文磊
+    		&copy; 2018 马文磊
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -517,46 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">solr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solr集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">map</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lucene</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Autowired</a>
               </li>
              
@@ -570,6 +530,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">solr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">solr集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lucene</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>
