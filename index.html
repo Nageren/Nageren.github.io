@@ -170,6 +170,465 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-oracle04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/oracle04/">oracle04</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/oracle04/" class="archive-article-date">
+  	<time datetime="2018-02-05T02:57:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Oracle第四天"><a href="#Oracle第四天" class="headerlink" title="Oracle第四天"></a>Oracle第四天</h3><h4 id="PL-SQL编程语言"><a href="#PL-SQL编程语言" class="headerlink" title="PL/SQL编程语言"></a>PL/SQL编程语言</h4><h5 id="什么是pl-sql语言"><a href="#什么是pl-sql语言" class="headerlink" title="什么是pl/sql语言"></a>什么是pl/sql语言</h5><p>​    PLSQL是Oracle对sql语言的过程化扩展,指在sql命令语言中增加了过程处理语句(如分支,循环等),使</p>
+<p>sql语言具有过程处理能力. 面向过程</p>
+<h5 id="PL-SQL的语法"><a href="#PL-SQL的语法" class="headerlink" title="PL/SQL的语法"></a>PL/SQL的语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[declare]</span><br><span class="line">	--声明   变量（普通变量、引用型变量、记录型变量） 常量  异常  游标</span><br><span class="line">begin </span><br><span class="line">	-- 语句序列 (DML语句)</span><br><span class="line">	[exception]</span><br><span class="line">	-- 捕获异常</span><br><span class="line">end;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h5 id="常量和变量的定义"><a href="#常量和变量的定义" class="headerlink" title="常量和变量的定义"></a>常量和变量的定义</h5><p>在sql中用 into来赋值</p>
+<p>说明变量(char,varchar2,date,number,boolean,long)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">declare</span><br><span class="line">    v_name varchar2(30) := &apos;Tom&apos; ;  --  := 相当于java中的 =, = 相当于java中的== </span><br><span class="line">    v_age number(9) :=1 ; </span><br><span class="line">    v_gender constant number(1) := 1;  -- 常量</span><br><span class="line">    v_sal emp.sal%type := 1000;    -- 引用型  </span><br><span class="line">    v_row  emp%rowtype ;   -- 记录型   一行数据</span><br><span class="line">begin </span><br><span class="line">    v_name:=&apos;JERRY&apos;; </span><br><span class="line">    --v_gender:=&apos;0&apos;;   -- 常量不可改变 报错</span><br><span class="line"></span><br><span class="line">     select ename,sal into v_name,v_sal from emp where empno=7369;</span><br><span class="line">     select * into v_row from emp where empno=7369;</span><br><span class="line">  	 --dbms_output.put_line(v_name||&apos;--&apos;||v_sal||&apos;——&apos;||v_gender);</span><br><span class="line">     dbms_output.put_line(v_row.ename||&apos;--&apos;||v_row.sal||&apos;——&apos;||v_row.job);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="IF语句"><a href="#IF语句" class="headerlink" title="IF语句"></a>IF语句</h5><p>语法一：<br>​    if  条件  then<br>          逻辑处理<br>​    end if;</p>
+<p>语法二：<br>​    if 条件 then<br>          逻辑处理<br>     else<br>​         逻辑处理<br>​    end if;</p>
+<p>语法三：<br>​    if 条件 then<br>          逻辑处理<br>​    elsif 条件<br>          逻辑处理<br>​         …….   </p>
+<p>​     else<br>         逻辑处理<br>​    end if;  </p>
+<p>if语句 : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">-- 输出我是1</span><br><span class="line">declare </span><br><span class="line">   pnum number := &amp;num;</span><br><span class="line">begin</span><br><span class="line">   if pnum = 1 then </span><br><span class="line">  dbms_output.put_line(&apos;我是1&apos;);</span><br><span class="line">  end if;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 条件判断</span><br><span class="line">declare </span><br><span class="line">  mynum number := &amp;num;</span><br><span class="line">begin</span><br><span class="line">  if  mynum = 1 then </span><br><span class="line">   dbms_output.put_line(&apos;我是1&apos;);</span><br><span class="line">  else</span><br><span class="line">   dbms_output.put_line(&apos;我不是1&apos;);</span><br><span class="line">  end if;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 未成年人,成年人,老年人</span><br><span class="line">declare </span><br><span class="line">   age number(3) :=&amp;nums;   --  &amp;表示指向一个地址,弹出一个输入框</span><br><span class="line">begin </span><br><span class="line">  if age &lt; 18 then</span><br><span class="line">   dbms_output.put_line(&apos;未成年&apos;);</span><br><span class="line">  elsif age &gt;= 18 and  age &lt;= 60 then</span><br><span class="line">    dbms_output.put_line(&apos;中年人&apos;);</span><br><span class="line">  else</span><br><span class="line">    dbms_output.put_line(&apos;老人&apos;);</span><br><span class="line">  end if;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h5><h6 id="1-语法1-无条件循环-有条件退出"><a href="#1-语法1-无条件循环-有条件退出" class="headerlink" title="1.语法1:无条件循环,有条件退出"></a>1.语法1:无条件循环,有条件退出</h6><p>​    loop </p>
+<p>​    end  loop;</p>
+<h6 id="2-语法2-条件循环while"><a href="#2-语法2-条件循环while" class="headerlink" title="2.语法2 :条件循环while"></a>2.语法2 :条件循环while</h6><p>​    while 条件<br>           loop<br>​<br>​             end loop;</p>
+<h6 id="3-语法3-条件循环for"><a href="#3-语法3-条件循环for" class="headerlink" title="3.语法3:条件循环for"></a>3.语法3:条件循环for</h6><p>for 变量名 in 起始值..终止值<br>   loop</p>
+<p>   end loop;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">-- 语法1:无条件循环,有条件退出</span><br><span class="line">--输出1到100个数</span><br><span class="line">declare </span><br><span class="line">   v_num number(9) := 1;</span><br><span class="line">begin</span><br><span class="line">   loop </span><br><span class="line">     --if v_num &gt; 100 then</span><br><span class="line">     --  exit;</span><br><span class="line">     --end if;</span><br><span class="line">     exit when v_num &gt;100;</span><br><span class="line">       dbms_output.put_line(v_num);</span><br><span class="line">       v_num :=v_num +1 ;  -- 不支持 ++  -- </span><br><span class="line">   end loop;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">语法2 :有条件循环 条件循环while</span><br><span class="line">-- 输出1到100个数</span><br><span class="line">declare</span><br><span class="line">  v_num number(9) := 1;</span><br><span class="line">begin</span><br><span class="line">  while v_num &lt;= 100</span><br><span class="line">  loop</span><br><span class="line">     dbms_output.put_line(v_num);</span><br><span class="line">     v_num :=v_num +1 ;</span><br><span class="line">  end loop;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">语法3:  条件循环for</span><br><span class="line">declare</span><br><span class="line">  v_num number(9) := 1;</span><br><span class="line">begin</span><br><span class="line">  for v_num in 1..100</span><br><span class="line">  loop</span><br><span class="line">     dbms_output.put_line(v_num);</span><br><span class="line">  end loop;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="异常-exception"><a href="#异常-exception" class="headerlink" title="异常 exception"></a>异常 exception</h5><p>异常的作用: 为了提高语言的容错性和健壮性</p>
+<p>no_data_found 没有找到数据</p>
+<p>too_many_rows  select….into语句匹配多个行</p>
+<p>zero_divide  除数为0</p>
+<p>value_error 算术或转换错误</p>
+<p>timeout_on_resourse 在等待资源时发生超时__</p>
+<p><strong>命名的系统异常</strong> </p>
+<table>
+<thead>
+<tr>
+<th><strong>命名的系统异常</strong></th>
+<th><strong>产生原因</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCESS_INTO_NULL</td>
+<td>未定义对象</td>
+</tr>
+<tr>
+<td>CASE_NOT_FOUND</td>
+<td>CASE 中若未包含相应的 WHEN ，并且没有设置 ELSE 时</td>
+</tr>
+<tr>
+<td>COLLECTION_IS_NULL</td>
+<td>集合元素未初始化</td>
+</tr>
+<tr>
+<td>CURSER_ALREADY_OPEN</td>
+<td>游标已经打开</td>
+</tr>
+<tr>
+<td>DUP_VAL_ON_INDEX</td>
+<td>唯一索引对应的列上有重复的值</td>
+</tr>
+<tr>
+<td>INVALID_CURSOR</td>
+<td>在不合法的游标上进行操作</td>
+</tr>
+<tr>
+<td>INVALID_NUMBER</td>
+<td>内嵌的 SQL 语句不能将字符转换为数字</td>
+</tr>
+<tr>
+<td><strong>NO_DATA_FOUND</strong></td>
+<td>使用 select into 未返回行，或应用索引表未初始化的元素时</td>
+</tr>
+<tr>
+<td><strong>TOO_MANY_ROWS</strong></td>
+<td>执行 select into 时，结果集超过一行</td>
+</tr>
+<tr>
+<td><strong>ZERO_DIVIDE</strong></td>
+<td>除数为 0</td>
+</tr>
+<tr>
+<td>SUBSCRIPT_BEYOND_COUNT</td>
+<td>元素下标超过嵌套表或 VARRAY 的最大值</td>
+</tr>
+<tr>
+<td>SUBSCRIPT_OUTSIDE_LIMIT</td>
+<td>使用嵌套表或 VARRAY 时，将下标指定为负数</td>
+</tr>
+<tr>
+<td><strong>VALUE_ERROR</strong></td>
+<td>赋值时，变量长度不足以容纳实际数据</td>
+</tr>
+<tr>
+<td>LOGIN_DENIED</td>
+<td>PL/SQL 应用程序连接到 oracle 数据库时，提供了不正确的用户名或密码</td>
+</tr>
+<tr>
+<td>NOT_LOGGED_ON</td>
+<td>PL/SQL 应用程序在没有连接 oralce 数据库的情况下访问数据</td>
+</tr>
+<tr>
+<td>PROGRAM_ERROR</td>
+<td>PL/SQL 内部问题，可能需要重装数据字典＆ pl./SQL 系统包</td>
+</tr>
+<tr>
+<td>ROWTYPE_MISMATCH</td>
+<td>宿主游标变量与 PL/SQL 游标变量的返回类型不兼容</td>
+</tr>
+<tr>
+<td>SELF_IS_NULL</td>
+<td>使用对象类型时，在 null 对象上调用对象方法</td>
+</tr>
+<tr>
+<td>STORAGE_ERROR</td>
+<td>运行 PL/SQL 时，超出内存空间</td>
+</tr>
+<tr>
+<td>SYS_INVALID_ID</td>
+<td>无效的 ROWID 字符串</td>
+</tr>
+<tr>
+<td>TIMEOUT_ON_RESOURCE</td>
+<td>Oracle 在等待资源时超时</td>
+</tr>
+</tbody>
+</table>
+<h6 id="预定义-异常"><a href="#预定义-异常" class="headerlink" title="预定义 异常"></a>预定义 异常</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">--预定义异常</span><br><span class="line">-- 案列 1:</span><br><span class="line">declare</span><br><span class="line"> v_num number(5);</span><br><span class="line">begin</span><br><span class="line">    --v_num:=10/0;  </span><br><span class="line">    v_num:=1000000;  </span><br><span class="line">   exception</span><br><span class="line">     --VALUE_ERROR</span><br><span class="line">     --ZERO_DIVIDE</span><br><span class="line">     when  others then</span><br><span class="line">     v_num:=0;  </span><br><span class="line">     dbms_output.put_line(v_num);   </span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 案列 2:</span><br><span class="line">declare</span><br><span class="line"> v_num number;</span><br><span class="line">begin</span><br><span class="line">    v_num:=1/0;</span><br><span class="line">   exception</span><br><span class="line">     when ZERO_DIVIDE  then</span><br><span class="line">        dbms_output.put_line(&quot;除0异常!!&quot;); </span><br><span class="line">     when VALUE_ERROR  then  </span><br><span class="line">          dbms_output.put_line(&quot;数值转换错误!!&quot;); </span><br><span class="line">     when others  then</span><br><span class="line">        dbms_output.put_line(&quot;其他错误!!&quot;); </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h6 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">--自定义异常</span><br><span class="line"></span><br><span class="line">-- 输入一个年龄数据,大于150就抛出异常</span><br><span class="line">declare </span><br><span class="line">   v_age number(10) := &amp;nums;</span><br><span class="line">   exc_age exception;</span><br><span class="line">begin</span><br><span class="line">  if v_age &gt; 150 then</span><br><span class="line">      raise exc_age ; </span><br><span class="line">  end if;  </span><br><span class="line">  exception</span><br><span class="line">    when exc_age then </span><br><span class="line">     ---p1 错误代码    p2 错误信息</span><br><span class="line">     raise_application_error(-20001,&apos;捕获了异常&apos;);</span><br><span class="line">     --v_age:=150;</span><br><span class="line">     -- dbms_output.put_line(&apos;捕获了异常，年龄重置成了150&apos;);    </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="游标-光标Cursor"><a href="#游标-光标Cursor" class="headerlink" title="游标(光标Cursor)"></a>游标(光标Cursor)</h5><p>概念: 就是用来接收多条数据的</p>
+<p><code>需求:按员工的工种涨工资,总裁涨1000,经理涨800,其他人400</code></p>
+<p>游标的声明语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cursor 游标名   is    sql查询语句 ;</span><br><span class="line">cursor  c1  is  select  ename  from  emp;    -- 查询多条记录</span><br></pre></td></tr></table></figure>
+<h6 id="使用游标的语法"><a href="#使用游标的语法" class="headerlink" title="使用游标的语法:"></a>使用游标的语法:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">open  游标名称</span><br><span class="line">	loop</span><br><span class="line">		exit when 游标名称%notfound;</span><br><span class="line">		fetch 游标名称  into 记录型变量;</span><br><span class="line">		逻辑处理</span><br><span class="line">	end loop;</span><br><span class="line">close 游标名称;</span><br></pre></td></tr></table></figure>
+<h6 id="范列"><a href="#范列" class="headerlink" title="范列"></a>范列</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">-- 范列1: 使用游标方式输出emp中的员工编号和姓名</span><br><span class="line">declare</span><br><span class="line"> cursor cursor_emp is select * from emp;</span><br><span class="line"> v_row emp%rowtype;</span><br><span class="line">begin</span><br><span class="line">   open   cursor_emp;    -- 打开游标,执行查询</span><br><span class="line">   loop</span><br><span class="line">     fetch cursor_emp into v_row;     -- 记录型变量  接收一行数据</span><br><span class="line">     exit when cursor_emp%notfound;   -- 取一行到变量中</span><br><span class="line">     dbms_output.put_line(v_row.ename||&apos;---&apos;||v_row.job); </span><br><span class="line">   end loop;</span><br><span class="line">  close cursor_emp;  -- 关闭游标</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 范列2: 查询20号和40号部门的所有人的name和job</span><br><span class="line">--游标传参数 </span><br><span class="line">declare </span><br><span class="line"> cursor cursor_emp(d1 number ,d2 number) is select * from emp where deptno =d1 or  deptno =d2;</span><br><span class="line"> v_row emp%rowtype;</span><br><span class="line">begin</span><br><span class="line">  open cursor_emp(20,30);</span><br><span class="line">  loop</span><br><span class="line">    fetch  cursor_emp into  v_row;</span><br><span class="line">    exit when cursor_emp%notfound ;</span><br><span class="line">    dbms_output.put_line(v_row.ename||&apos;*********&apos;||v_row.job);</span><br><span class="line">  end loop;</span><br><span class="line">  close cursor_emp;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">declare </span><br><span class="line"> cursor cursor_emp(d1 number ,d2 number) is select * from emp where deptno in (d1,d2);</span><br><span class="line"> v_row emp%rowtype;</span><br><span class="line">begin</span><br><span class="line">  open cursor_emp(20,30);</span><br><span class="line">  loop</span><br><span class="line">    fetch  cursor_emp into  v_row;</span><br><span class="line">    exit when cursor_emp%notfound ;</span><br><span class="line">    dbms_output.put_line(v_row.ename||&apos;*********&apos;||v_row.job);</span><br><span class="line">  end loop;</span><br><span class="line">  close cursor_emp;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 范列3: 写一段PL/SQL程序,为部门号为10员工涨工资</span><br><span class="line">select * from emp where deptno = 10;</span><br><span class="line">declare </span><br><span class="line">   cursor cursor_emp(d1 emp.deptno%type)  is select empno from emp where deptno = d1;</span><br><span class="line">   v_row emp.empno%type;</span><br><span class="line">begin</span><br><span class="line">   open cursor_emp(10);  -- 开始查询</span><br><span class="line">   loop</span><br><span class="line">     fetch cursor_emp into v_row;</span><br><span class="line">     exit when cursor_emp%notfound;</span><br><span class="line">     update emp set sal = sal +100 where empno = v_row; </span><br><span class="line">   end loop;</span><br><span class="line">   close cursor_emp;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h4 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h4><h5 id="概念"><a href="#概念" class="headerlink" title="概念:"></a>概念:</h5><p>​    存储过程(Stroed Procedure)是在大型数据库系统中,一组为了完成特定功能的sql语句集,经编译后,存储在数据库中,用户通过指定存储过程的名字并给出参数(如有参数)来执行它.存储过程是数据库中的一个重要对象,任何一个设计良好的数据库应用程序都应该用到存储过程.</p>
+<p>简单说: 就是一段被命名化的plsql   <strong>预编译到数据库中</strong>  用户指定存储过程的名字并给出参数(如有参数)来执行它</p>
+<h5 id="创建存储过程的语法"><a href="#创建存储过程的语法" class="headerlink" title="创建存储过程的语法:"></a>创建存储过程的语法:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create [or replace]  procedure  存储过程名称([参数1 [in]/out 数据类型 ,[参数2 [in]/out 数据类型],...........)</span><br><span class="line">is|as -- 代替了declare 如果没有变量声明时不能省略</span><br><span class="line">begin</span><br><span class="line">   plsql子程序体</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="存储过程的使用"><a href="#存储过程的使用" class="headerlink" title="存储过程的使用"></a>存储过程的使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">--打印指定员工的年薪   </span><br><span class="line">-- 参数中的in 可以省略   out不能省略</span><br><span class="line">create or replace procedure pro_yealsal(empno1 number)</span><br><span class="line">is    -- 代替了declare</span><br><span class="line">  v_yearsal number(10,2);</span><br><span class="line">begin </span><br><span class="line">  select sal*12+nvl(comm,0) into v_yearsal from emp where empno =empno1;</span><br><span class="line">  dbms_output.put_line(&apos;年薪是：&apos;||v_yearsal);</span><br><span class="line">end;</span><br><span class="line">-- 调用方式1:</span><br><span class="line">call pro_yealsal(7369);</span><br><span class="line">-- 调用方式2:</span><br><span class="line">begin</span><br><span class="line">   pro_yealsal(7499);</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 定义了  emp.empno%type  emp.sal%type</span><br><span class="line">create or replace procedure pro_yealsal(empno1  emp.empno%type)</span><br><span class="line">  is    -- 代替了declare</span><br><span class="line">    v_yearsal emp.sal%type;</span><br><span class="line">  begin </span><br><span class="line">    select sal*12+nvl(comm,0) into v_yearsal from emp where empno =empno1;</span><br><span class="line">    </span><br><span class="line">    dbms_output.put_line(&apos;年薪是：&apos;||v_yearsal);</span><br><span class="line">  end;</span><br><span class="line"> -- 调用方式1:</span><br><span class="line">  call pro_yealsal(7369);</span><br><span class="line">  -- 调用方式2:</span><br><span class="line">  begin</span><br><span class="line">     pro_yealsal(7499);</span><br><span class="line">  end;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">--使用out参数接收指定员工的年薪</span><br><span class="line">create or replace procedure pro_yealsal2(empno1 number,v_yearsal out number)</span><br><span class="line">is</span><br><span class="line">begin</span><br><span class="line">  select sal*12+nvl(comm,0) into v_yearsal from emp where empno = empno1;       </span><br><span class="line">end;</span><br><span class="line">--使用带out类型参数的存储过程</span><br><span class="line">declare</span><br><span class="line">  yearsal number(10,2); </span><br><span class="line">begin </span><br><span class="line">  pro_yealsal2(7369,yearsal);</span><br><span class="line">  dbms_output.put_line(&apos;年薪是：&apos;||yearsal);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h4 id="存储函数"><a href="#存储函数" class="headerlink" title="存储函数"></a>存储函数</h4><h5 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create or replace function 存储函数的名称(name in type,name out type .......)</span><br><span class="line">return  数据类型</span><br><span class="line">is|as </span><br><span class="line">begin </span><br><span class="line">	return 具体的值;</span><br><span class="line">end[函数名称];</span><br></pre></td></tr></table></figure>
+<h5 id="存储函数的使用"><a href="#存储函数的使用" class="headerlink" title="存储函数的使用"></a>存储函数的使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">--  返回指定员工的年薪 empno</span><br><span class="line">create or replace function  get_yearsal(empno3 number)</span><br><span class="line">return number</span><br><span class="line">is</span><br><span class="line">   yearsal number(10,2);</span><br><span class="line">begin</span><br><span class="line">  select  sal*12 +nvl(comm,0) into  yearsal from emp where empno = empno3;</span><br><span class="line">  return yearsal;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">--使用存储函数</span><br><span class="line">declare</span><br><span class="line">  year_sal number(10,2);</span><br><span class="line">begin</span><br><span class="line">  year_sal := get_yearsal(7369);</span><br><span class="line">  dbms_output.put_line(&apos;年薪是&apos;||year_sal);</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">begin</span><br><span class="line">  dbms_output.put_line( get_yearsal(7369) );</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="存储函数和存储过程的区别"><a href="#存储函数和存储过程的区别" class="headerlink" title="==存储函数和存储过程的区别=="></a>==存储函数和存储过程的区别==</h5><p>1.语法不通</p>
+<p>2.使用场景不通</p>
+<p>   存储函数一般多被存储过程调用</p>
+<p>   存储过程多用于项目之间的数据访问</p>
+<p>3.sql中可以直接使用存储函数,但是不能直接使用存储过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- sql中可以直接使用存储函数</span><br><span class="line">select ename,func_yealsal(empno)  from emp;</span><br></pre></td></tr></table></figure>
+<p>存储过程和存储函数的区别在于函数可以有一个返回值;而过程没有返回值,但过程和函数都可以通过out指定一个或多个输出参数.我们可以在利用out参数,在过程和函数中实现多个返回值.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- out参数类型是游标的存储过程</span><br><span class="line">-- 场景：游标中放的是指定部门的员工</span><br><span class="line">create or replace procedure proc_cursor(d1 number,cursor_emp out sys_refcursor)</span><br><span class="line">is </span><br><span class="line">begin</span><br><span class="line">      open cursor_emp from select * form emp where deptno = d1;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h4 id="Java程序调用存储过程"><a href="#Java程序调用存储过程" class="headerlink" title="Java程序调用存储过程"></a>Java程序调用存储过程</h4><h5 id="JDBC连接Oracle"><a href="#JDBC连接Oracle" class="headerlink" title="JDBC连接Oracle"></a>JDBC连接Oracle</h5><h6 id="1-java链接oracle的jar包"><a href="#1-java链接oracle的jar包" class="headerlink" title="1.java链接oracle的jar包"></a>1.java链接oracle的jar包</h6><p>​    可以在虚拟机的 C:\oracle\product\10.2.0\ db_1 \ jdbc\lib :   ojbbc14.jar</p>
+<h6 id="2-数据库的连接"><a href="#2-数据库的连接" class="headerlink" title="2.数据库的连接"></a>2.数据库的连接</h6><p>BaseDao.classs</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDao</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 加载驱动</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class.forName(<span class="string">"oracle.jdbc.driver.OracleDriver"</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获取连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConn</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</span><br><span class="line">		String url=<span class="string">"jdbc:oracle:thin:@192.168.227.10:1521:orcl"</span>;</span><br><span class="line">		String user=<span class="string">"heima_68"</span>;</span><br><span class="line">		String password=<span class="string">"heima_68"</span>;</span><br><span class="line">		<span class="keyword">return</span> DriverManager.getConnection(url, user, password);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeAll</span><span class="params">(ResultSet rs,Statement stmt,Connection conn)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(rs!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				rs.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(stmt!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				stmt.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				conn.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EmpDao.class</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmpDao</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 输出指定部门的员工信息</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> deptno</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getEmp</span><span class="params">(Long deptno)</span></span>&#123;</span><br><span class="line">		Connection conn =<span class="keyword">null</span>;</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			conn = BaseDao.getConn();</span><br><span class="line">			String sql = <span class="string">"select * from emp where deptno=?"</span>;</span><br><span class="line">			pst =conn.prepareStatement(sql);</span><br><span class="line">			pst.setLong(<span class="number">1</span>, deptno);</span><br><span class="line">			rs  = pst.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				System.out.println(rs.getLong(<span class="number">1</span>) + <span class="string">"---"</span> + rs.getString(<span class="string">"ENAME"</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="3-测试连接"><a href="#3-测试连接" class="headerlink" title="3.测试连接"></a>3.测试连接</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		EmpDao.getEmp(<span class="number">10L</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Java调用存储过程"><a href="#Java调用存储过程" class="headerlink" title="Java调用存储过程"></a>Java调用存储过程</h5><h6 id="1-定义好的存储过程"><a href="#1-定义好的存储过程" class="headerlink" title="1.定义好的存储过程:"></a>1.定义好的存储过程:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">--使用out参数接收指定员工的年薪</span><br><span class="line">create or replace procedure pro_yealsal2(empno1 number,v_yearsal out number)</span><br><span class="line">is</span><br><span class="line">begin</span><br><span class="line">  select sal*12+nvl(comm,0) into v_yearsal from emp where empno = empno1;       </span><br><span class="line">end;</span><br><span class="line">--使用带out类型参数的存储过程</span><br><span class="line">declare</span><br><span class="line">  yearsal number(10,2); </span><br><span class="line">begin </span><br><span class="line">  pro_yealsal2(7369,yearsal);</span><br><span class="line">  dbms_output.put_line(&apos;年薪是：&apos;||yearsal);</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">declare</span><br><span class="line">v_sal number(10,2);</span><br><span class="line">begin</span><br><span class="line">  pro_yearsal(7369,v_sal);</span><br><span class="line">  dbms_output.put_line(v_sal);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h6 id="2-java调用"><a href="#2-java调用" class="headerlink" title="2.java调用"></a>2.java调用</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"><span class="keyword">import</span> java.sql.CallableStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> oracle.jdbc.driver.OracleTypes;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProcedureDao</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 *  获取指定部门员工的年薪</span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 *  &#123;?= call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储函数使用</span></span><br><span class="line"><span class="comment">   	 *  &#123;call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储过程使用</span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title">getYearSal</span><span class="params">(Long deptno)</span></span>&#123;</span><br><span class="line">		Connection conn = <span class="keyword">null</span>;</span><br><span class="line">		CallableStatement cstm = <span class="keyword">null</span>;    <span class="comment">// CallableStatement用于执行 SQL 存储过程的接口</span></span><br><span class="line">		Long yearSal = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			conn = BaseDao.getConn();</span><br><span class="line">			cstm = conn.prepareCall(<span class="string">"call pro_yealsal2(?,?)"</span>); <span class="comment">// 调用存储过程 </span></span><br><span class="line">			cstm.setLong(<span class="number">1</span>, deptno);</span><br><span class="line">			<span class="comment">// 第二个 ? 是需要指定参数类型即可</span></span><br><span class="line">			cstm.registerOutParameter(<span class="number">2</span>,OracleTypes.NUMBER);</span><br><span class="line">			cstm.execute();</span><br><span class="line">			yearSal = cstm.getLong(<span class="number">2</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> yearSal;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//EmpDao.getEmp(10L);</span></span><br><span class="line">		Long yearSal = ProcedureDao.getYearSal(<span class="number">7934L</span>);</span><br><span class="line">		System.out.println(<span class="string">"年薪 :   "</span> + yearSal);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Java程序调用存储函数"><a href="#Java程序调用存储函数" class="headerlink" title="Java程序调用存储函数"></a>Java程序调用存储函数</h4><h5 id="1-准备好的存储函数"><a href="#1-准备好的存储函数" class="headerlink" title="1.准备好的存储函数"></a>1.准备好的存储函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">--  返回指定员工的年薪 empno</span><br><span class="line">create or replace function  get_yearsal(empno3 number)</span><br><span class="line">return number</span><br><span class="line">is</span><br><span class="line">   yearsal number(10,2);</span><br><span class="line">begin</span><br><span class="line">  select  sal*12 +nvl(comm,0) into  yearsal from emp where empno = empno3;</span><br><span class="line">  return yearsal;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">--使用存储函数</span><br><span class="line">declare</span><br><span class="line">  year_sal number(10,2);</span><br><span class="line">begin</span><br><span class="line">  year_sal := get_yearsal(7369);</span><br><span class="line">  dbms_output.put_line(&apos;年薪是&apos;||year_sal);</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">begin</span><br><span class="line">  dbms_output.put_line( get_yearsal(7369) );</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="2-调用"><a href="#2-调用" class="headerlink" title="2.调用"></a>2.调用</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package com.itcast.dao;</span><br><span class="line">import java.sql.CallableStatement;</span><br><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import oracle.jdbc.driver.OracleTypes;</span><br><span class="line">public class FunctionDao &#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 *  获取指定部门员工的年薪</span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 *  &#123;?= call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储函数使用</span></span><br><span class="line"><span class="comment">	 *	&#123;call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储过程使用</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 *  存储函数:</span></span><br><span class="line"><span class="comment">	 *  create or replace function  get_yearsal(empno3 number)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	public static Long getYearSal(Long deptno)&#123;</span><br><span class="line">		Connection conn = null;</span><br><span class="line">		CallableStatement cstm = null;    // CallableStatement用于执行 SQL 存储过程的接口</span><br><span class="line">		Long yearSal = null;</span><br><span class="line">		try &#123;</span><br><span class="line">			conn = BaseDao.getConn();</span><br><span class="line">			cstm = conn.prepareCall("&#123;?=call get_yearsal(?)&#125;");</span><br><span class="line">			cstm.setLong(2, deptno);</span><br><span class="line">			cstm.registerOutParameter(1, OracleTypes.NUMBER);</span><br><span class="line">			cstm.execute();</span><br><span class="line">			yearSal = cstm.getLong(1);</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return  yearSal;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-测试-1"><a href="#3-测试-1" class="headerlink" title="3.测试"></a>3.测试</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//EmpDao.getEmp(10L);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//Long yearSal = ProcedureDao.getYearSal(7934L);</span></span><br><span class="line">		<span class="comment">//System.out.println("年薪 :   " + yearSal);</span></span><br><span class="line">		</span><br><span class="line">		Long yearSal2 = FunctionDao.getYearSal(<span class="number">7934L</span>);</span><br><span class="line">		System.out.println(<span class="string">"年薪 :   "</span> + yearSal2);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//Cursor.getEmp(10L);</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Java程序调用out类型游标-存储过程"><a href="#Java程序调用out类型游标-存储过程" class="headerlink" title="Java程序调用out类型游标 存储过程"></a>Java程序调用out类型游标 存储过程</h4><h5 id="1-创建游标类型的存储过程"><a href="#1-创建游标类型的存储过程" class="headerlink" title="1.创建游标类型的存储过程"></a>1.创建游标类型的存储过程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- out参数类型是 游标的存储过程</span><br><span class="line">-- 场景：游标中放的是指定部门的员工   deptno     sys_refcursor 系统引用型游标</span><br><span class="line">create or replace procedure proc_cursor(d1 number,cursor_emp out sys_refcursor)</span><br><span class="line">is </span><br><span class="line">begin</span><br><span class="line">     open cursor_emp for select * FROM  emp where deptno = d1;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<h5 id="2-调用-1"><a href="#2-调用-1" class="headerlink" title="2.调用"></a>2.调用</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"><span class="keyword">import</span> java.sql.CallableStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> oracle.jdbc.driver.OracleCallableStatement;</span><br><span class="line"><span class="keyword">import</span> oracle.jdbc.driver.OracleTypes;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cursor</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 *  获取指定部门员工的年薪</span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 *  &#123;?= call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储函数使用</span></span><br><span class="line"><span class="comment">   		&#123;call &lt;procedure-name&gt;[(&lt;arg1&gt;,&lt;arg2&gt;, ...)]&#125;   // 给存储过程使用</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	 *  </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getEmp</span><span class="params">(Long deptno)</span></span>&#123;</span><br><span class="line">		Connection conn = <span class="keyword">null</span>;</span><br><span class="line">		CallableStatement cstm = <span class="keyword">null</span>;    <span class="comment">// CallableStatement用于执行 SQL 存储过程的接口</span></span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			conn = BaseDao.getConn();</span><br><span class="line">			cstm = conn.prepareCall(<span class="string">"call proc_cursor(?,?)"</span>); <span class="comment">// 调用存储过程 </span></span><br><span class="line">			cstm.setLong(<span class="number">1</span>, deptno);</span><br><span class="line">			cstm.registerOutParameter(<span class="number">2</span>,OracleTypes.CURSOR);</span><br><span class="line">			cstm.execute();</span><br><span class="line">			rs = ((OracleCallableStatement)cstm).getCursor(<span class="number">2</span>);</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				System.out.println(rs.getLong(<span class="string">"EMPNO"</span>)+<span class="string">"----"</span>+ rs.getString(<span class="string">"ENAME"</span>));</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-测试-2"><a href="#3-测试-2" class="headerlink" title="3.测试"></a>3.测试</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itcast.dao;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//EmpDao.getEmp(10L);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//Long yearSal = ProcedureDao.getYearSal(7934L);</span></span><br><span class="line">		<span class="comment">//System.out.println("年薪 :   " + yearSal);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//Long yearSal2 = FunctionDao.getYearSal(7934L);</span></span><br><span class="line">		<span class="comment">//System.out.println("年薪 :   " + yearSal2);</span></span><br><span class="line">		</span><br><span class="line">		Cursor.getEmp(<span class="number">10L</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h4><h5 id="触发器的作用"><a href="#触发器的作用" class="headerlink" title="触发器的作用"></a>触发器的作用</h5><p>​    数据确认</p>
+<p>​    实施复杂的安全型检查</p>
+<p>​    做审计,跟踪表上所做的数据操作等</p>
+<p>​    数据的备份和同步</p>
+<p>当表中的数据发生改变时，触发了某些操作</p>
+<h5 id="触发器的类型"><a href="#触发器的类型" class="headerlink" title="触发器的类型"></a>触发器的类型</h5><h6 id="语句级触发器"><a href="#语句级触发器" class="headerlink" title="语句级触发器"></a>语句级触发器</h6><p>​    在指定的操作之前或者之后执行一次,不管这条语句影响了多少行</p>
+<h6 id="行级触发器"><a href="#行级触发器" class="headerlink" title="行级触发器"></a>行级触发器</h6><p>​    触发语句作用的每一条记录都被触发.在行级触发器中使用old 和 new 伪记录变量,识别值的状态</p>
+<h6 id="触发器的使用"><a href="#触发器的使用" class="headerlink" title="触发器的使用"></a>触发器的使用</h6><h6 id="1-语法"><a href="#1-语法" class="headerlink" title="1.语法:"></a>1.语法:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">delete  insert 	update</span><br><span class="line">语法:</span><br><span class="line">create  or  replace   trigger  触发器名称</span><br><span class="line">before|after</span><br><span class="line">delete | insert | update </span><br><span class="line">on 表名</span><br><span class="line">[for each row]</span><br><span class="line">	</span><br><span class="line">[declare]</span><br><span class="line">begin</span><br><span class="line">	</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create  or replace trigger tri_emp</span><br><span class="line">after</span><br><span class="line">insert</span><br><span class="line">on emp</span><br><span class="line">--[for each row]</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">  dbms_output.put_line(&apos;新入职了一名员工&apos;);</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 测试</span><br><span class="line">insert into emp(empno,deptno) values(1,10);</span><br></pre></td></tr></table></figure>
+<h6 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用:"></a>2.使用:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">-- 案列一 :</span><br><span class="line">--假如&apos;2017-10-20&apos;系统维护，不能修改emp中的数据</span><br><span class="line">create or replace trigger tri_emp</span><br><span class="line">before </span><br><span class="line">delete or insert or update </span><br><span class="line">on emp</span><br><span class="line">--[for each row]</span><br><span class="line">declare </span><br><span class="line">  v_dateStr varchar2(20); </span><br><span class="line">begin</span><br><span class="line">  ----判断当天sysdate是否是&apos;2017-10-21&apos;</span><br><span class="line">  select to_char(sysdate,&apos;yyyy-mm-dd&apos;)  into v_dateStr  from dual;</span><br><span class="line">  if v_dateStr = &apos;2017-10-21&apos; then </span><br><span class="line">      raise_application_error(-20002,&apos;今天系统维护，不能修改emp中的数据&apos;);</span><br><span class="line">  end if;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 测试</span><br><span class="line">insert into emp(empno,deptno) values(2,10);</span><br><span class="line">update emp set ename=&apos;AAAA&apos; where empno =1 ;</span><br><span class="line">delete from emp where empno=1;</span><br><span class="line">select * from emp; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--案例二:</span><br><span class="line">---备份员工的工资数据</span><br><span class="line">--1.创建表</span><br><span class="line">create table emp_sal_log(</span><br><span class="line">    eid number(10) PRIMARY KEY ,</span><br><span class="line">    empno number(10),</span><br><span class="line">    sal0 number(10,2),</span><br><span class="line">    sal1 number(10,2),</span><br><span class="line">    logDate date</span><br><span class="line">)</span><br><span class="line">--2.创建序列</span><br><span class="line">create sequence seq_emp_sal_log;</span><br><span class="line">--3.创建触发器</span><br><span class="line">create or replace trigger  tri_emp_sal</span><br><span class="line">after</span><br><span class="line">update of sal </span><br><span class="line">on emp </span><br><span class="line">for each row  -- 出现了 :old 或者 :new 使用for each row</span><br><span class="line">--  :new   :old 伪记录</span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">  insert into emp_sal_log  values(seq_emp_sal_log.nextval,:new.empno, :old.sal,:new.sal,sysdate);</span><br><span class="line">end;</span><br><span class="line">  </span><br><span class="line">             :new    :old</span><br><span class="line">update               </span><br><span class="line">delete       null    </span><br><span class="line">insert               null</span><br><span class="line"></span><br><span class="line">-- 测试</span><br><span class="line">update emp set sal=10000 where empno=7369;</span><br><span class="line">select * from emp_sal_log;</span><br><span class="line">select * from emp;</span><br><span class="line"></span><br><span class="line">update emp set deptno=10 where empno=7369;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 案列三:</span><br><span class="line">-- 解决主键为null插入数据</span><br><span class="line">create table t_demo(</span><br><span class="line">  tid number(10) primary key,</span><br><span class="line">  tname varchar2(10)</span><br><span class="line">)</span><br><span class="line">-- 这句话执行失败   主键不能为空</span><br><span class="line">insert into t_demo(tname) values(&apos;aaaa&apos;);</span><br><span class="line"></span><br><span class="line">-- 解决问题</span><br><span class="line">create or replace trigger tri_demo</span><br><span class="line">before</span><br><span class="line">insert </span><br><span class="line">on t_demo</span><br><span class="line">for each row </span><br><span class="line">declare</span><br><span class="line">begin</span><br><span class="line">  -- 在插入之前对即将插入的对象赋值id</span><br><span class="line">  select seq_emp_sal_log.nextval into :new.tid from dual;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">-- 测试</span><br><span class="line">insert into t_demo(tname) values(&apos;aaaa&apos;);</span><br><span class="line">select * from t_demo;</span><br></pre></td></tr></table></figure>
+<h3 id="实际情况"><a href="#实际情况" class="headerlink" title="实际情况"></a>实际情况</h3><h4 id="对数据的误操作一"><a href="#对数据的误操作一" class="headerlink" title="对数据的误操作一:"></a>对数据的误操作一:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--误操作一</span><br><span class="line">drop table emp;    -- 误删了一张表数据</span><br><span class="line"></span><br><span class="line">-- 解决办法 </span><br><span class="line">-- 在Recycle bin (Oracle回收站) 可以恢复数据</span><br></pre></td></tr></table></figure>
+<h4 id="对数据的误操作二"><a href="#对数据的误操作二" class="headerlink" title="对数据的误操作二:"></a>对数据的误操作二:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- 误操作二:</span><br><span class="line">delete 	 *   from  	emp  	where 	empno = 1;</span><br><span class="line"></span><br><span class="line"> -- 解决办法 :</span><br><span class="line">create table emp_bak</span><br><span class="line">as</span><br><span class="line">select * from emp as of TIMESTAMP to_timestamp(&apos;20171020 103435&apos;,&apos;yyyymmdd&apos;,</span><br><span class="line">  hh24miss);</span><br><span class="line">select * from emp_bak;</span><br></pre></td></tr></table></figure>
+<h3 id="Mysql-amp-Oracle"><a href="#Mysql-amp-Oracle" class="headerlink" title="Mysql&amp;Oracle"></a>Mysql&amp;Oracle</h3><h4 id="触发器-1"><a href="#触发器-1" class="headerlink" title="触发器:"></a>触发器:</h4><table>
+<thead>
+<tr>
+<th>差异</th>
+<th>MYSQL</th>
+<th>ORACLE</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建语句不同</td>
+<td>create trigger ‘AA’ BEFORE  INSERT on  ‘BB’   for each row</td>
+<td>create or replace trigger AA    before insert or update or delete on BB    for each row</td>
+<td>1.Oracle可以在一个触发器触发insert,delete,update事件.      Mysql每个触发器只支持一个事件. 也就是说,目前每个trigger需要拆分成3个mysql trigger.</td>
+</tr>
+<tr>
+<td>引用新旧数据不同</td>
+<td>取得新数据:  NEW.aa  取得老数据:  OLD.bb</td>
+<td>取得新数据:  :new.aa  取得老数据:  :old.bb</td>
+<td>1.oracle 多一对冒号</td>
+</tr>
+</tbody>
+</table>
+<h4 id="存储过程-1"><a href="#存储过程-1" class="headerlink" title="存储过程:"></a>存储过程:</h4><table>
+<thead>
+<tr>
+<th>差异</th>
+<th>MYSQL</th>
+<th>ORACLE</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建语句不同</td>
+<td>DROP PROCEDURE IF EXISTS  ‘SD_USER_P_ADD_USR’;  create procedure AA(aa varchar(100))</td>
+<td>create or replace procedure AA(     varchar aa) is</td>
+<td>1.oracle创建语比较简洁,mysql要先执行drop  2.mysql先变量再类型,oracle相反,且不必限定长度  3.如果是number或varchar2的话不需要定义长度。否则编译不能通过</td>
+</tr>
+<tr>
+<td></td>
+<td>DECLARE EXIT HANDLER FOR   AAEXCEPTION    BEGIN     …   END;</td>
+<td>EXCEPTION      WHEN OTHERS THEN      ROLLBACK ;      ….</td>
+<td>1.mysql不能自定义异常,且使用内部异常时需要先定义</td>
+</tr>
+</tbody>
+</table>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>1.plsql基本语法    **</p>
+<p>2.存储过程和存储函数  <em>*</em></p>
+<p>3.jdbc调用存过程和存储函数    <strong>*</strong></p>
+<p>4.触发器         <em>**</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/oracle04/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-oracle03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/oracle03/">oracle03</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/oracle03/" class="archive-article-date">
+  	<time datetime="2018-02-05T02:57:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Oracle03"><a href="#Oracle03" class="headerlink" title="Oracle03"></a>Oracle03</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select instance_name from v$instance;    -- 查询 sid</span><br></pre></td></tr></table></figure>
+<p>count问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select count(*)  from emp ;</span><br><span class="line">select count(empno) from emp;   -- 指定了count的列   主键列  有索引</span><br><span class="line">select count(ename) from emp;   -- 指定了count的列	 普通列</span><br><span class="line">select count(0) from emp;		 -- 先找主键</span><br><span class="line">select count(1) from emp; 		 -- 先找主键</span><br><span class="line">select count(5454515) from emp;  -- 先找主键</span><br><span class="line"></span><br><span class="line">select count(comm)  from emp;   -- 4  自动跳过null值</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>mysql</th>
+<th>Oracle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>创建数据库 create  database mingzi</td>
+<td>创建表空间同时创建 .dbf文件</td>
+</tr>
+<tr>
+<td>2</td>
+<td>创建表</td>
+<td>创建用户,指定操作的空间</td>
+</tr>
+<tr>
+<td>3</td>
+<td>操作数据</td>
+<td>赋权限</td>
+</tr>
+<tr>
+<td>4</td>
+<td>操作数据</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>操作数据</td>
+<td>操作数据</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-创建表空间用户"><a href="#1-创建表空间用户" class="headerlink" title="1.创建表空间用户"></a>1.创建表空间用户</h4><p>当前用户是管理员 ,才有权限创建用户 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-- 1.1创建表空间同时创建dbf文件</span><br><span class="line">create tablespace heima_68_space   --表空间的名字</span><br><span class="line">datafile &apos;c:\\heima_68.dbf&apos;        --数据文件</span><br><span class="line">size 10M                           --指定数据文件的大小</span><br><span class="line">autoextend on                      --数据文件自动增长</span><br><span class="line">next 1M                            --增长的大小</span><br><span class="line"></span><br><span class="line">select  *  from  session_privs ;   -- 查看当前用户的权限</span><br><span class="line"></span><br><span class="line">--  1.2创建用户，指定操作的表空间</span><br><span class="line">create user	  heima_68     -- 用户名</span><br><span class="line">identified  by  heima_68    -- 密码</span><br><span class="line">default  tablespace  heima_68_space ;  -- 指定操作的表空间</span><br><span class="line"></span><br><span class="line">-- 1.3赋权限</span><br><span class="line">select  *  from  session_privs ;   -- 查看当前用户的权限</span><br><span class="line">-- 权限  三种角色</span><br><span class="line">dba</span><br><span class="line">resource</span><br><span class="line">connect</span><br><span class="line">-- 授权</span><br><span class="line">grant   dba to  heima_68 ;</span><br></pre></td></tr></table></figure>
+<h4 id="2-Oracle-常见的数据类型"><a href="#2-Oracle-常见的数据类型" class="headerlink" title="2.Oracle 常见的数据类型"></a>2.Oracle 常见的数据类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">--2.1字符型  char varchar2</span><br><span class="line">char        255      固定长度     name  char(10)  &apos;TOM&apos;</span><br><span class="line">varchar2   3999     不固定长度    name  varchar2  &apos;TOM&apos;</span><br><span class="line"></span><br><span class="line">-- 2.2数值型  number </span><br><span class="line">id   number(3)   999</span><br><span class="line">aa   number(3,2)  9.99    总长度  不包括小数点和负号</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 2.3日期型</span><br><span class="line">date 相当于mysql的datetime</span><br><span class="line">timestamp  时间戳  精度支持秒小数点后9位</span><br><span class="line"></span><br><span class="line">-- 2.4 大数据类型</span><br><span class="line">long  相当于mysql longtext  支持2个G内存</span><br><span class="line">clob  支持4G</span><br><span class="line">blob  存放视频,图片等</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建表"><a href="#3-创建表" class="headerlink" title="3.创建表"></a>3.创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">-- 3.1约束   主键  非空  唯一 检查 外键</span><br><span class="line">drop table person;</span><br><span class="line">create  ------ drop</span><br><span class="line"></span><br><span class="line">create table person(</span><br><span class="line"> pid number(10) ,</span><br><span class="line"> pname varchar2(30) not null,</span><br><span class="line"> telephone varchar2(11),</span><br><span class="line"> gender char(1),     --  0女  1男</span><br><span class="line"> constraint person_pk_pid primary key(pid),</span><br><span class="line"> constraint person_unique_telephone unique(telephone),</span><br><span class="line"> constraint person_check_gender check(gender in(0,1))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">insert into person  values(1,&apos;TOM&apos;,&apos;13898765432&apos;,&apos;1&apos;);</span><br><span class="line">insert into person  values(2,&apos;JERREY&apos;,&apos;13898765431&apos;,&apos;1&apos;);</span><br><span class="line">insert into person  values(3,&apos;JERREY&apos;,&apos;13898765433&apos;,&apos;0&apos;);</span><br><span class="line">insert into person  values(4,null,&apos;13898765434&apos;,&apos;0&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select * from person</span><br><span class="line"></span><br><span class="line">create table orders(</span><br><span class="line"> ooid number(10) primary key,</span><br><span class="line"> totalPrice number(10,2)</span><br><span class="line">)</span><br><span class="line">create table orderdetail(</span><br><span class="line"> odid number(10) primary key,</span><br><span class="line"> goodsName varchar2(30),</span><br><span class="line"> ooid number(10),</span><br><span class="line"> constraint orderdetail_fk_ooid foreign key(ooid) references orders(ooid)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">insert into orders values(1,1000);</span><br><span class="line">insert into orders values(2,5000);</span><br><span class="line"></span><br><span class="line">select * from orders</span><br><span class="line"></span><br><span class="line">insert into orderdetail values(1,&apos;鼠标&apos;,1);</span><br><span class="line">insert into orderdetail values(2,&apos;键盘&apos;,2);</span><br><span class="line">delete from orderdetail where ooid=1</span><br><span class="line">delete from orders where ooid=1</span><br><span class="line"></span><br><span class="line">-- 3.2 修改表（了解）</span><br><span class="line">alter table person add (address varchar2(10))--添加列</span><br><span class="line">alter table person modify(address varchar2(100)) --修改列</span><br><span class="line">alter table person drop column address  --删除列</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 3.3 操作数据</span><br><span class="line">drop table person;</span><br><span class="line">create  ------ drop</span><br><span class="line"></span><br><span class="line">create table person(</span><br><span class="line"> pid number(10) ,</span><br><span class="line"> pname varchar2(30) not null,</span><br><span class="line"> telephone varchar2(11),</span><br><span class="line"> gender char(1),     --  0女  1男</span><br><span class="line"> birthday date,</span><br><span class="line"> constraint person_pk_pid primary key(pid),</span><br><span class="line"> constraint person_unique_telephone unique(telephone),</span><br><span class="line"> constraint person_check_gender check(gender in(0,1))</span><br><span class="line">)</span><br><span class="line">insert into person values(1,&apos;TOM&apos;,&apos;12345678909&apos;,&apos;1&apos;,to_date(&apos;2008-08-08&apos;,&apos;yyyy-mm-dd&apos;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---- 快速复制表</span><br><span class="line">create table myemp as (select * from scott.emp)</span><br><span class="line">create table mydept as (select * from scott.dept)</span><br><span class="line"></span><br><span class="line">--  给纽约NEW YORK地区的员工涨100元工资</span><br><span class="line">select * from myemp</span><br><span class="line">select * from mydept</span><br><span class="line"></span><br><span class="line">select * from myemp where deptno in (select deptno from mydept where loc=&apos;NEW YORK&apos;)</span><br><span class="line"></span><br><span class="line">  update myemp set sal=sal+100 where deptno in (select deptno from mydept where loc=&apos;NEW YORK&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="4-事务的保存点savepoint"><a href="#4-事务的保存点savepoint" class="headerlink" title="4.事务的保存点savepoint"></a>4.事务的保存点savepoint</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">select * from  person</span><br><span class="line"></span><br><span class="line">update person set pname=&apos;大郎&apos; where pid=1;</span><br><span class="line">savepoint a;</span><br><span class="line">insert into person values(2,&apos;小潘&apos;,&apos;12345432123&apos;,&apos;0&apos;,null);</span><br><span class="line">savepoint b;</span><br><span class="line">delete from person where pid=2;</span><br><span class="line">rollback to a;</span><br><span class="line"></span><br><span class="line">rollback to b;</span><br><span class="line"></span><br><span class="line">rollback to a</span><br><span class="line"></span><br><span class="line">rollback;</span><br><span class="line"></span><br><span class="line">场景</span><br><span class="line">用户注册</span><br><span class="line"> 1、insert  user</span><br><span class="line"> 2、发送短信 insert 短信记录表</span><br><span class="line"> </span><br><span class="line"> insert  user</span><br><span class="line"> savepoint a;</span><br><span class="line"> insert log</span><br></pre></td></tr></table></figure>
+<h4 id="5-事务的隔离级别"><a href="#5-事务的隔离级别" class="headerlink" title="5.事务的隔离级别"></a>5.事务的隔离级别</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">（1）Read uncommitted 读未提交</span><br><span class="line">	公司发工资了，领导把5000元打到singo的账号上，但是该事务并未提交，而singo正好去查看账户，发现工资已经到账，是5000元整，非常高兴。</span><br><span class="line">	可是不幸的是，领导发现发给singo的工资金额不对，是2000元，于是迅速回滚了事务，修改金额后，将事务提交，最后singo实际的工资只有2000元，</span><br><span class="line">	singo空欢喜一场。</span><br><span class="line">	</span><br><span class="line">	总结：出现上述情况，即我们所说的脏读，两个并发的事务，“事务A：领导给singo发工资”、“事务B：singo查询工资账户”，事务B读取了事务A尚未提交的数据。</span><br><span class="line"></span><br><span class="line">	当隔离级别设置为Read uncommitted时，就可能出现脏读，如何避免脏读，请看下一个隔离级别。</span><br><span class="line"> （2）Read committed 读提已交</span><br><span class="line"></span><br><span class="line">	singo拿着工资卡去消费，系统读取到卡里确实有2000元，而此时她的老婆也正好在网上转账，把singo工资卡的2000元转到另一账户，</span><br><span class="line">	并在singo之前提交了事务，当singo扣款时，系统检查到singo的工资卡已经没有钱，扣款失败，singo十分纳闷，明明卡里有钱，为何......</span><br><span class="line"></span><br><span class="line">	总结：出现上述情况，即我们所说的不可重复读，两个并发的事务，“事务A：singo消费”、“事务B：singo的老婆网上转账”，事务A事先读取了数据，事务B紧接了更新了数据，并提交了事务，而事务A再次读取该数据时，数据已经发生了改变。</span><br><span class="line"></span><br><span class="line">	当隔离级别设置为Read committed时，避免了脏读，但是可能会造成不可重复读。</span><br><span class="line"></span><br><span class="line">	大多数数据库的默认级别就是Read committed，比如Sql Server , Oracle。如何解决不可重复读这一问题，请看下一个隔离级别。</span><br><span class="line"></span><br><span class="line">  (3) Repeatable read 重复读</span><br><span class="line"></span><br><span class="line">	singo的老婆工作在银行部门，她时常通过银行内部系统查看singo的信用卡消费记录。</span><br><span class="line">	有一天，她正在查询到singo当月信用卡的总消费金额（<span class="keyword">select</span> <span class="keyword">sum</span>(amount) <span class="keyword">from</span> <span class="keyword">transaction</span> <span class="keyword">where</span> <span class="keyword">month</span> = 本月）为<span class="number">80</span>元，</span><br><span class="line">	而singo此时正好在外面胡吃海塞后在收银台买单，消费<span class="number">1000</span>元，即新增了一条<span class="number">1000</span>元的消费记录（<span class="keyword">insert</span> <span class="keyword">transaction</span> ... ），</span><br><span class="line">	并提交了事务，随后singo的老婆将singo当月信用卡消费的明细打印到A4纸上，却发现消费总额为<span class="number">1080</span>元，singo的老婆很诧异，</span><br><span class="line">	以为出现了幻觉，幻读就这样产生了。</span><br><span class="line">	</span><br><span class="line">	总结：当隔离级别设置为Repeatable <span class="keyword">read</span>时，可以避免不可重复读。当singo拿着工资卡去消费时，一旦系统开始读取工资卡信息（即事务开始），singo的老婆就不可能对该记录进行修改，也就是singo的老婆不能在此时转账。</span><br><span class="line"></span><br><span class="line">	虽然Repeatable <span class="keyword">read</span>避免了不可重复读，但还有可能出现幻读。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   （<span class="number">4</span>）<span class="keyword">Serializable</span> 序列化</span><br><span class="line">	<span class="keyword">Serializable</span>是最高的事务隔离级别，同时代价也花费最高，性能很低，一般很少使用，在该级别下，事务顺序执行，不仅可以避免脏读、不可重复读，还避免了幻像读。	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">√: 可能出现    ×: 不会出现</span><br><span class="line"></span><br><span class="line">		      	   脏读  不可重复读  幻读</span><br><span class="line"><span class="keyword">Read</span> uncommitted	√	   	√		√</span><br><span class="line"><span class="keyword">Read</span> committed		×		√	    √</span><br><span class="line">Repeatable <span class="keyword">read</span>		×		×		√</span><br><span class="line"><span class="keyword">Serializable</span>		×		×		×</span><br></pre></td></tr></table></figure>
+<h4 id="6-数据库的其他对象"><a href="#6-数据库的其他对象" class="headerlink" title="6.数据库的其他对象"></a>6.数据库的其他对象</h4><h5 id="视图view"><a href="#视图view" class="headerlink" title="视图view"></a>视图view</h5><p>​    概念: 是个虚表,可以把视图当作表来操作</p>
+<p>​    作用|好处: </p>
+<p>​    1.可以封装复杂的sql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create view view_hireCount as</span><br><span class="line">select    </span><br><span class="line">  sum(t.counts) &quot;Total&quot; ,</span><br><span class="line">  sum(decode(years,&apos;1980&apos;,counts)) &quot;1980&quot; ,</span><br><span class="line">  sum(decode(years,&apos;1981&apos;,counts)) &quot;1981&quot; ,</span><br><span class="line">  sum(decode(years,&apos;1982&apos;,counts)) &quot;1982&quot; ,</span><br><span class="line">  sum(decode(years,&apos;1987&apos;,counts)) &quot;1987&quot; </span><br><span class="line"> from  (select   to_char(hiredate,&apos;yyyy&apos;) years  ,count(*)  counts  from emp  group by to_char(hiredate,&apos;yyyy&apos;))  t ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select *  from view_hireCount;</span><br></pre></td></tr></table></figure>
+<p>​    2.可以隐藏敏感列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create view view_emp as select empno,ename,job,mgr,hiredate,deptno  from  myemp ;</span><br><span class="line"></span><br><span class="line">select * from view_emp;</span><br><span class="line">update view_emp2 set ename=&apos;bbbb&apos; where empno =7369;</span><br><span class="line">select * from myemp;</span><br><span class="line"></span><br><span class="line">--只读视图  with  read only</span><br><span class="line">create view view_emp2 as select empno,ename,job,mgr,hiredate,deptno  from myemp with  read only ;</span><br><span class="line">select * from view_emp;</span><br><span class="line">update view_emp2 set ename=&apos;bbbb&apos; where empno =7369;</span><br><span class="line">select * from myemp2;</span><br></pre></td></tr></table></figure>
+<h5 id="序列sequence"><a href="#序列sequence" class="headerlink" title="序列sequence"></a>序列sequence</h5><p>​    概念:  独立于表之外的对象,主键自增</p>
+<p>​    作用: 主要用来做主键自增;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">--序列的简单语法</span><br><span class="line"></span><br><span class="line">--使用序列</span><br><span class="line">create  sequence seq_person ;</span><br><span class="line"></span><br><span class="line">--第一次使用,只能使用seq_person.nextval </span><br><span class="line">select seq_person.nextval from dual;</span><br><span class="line">select seq_person.currval from dual;</span><br><span class="line"></span><br><span class="line">select * from person;</span><br><span class="line">insert into person values(seq_person.nextval,&apos;小明&apos;,&apos;1232&apos;,&apos;0&apos;,&apos;null&apos;)</span><br><span class="line"></span><br><span class="line">--序列的复杂语法</span><br><span class="line">5 7 9 11 13 15 3 5 7 9</span><br><span class="line">create  sequence sel_test </span><br><span class="line">increament by 2 -- 递增值,默认是1</span><br><span class="line">minvalue  3 -- 最小值,默认是1</span><br><span class="line">maxvalue --15 --最大值  默认是19个9   </span><br><span class="line">start width 5 --起始值 默认是1</span><br><span class="line">cycle  --循环   默认nocycle</span><br><span class="line">cache 10 --缓存</span><br></pre></td></tr></table></figure>
+<h5 id="索引-index"><a href="#索引-index" class="headerlink" title="索引 index"></a>索引 index</h5><p>​    概念: 相当于一本数的目录</p>
+<p>​    作用|好处: 为了提高查询效率</p>
+<p>​    主键和唯一约束默认就会创建索引</p>
+<p>​    怎么用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">create index index_emp_ename on myemp(ename);</span><br><span class="line"></span><br><span class="line">select *  from myemp where ename = &apos;SCOTT&apos;;</span><br><span class="line"></span><br><span class="line">1.创建一个表</span><br><span class="line">create table t_test(</span><br><span class="line">	tid number(10),</span><br><span class="line">  	tname varchar2(20)</span><br><span class="line">);</span><br><span class="line">2.插入500万条数据</span><br><span class="line">begin </span><br><span class="line">  for i  in 1..5000000</span><br><span class="line">    loop </span><br><span class="line">  	 	insert into t_test  values(i,&apos;测试数据&apos;||i )</span><br><span class="line">  	end loop;</span><br><span class="line">  	commit;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">3.查询记录时间</span><br><span class="line">select * form t_test where tname=&apos;测试数据566899686&apos;;</span><br><span class="line"></span><br><span class="line">4.创建索引</span><br><span class="line">create index index_test on t_test(tname);</span><br><span class="line"></span><br><span class="line">5.查询 记录时间(索引)</span><br><span class="line">select * form t_test where tname=&apos;测试数据56615186&apos;;</span><br></pre></td></tr></table></figure>
+<h5 id="提高查询效率-面试"><a href="#提高查询效率-面试" class="headerlink" title="提高查询效率(面试)"></a>提高查询效率(面试)</h5><ol>
+<li>创建索引</li>
+<li>子查询  (笛卡尔积)</li>
+<li>把经常用的多表数据放在一张表中 (创建)</li>
+</ol>
+<h5 id="同义词-synonym"><a href="#同义词-synonym" class="headerlink" title="同义词 synonym"></a>同义词 synonym</h5><p>概念</p>
+<p>作用: 缩短访问对象的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create synonym e from scott.emp;</span><br><span class="line"></span><br><span class="line">create synonym  e  from scott.emp;</span><br><span class="line"></span><br><span class="line">select * from e;</span><br><span class="line">drop synonym e;   -- drop 自己的</span><br><span class="line">drop public synonym e;</span><br></pre></td></tr></table></figure>
+<h4 id="7-数据的导入导出"><a href="#7-数据的导入导出" class="headerlink" title="7.数据的导入导出"></a>7.数据的导入导出</h4><ol>
+<li><p>全部导出</p>
+<p>…</p>
+</li>
+<li><p>按照用户导出(重点)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、全部导出</span><br><span class="line">2、按照用户导出</span><br><span class="line">注意 : exp和 imp 使用命令的前提是当前电脑上安装了Oracle</span><br><span class="line">按照用户导出</span><br><span class="line"></span><br><span class="line">把scott用户下的所有对象导入到heima_68用户</span><br><span class="line">导出:exp scott/tiger@192.168.227.10:1521/orcl file=c:\\scott20171018.dmp owner = scott;</span><br><span class="line"></span><br><span class="line">导入:imp heima_68/heima_68@192.168.66.10:1521/orcl  file=c:\\scott20171018.dmp full=y</span><br><span class="line">3、导出某表</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出某表</p>
+<p>….</p>
+</li>
+</ol>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
+<li><p>创建表空间用户 ==保存语句==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create tablespace heima_68_space   --表空间的名字</span><br><span class="line">datafile &apos;c:\\heima_68.dbf&apos;        --数据文件</span><br><span class="line">size 10M                           --指定数据文件的大小</span><br><span class="line">autoextend on                      --数据文件自动增长</span><br><span class="line">next 1M                            --增长的大小</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">​```plsql</span><br><span class="line">select  *  from  session_privs ;   -- 查看当前用户的权限</span><br><span class="line"></span><br><span class="line">create user heima_68    --用户名</span><br><span class="line">identified  by heima_68  -- 密码</span><br><span class="line">default  tablespace heima_68_space   -- 指定表空间</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 创建表</span><br><span class="line"></span><br><span class="line">   ​     数据类型  ==重点==</span><br><span class="line"></span><br><span class="line">   ​     创建表     ==重点==</span><br><span class="line"></span><br><span class="line">   ​     修改表结构  了解</span><br><span class="line"></span><br><span class="line">2. 操作数据  ==重点==</span><br><span class="line"></span><br><span class="line">   insert  </span><br><span class="line"></span><br><span class="line">   delete</span><br><span class="line"></span><br><span class="line">    update</span><br><span class="line"></span><br><span class="line">3. 事务保存点 了解</span><br><span class="line"></span><br><span class="line">4. 视图  ==重点==</span><br><span class="line"></span><br><span class="line">5. 序列 ==重点==</span><br><span class="line"></span><br><span class="line">6. 索引==重点Oracle独有==</span><br><span class="line"></span><br><span class="line">7. 同义词  了解</span><br><span class="line"></span><br><span class="line">8. 导入导出 ==重点==   ==保存语句==</span><br><span class="line"></span><br><span class="line">   注意 : exp和 imp 使用命令的前提是当前电脑上安装了Oracle</span><br><span class="line"></span><br><span class="line">   ```plsql</span><br><span class="line">   把scott用户下的所有对象导入到heima_68用户</span><br><span class="line"></span><br><span class="line">   导出:exp scott/tiger@192.168.227.10:1521/orcl file=c:\\scott20171018.dmp owner = scott;</span><br><span class="line"></span><br><span class="line">   导入:imp heima_68/heima_68@192.168.66.10:1521/orcl  file=c:\\scott20171018.dmp full=y</span><br></pre></td></tr></table></figure>
+<p>   ​</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/oracle03/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-oracle02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1060,312 +1519,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Solr的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/Solr的原理/">Solr原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/15/Solr的原理/" class="archive-article-date">
-  	<time datetime="2017-12-15T14:27:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Lucene-amp-solr"><a href="#Lucene-amp-solr" class="headerlink" title="Lucene&amp;solr"></a>Lucene&amp;solr</h1><h2 id="1-Lucene简介"><a href="#1-Lucene简介" class="headerlink" title="1.Lucene简介"></a>1.Lucene简介</h2><p>​    Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。</p>
-<p>​    Lucene是一套用于全文检索和搜寻的开源程式库，由Apache软件基金会支 持和提供,Lucene提供了一个简单却强大的应用程式接口，能够做全文索引和搜寻，   在Java开发环境里Lucene是一个成熟的免费开放源代码工具</p>
-<p>​    ==Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品==</p>
-<h2 id="2-Lucene与搜索引擎的区别"><a href="#2-Lucene与搜索引擎的区别" class="headerlink" title="2. Lucene与搜索引擎的区别"></a>2. Lucene与搜索引擎的区别</h2><p>​    全文检索系统是按照全文检索理论建立起来的用于提供全文检索服务的软件系统，包括建立索引、处理查询返回结果集、增加索引、优化索引结构等功能。例如：百度搜索、eclipse帮助搜索、淘宝网商品搜索等。</p>
-<p>​    搜索引擎是全文检索技术最主要的一个应用，例如百度。搜索引擎起源于传统的信息全文检索理论，即计算机程序通过扫描每一篇文章中的每一个词，建立以词为单位的倒排文件，检索程序根据检索词在每一篇文章中出现的频率和每一个检索词在一篇文章中出现的概率，对包含这些检索词的文章进行排序，最后输出排序的结果。全文检索技术是搜索引擎的核心支撑技术。</p>
-<p>​    Lucene和搜索引擎不同，Lucene是一套用java或其它语言写的全文检索的工具包，为应用程序提供了很多个api接口去调用，可以简单理解为是一套实现全文检索的类库，搜索引擎是一个全文检索系统，它是一个单独运行的软件系统</p>
-<h2 id="3-Lucene主要包"><a href="#3-Lucene主要包" class="headerlink" title="3.Lucene主要包"></a>3.Lucene主要包</h2><table>
-<thead>
-<tr>
-<th>包名</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>org.apache.lucene.analysis</td>
-<td>语言分析器，主要用于的切词  Lucene提供的分析器实现类在：  lucene-analyzers-common-4.10.3.jar</td>
-</tr>
-<tr>
-<td>org.apache.lucene.document</td>
-<td>索引存储时的文档结构管理，类似于关系型数据库的表结构</td>
-</tr>
-<tr>
-<td>org.apache.lucene.index</td>
-<td>索引管理，包括索引建立、删除等</td>
-</tr>
-<tr>
-<td>org.apache.lucene.queryParser</td>
-<td>查询分析器，实现查询关键词间的运算，如与、或、非等, 生成查询表达式，</td>
-</tr>
-<tr>
-<td>org.apache.lucene.search</td>
-<td>检索管理，根据查询条件，检索得到结果</td>
-</tr>
-<tr>
-<td>org.apache.lucene.store</td>
-<td>数据存储管理，包括一些I/O操作</td>
-</tr>
-<tr>
-<td>org.apache.lucene.util</td>
-<td>公用类</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-创建索引和搜索流程"><a href="#4-创建索引和搜索流程" class="headerlink" title="4.创建索引和搜索流程"></a>4.创建索引和搜索流程</h2><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/K8Bm7HFh6B.png?imageslim" alt="mark"></p>
-<p>1、创建索引过程，对要搜索的原始内容进行索引构建一个索引库，索引过程包括：</p>
-<p>​    确定原始内容即要搜索的内容=&gt;获得文档=&gt;创建文档=&gt;分析文档à索引文档</p>
-<p>2、红色表示搜索<a href="">过程</a>，从索引库中搜索内容，搜索过程包括：</p>
-<p>​    用户通过搜索界面=&gt;创建查询=&gt;执行搜索，从索引库搜索=&gt;渲染搜索结果</p>
-<h2 id="5-Solr与Lucene区别"><a href="#5-Solr与Lucene区别" class="headerlink" title="5.Solr与Lucene区别"></a>5.Solr与Lucene区别</h2><p><a href="">Lucene</a>是一个开放源代码的全文检索引擎工具包，它不是一个完整的全文检索应用。Lucene仅提供了完整的查询引擎和索引引擎，目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能，或者以Lucene为基础构建全文检索应用。</p>
-<p> Solr的目标是打造一款企业级的搜索引擎系统，它是基于Lucene一个搜索引擎服务，可以独立运行，通过Solr可以非常快速的构建企业的搜索引擎，通过Solr也可以高效的完成站内搜索功能。</p>
-<h2 id="6-搜索数据方式"><a href="#6-搜索数据方式" class="headerlink" title="6.搜索数据方式"></a>6.搜索数据方式</h2><h3 id="6-1-顺序扫描"><a href="#6-1-顺序扫描" class="headerlink" title="6.1 顺序扫描"></a>6.1 顺序扫描</h3><p>所谓顺序扫描，例如要找内容包含一个字符串的文件，就是一个文档一个文档的看，对于每一个文档，从头看到尾，如果此文档包含此字符串，则此文档为我们要找的文件，接着看下一个文件，直到扫描完所有的文件。这种方法是顺序扫描方法，数据量大就搜索慢。</p>
-<h3 id="6-2-倒排索引"><a href="#6-2-倒排索引" class="headerlink" title="6.2 倒排索引"></a>6.2 倒排索引</h3><p>倒排索引（也称为倒排文件）是一种存储了来自文本中的映射的索引数据结构。比如单词或者数字，对应到它们在数据库、一个文件或者一组文件中的位置。它是在文档检索系统中使用的最流行的数据结构，在搜索引擎中有大规模使用案例</p>
-<p>例如我们使用新华字典查询汉字，新华字典有偏旁部首的目录（索引），我们查字首先查这个目录，找到这个目录中对应的偏旁部首，就可以通过这个目录中的偏旁部首找到这个字所在的位置（文档）</p>
-<p>倒排索引做两件事情：</p>
-<p>1、提取资源中关键信息， 建立索引 （目录）</p>
-<p>2、搜索时，根据关键字（目录），找到资源的位置</p>
-<p><strong>文档（Document）</strong>：一般搜索引擎处理的对象是互联网网页，对于搜索引擎来讲，Word、PDF、html、XML等不同格式的文件都可以称为文档，一般以文档来表示文本信息。</p>
-<p><strong>文档集合（DocumentCollection）</strong>：由若干文档构成的集合成为文档集合。比如海量的互联网网页等。</p>
-<p><strong>文档编号（Document ID）</strong>：在搜索引擎内部，会为文档集合每个文档赋予一个唯一的内部编号，以作为文档的唯一标识，以便于处理。</p>
-<p><strong>单词编号（Word ID）</strong>：与文档编号类似，搜索引擎内部以唯一的编号来表示某个单词，以作为某个单词的唯一表示。</p>
-<p><strong>倒排索引（Inverted Index）</strong>：倒排索引是实现单词——<strong>文档矩阵</strong>的一种具体存储形式。通过倒排索引，可以根据单次快速获取包含这个单词的文档列表。倒排索引主要由两个部分组成：<strong>单词词典和倒排文件</strong>。</p>
-<p><strong>单词词典（Lexicon）</strong>：搜索引擎通常的索引单位是单词，单词词典是由文档集合中出现过的所有单词构成的字符串集合，单词词典内每条索引记载单词本身的一些信息及指向倒排列表的指针。单词也就是我们在搜索时的一些关键字，也称为词条。</p>
-<p><strong>倒排列表（PostingList）</strong>：倒排列表记载了出现过某个单词的所有文档的文档列表及单词在该文当中出现的位置信息，每条记录成为一个倒排向（Posting）。根据倒排列表，即可获知哪些文档包含某个单词。</p>
-<p><strong>倒排文件（Inverted File）</strong>：所有单词的倒排列表往往顺序地存储在磁盘的某个文件里，这个文件即为倒排文件，倒排文件是存储倒排索引的物理文件。</p>
-<h2 id="7-倒排索引"><a href="#7-倒排索引" class="headerlink" title="7.  倒排索引"></a>7.  倒排索引</h2><h3 id="7-1单词-文档矩阵的基本模型："><a href="#7-1单词-文档矩阵的基本模型：" class="headerlink" title="7.1单词-文档矩阵的基本模型："></a>7.1单词-文档矩阵的基本模型：</h3><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/Ch5G2E7DHE.png?imageslim" alt="mark"></p>
-<p>该矩阵模型代表的含义：</p>
-<p>词1在文档1、文档4中出现，文档1包含了词1和词4。</p>
-<p>词2在文档2、文档5中出现，文档2包含词2。</p>
-<h3 id="7-2-创建倒排索引过程"><a href="#7-2-创建倒排索引过程" class="headerlink" title="7.2 创建倒排索引过程"></a>7.2 创建倒排索引过程</h3><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/2HAJd0GK6d.png?imageslim" alt="mark"></p>
-<h3 id="7-3-基本倒排索引结构"><a href="#7-3-基本倒排索引结构" class="headerlink" title="7.3 基本倒排索引结构"></a>7.3 基本倒排索引结构</h3><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/964676fHlF.png?imageslim" alt="mark"></p>
-<p>第1列单词ID即为每个单词的编号。 </p>
-<p>第2列即为对应的单词。 </p>
-<p>第3列即为每个单词对应的倒排序表。（比如单词“拉斯”，单词编号为8，倒排序表为｛3，5｝，说明文档集合中文档3和文档5包含这个单词。）</p>
-<h3 id="7-4-复杂倒排索引结构"><a href="#7-4-复杂倒排索引结构" class="headerlink" title="7.4  复杂倒排索引结构"></a>7.4  复杂倒排索引结构</h3><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/CGid1D84i7.png?imageslim" alt="mark"></p>
-<p>就编号8—拉斯—｛（3：1）；（5，1）｝来说，（3，1）表示“拉斯”在文档3中出现一次，（5，1）表示“拉斯”在文档5中出现1次。</p>
-<h3 id="7-5-完整倒排索引结构"><a href="#7-5-完整倒排索引结构" class="headerlink" title="7.5 完整倒排索引结构"></a>7.5 完整倒排索引结构</h3><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/368g0ciF2g.png?imageslim" alt="mark"></p>
-<p>就编号8—拉斯—2—｛（3;1;<4>），（5;1;<4>）｝来说，文档频率2表示在两个文档出现。“<4>”表示单词出现的位置是文档中的第4个单词。 </4></4></4></p>
-<p>这个倒排索引基本上是一个完备的索引系统了，实际搜索系统的索引结构基本如此。</p>
-<h2 id="8-单词词典"><a href="#8-单词词典" class="headerlink" title="8. 单词词典"></a>8. 单词词典</h2><p>单词词典是倒排索引中非常重要的组成部分，它用来维护文档集合中出现过的所有单词的相关信息，同时用来记载某个单词对应的倒排列表在倒排文件中的位置信息。在支持搜索时，根据用户的查询词，去单词词典里查询，就能够获得相应的倒排列表，并以此作为后续排序的基础。<br>​       对于一个规模很大的文档集合来说，可能包含几十万甚至上百万的不同单词，能否快速定位某个单词，这直接影响搜索时的响应速度，所以需要高效的数据结构来对单词词典进行构建和查找，常用的数据结构包括哈希加链表结构和树形词典结构。</p>
-<p>4.1   哈希加链表</p>
-<p>​       图1-7是这种词典结构的示意图。这种词典结构主要由两个部分构成：</p>
-<p>​        主体部分是哈希表，每个哈希表项保存一个指针，指针指向冲突链表，在冲突链表里，相同哈希值的单词形成链表结构。之所以会有冲突链表，是因为两个不同单词获得相同的哈希值，如果是这样，在哈希方法里被称做是一次冲突，可以将相同哈希值的单词存储在链表里，以供后续查找。<br>​                       <img src="http://img.my.csdn.net/uploads/201209/10/1347269599_3828.jpg" alt="img"></p>
-<p>​                        图1-7  哈希加链表词典结构</p>
-<p>​       在建立索引的过程中，词典结构也会相应地被构建出来。比如在解析一个新文档的时候，对于某个在文档中出现的单词T，首先利用哈希函数获得其哈希值，之后根据哈希值对应的哈希表项读取其中保存的指针，就找到了对应的冲突链表。如果冲突链表里已经存在这个单词，说明单词在之前解析的文档里已经出现过。如果在冲突链表里没有发现这个单词，说明该单词是首次碰到，则将其加入冲突链表里。通过这种方式，当文档集合内所有文档解析完毕时，相应的词典结构也就建立起来了。</p>
-<p>​        在响应用户查询请求时，其过程与建立词典类似，不同点在于即使词典里没出现过某个单词，也不会添加到词典内。以图1-7为例，假设用户输入的查询请求为单词3，对这个单词进行哈希，定位到哈希表内的2号槽，从其保留的指针可以获得冲突链表，依次将单词3和冲突链表内的单词比较，发现单词3在冲突链表内，于是找到这个单词，之后可以读出这个单词对应的倒排列表来进行后续的工作，如果没有找到这个单词，说明文档集合内没有任何文档包含单词，则搜索结果为空。</p>
-<p><strong>4.2   树形结构</strong><br>​       B树（或者B+树）是另外一种高效查找结构，图1-8是一个 B树结构示意图。B树与哈希方式查找不同，需要字典项能够按照大小排序（数字或者字符序），而哈希方式则无须数据满足此项要求。<br>​       B树形成了层级查找结构，中间节点用于指出一定顺序范围的词典项目存储在哪个子树中，起到根据词典项比较大小进行导航的作用，最底层的叶子节点存储单词的地址信息，根据这个地址就可以提取出单词字符串。<br>​                  <img src="http://img.my.csdn.net/uploads/201209/10/1347269740_2402.jpg" alt="img"><br>​                                           图1-8  B树查找结构 </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">solr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">倒排索引</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Lucene</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/Solr的原理/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Solr开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/Solr开发/">Solr开发</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/15/Solr开发/" class="archive-article-date">
-  	<time datetime="2017-12-15T14:27:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Solr单机版的使用"><a href="#Solr单机版的使用" class="headerlink" title="Solr单机版的使用"></a>Solr单机版的使用</h1><p>在虚拟机上模拟solr单机版和集群的使用,和实际开发其实是差不多的</p>
-<p>准备tomcat  solr的安装包</p>
-<h2 id="1-安装单机版的solr"><a href="#1-安装单机版的solr" class="headerlink" title="1.安装单机版的solr"></a>1.安装单机版的solr</h2><p> mkdir  singleSolr<br> 在singleSolr目录下<br> 导入apache-tomcat-7.0.52  解压   重命名为tomcat-solr<br> 导入solr-4.10.3.tgz.tgz  tar zxvf  solr-4.10.3.tgz.tgz  </p>
-<h2 id="2-部署solr"><a href="#2-部署solr" class="headerlink" title="2.部署solr"></a>2.部署solr</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把war包放入 tomcat  webapp</span><br><span class="line">cp solr-4.10.3/example/webapps/solr.war  tomcat-solr/webapps/</span><br></pre></td></tr></table></figure>
-<h2 id="3-导入依赖jar包"><a href="#3-导入依赖jar包" class="headerlink" title="3.导入依赖jar包"></a>3.导入依赖jar包</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd solr-4.10.3/example/lib/ext/</span><br><span class="line">把ext下的所有jar包  复制到tomcat-solr/webapps/solr/WEB-INF/lib/</span><br><span class="line">复制到cp -r solr-4.10.3/example/lib/ext/*  tomcat-solr/webapps/solr/WEB-INF/lib/</span><br></pre></td></tr></table></figure>
-<h2 id="4-拷贝solr-4-10-3-example-solr到-singleSolr目录下"><a href="#4-拷贝solr-4-10-3-example-solr到-singleSolr目录下" class="headerlink" title="4.拷贝solr-4.10.3/example/solr到  singleSolr目录下"></a>4.拷贝solr-4.10.3/example/solr到  singleSolr目录下</h2><p>这一步是配置仓库的路径</p>
-<pre><code>cp -r solr-4.10.3/example/solr   .    注意 . 代表当前目录
-windows下配置 catalina.bat  set JAVA_OPTS=-&quot;Dsolr.solr.home=E:\solr&quot;
-Linux下配置   catalina.sh   export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot;
-</code></pre><h2 id="5-依赖类库"><a href="#5-依赖类库" class="headerlink" title="5.依赖类库"></a>5.依赖类库</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd solr-4.10.3/   </span><br><span class="line">拷贝solr-4.10./3 下的  contrib   contrib</span><br><span class="line">到4中的索引库目录下</span><br><span class="line">命令: cd  singleSolr/solr</span><br><span class="line">  cp  -r  ../solr-4.10.3/contrib/  ../solr-4.10.3/dist/  .    </span><br><span class="line">   不要忘记. 当前目录(singleSolr/solr)  ---&gt; 索引库的目录</span><br></pre></td></tr></table></figure>
-<h2 id="6-修改索引库下的配置-singleSolr-solr"><a href="#6-修改索引库下的配置-singleSolr-solr" class="headerlink" title="6.修改索引库下的配置(singleSolr/solr)"></a>6.修改索引库下的配置(singleSolr/solr)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mv collection1 item   --把索引库名字改成item</span><br><span class="line">cd  item/</span><br><span class="line">vim  core.properties   把name=collection1改为name=item</span><br><span class="line">这样索引库的名字才是修改成功了</span><br><span class="line"></span><br><span class="line">再修改配置文件</span><br><span class="line">cd  item/conf</span><br><span class="line">修改 item/conf下的   vim solrconfig.xml</span><br></pre></td></tr></table></figure>
-<p>  修改引入jar包的位置 </p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/extraction/lib"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-cell-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/clustering/lib/"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-clustering-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/langid/lib/"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-langid-\d.*\.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/contrib/velocity/lib"</span> <span class="attr">regex</span>=<span class="string">".*\.jar"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lib</span> <span class="attr">dir</span>=<span class="string">"$&#123;solr.install.dir:..&#125;/dist/"</span> <span class="attr">regex</span>=<span class="string">"solr-velocity-\d.*\.jar"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<pre><code>这一步做个说明  这个是solr的索引库的位置
-export JAVA_OPTS =&quot;-Dsolr.solr.home=/usr/local/hadoop/singleSolr/solr/&quot;
-</code></pre><h2 id="7-启动solr服务-查看是否配置成功"><a href="#7-启动solr服务-查看是否配置成功" class="headerlink" title="7.启动solr服务  查看是否配置成功"></a>7.启动solr服务  查看是否配置成功</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh  tomcat-solr/bin/startup.sh       		-- 启动sol服务</span><br><span class="line">tail -f  tomcat-solr/logs/catalina.out 	-- 查看进程</span><br></pre></td></tr></table></figure>
-<h2 id="8-安装ak分词器"><a href="#8-安装ak分词器" class="headerlink" title="8.安装ak分词器"></a>8.安装ak分词器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">首先需要在项目下导入jar包</span><br><span class="line">cd  /usr/local/hadoop/singleSolr/tomcat-solr/webapps/solr/WEB-INF/lib</span><br><span class="line"></span><br><span class="line">导入分词器的 jar包      IKAnalyzer2012FF_u1.jar</span><br><span class="line"></span><br><span class="line">在/usr/local/hadoop/singleSolr/tomcat-solr/webapps/solr/WEB-INF下导入分词器的配置文件</span><br><span class="line"></span><br><span class="line">创建  classes 文件夹(如过没有的话)</span><br><span class="line">ext.dic</span><br><span class="line">IKAnalyzer.cfg.xml</span><br><span class="line">log4j.properties</span><br><span class="line">stopword.dic</span><br><span class="line"></span><br><span class="line"> Ik分词器的环境准备好了</span><br></pre></td></tr></table></figure>
-<h2 id="9-再去配置索引仓库"><a href="#9-再去配置索引仓库" class="headerlink" title="9.再去配置索引仓库"></a>9.再去配置索引仓库</h2><pre><code>/usr/local/hadoop/singleSolr/solr/item/conf  下的 schema.xml 
-</code></pre><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置域字段类型,测试是否配置成功 --&gt;</span>  </span><br><span class="line"><span class="comment">&lt;!-- 域字段  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"username_ik"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置域类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"text_ik"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzer"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置好 --&gt;</span></span><br><span class="line"> sh tomcat-solr/bin/shutdown.sh</span><br><span class="line"><span class="comment">&lt;!--  让配置生效 --&gt;</span></span><br><span class="line"> sh tomcat-solr/bin/startup.sh</span><br><span class="line"><span class="comment">&lt;!--  查看进程 --&gt;</span></span><br><span class="line">tail -f tomcat-solr/logs/catalina.out</span><br></pre></td></tr></table></figure>
-<h2 id="10-要导入索引库"><a href="#10-要导入索引库" class="headerlink" title="10.要导入索引库"></a>10.要导入索引库</h2><p>问题1:</p>
-<pre><code>首先要配置索引域字段(创建数据库字段)
-应该把参与搜索的数据库数据导入索引库
-确定参与搜索字段:
-    商品表:id,title,sell_point,price,image
-    商品描述表:item_desc
-    商品分类表:category_name
-</code></pre><p>把以上三张表数据导入索引库,实现搜索业务<br>问题2:配置索引域字段<br>    一个字段对应需求导入索引库数据库的一个字段</p>
-<p>导入数据的过程:<br>    1.查询数据库(三张表)<br>    2.把查询数据库写入索引库</p>
-<p>注意:查询时要注意商品的状态<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.id,</span><br><span class="line">	a.title,</span><br><span class="line">	a.sell_point,</span><br><span class="line">	a.price,</span><br><span class="line">	a.image,</span><br><span class="line">	b.item_desc,</span><br><span class="line">	c.name category_name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  	tb_item a,</span><br><span class="line">  	tb_item_desc b,</span><br><span class="line"> 	tb_item_cat c</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	a.id = b.item_id</span><br><span class="line"><span class="keyword">AND</span></span><br><span class="line">	a.cid = c.id </span><br><span class="line"><span class="keyword">AND</span></span><br><span class="line">	a.status = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<p>索引域字段的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;field name=&quot;item_title&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_sell_point&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_price&quot; type=&quot;long&quot; indexed=&quot;true&quot; stored=&quot;true&quot;/&gt;</span><br><span class="line">&lt;field name=&quot;item_image&quot; type=&quot;string&quot; indexed=&quot;false&quot; stored=&quot;true&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_category_name&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_desc&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;false&quot; /&gt;</span><br><span class="line">&lt;field name=&quot;item_keywords&quot; type=&quot;text_ik&quot; indexed=&quot;true&quot; stored=&quot;false&quot; multiValued=&quot;true&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_title&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_sell_point&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_category_name&quot; dest=&quot;item_keywords&quot;/&gt;</span><br><span class="line">&lt;copyField source=&quot;item_desc&quot; dest=&quot;item_keywords&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>​<br>工作1:配置索引域字段—(创建数据库表字段)<br>问题1:应该把哪些数据导入索引库?</p>
-<pre><code>应该把参与搜索的数据库数据导入索引库
-确定参与搜索字段
-商品表:id,title,sell_point,price,image
-商品描述表:item_desc
-商品分类表:category_name
-
-以上三张表数据导入索引库,实现搜索业务
-</code></pre><p>问题2:配置索引域字段<br>    一个字段对应需求导入索引库</p>
-<pre><code>导入数据过程:    
-</code></pre><p>1.创建SearchItemMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询索引库域字段对应数据库值写入索引库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"cn.e3.search.mapper.SearchItemMapper"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findDataBaseToSolrIndex"</span> <span class="attr">resultType</span>=<span class="string">"searchItem"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		a.id,</span><br><span class="line">		a.title,</span><br><span class="line">		a.sell_point,</span><br><span class="line">		a.price,</span><br><span class="line">		a.image,</span><br><span class="line">		b.item_desc,</span><br><span class="line">		c.name category_name</span><br><span class="line">		FROM</span><br><span class="line">		tb_item a,</span><br><span class="line">		tb_item_desc b,</span><br><span class="line">		tb_item_cat c</span><br><span class="line">		WHERE</span><br><span class="line">		a.id = b.item_id</span><br><span class="line">		AND</span><br><span class="line">		a.cid = c.id</span><br><span class="line">		AND</span><br><span class="line">		a.status = 1;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.查询索引域字段对应数据值写入索引库   业务代码的实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 需求:查询索引域字段对应数据值写入索引库</span></span><br><span class="line"><span class="comment"> * 参数:无</span></span><br><span class="line"><span class="comment"> * 返回值:E3mallResult </span></span><br><span class="line"><span class="comment"> * 发布服务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E3mallResult <span class="title">findDataBaseToSolrIndex</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		List&lt;SearchItem&gt; list = searchItemMapper.findDataBaseToSolrIndex();</span><br><span class="line">		<span class="comment">//循环集合数据,把数据封装到doc文档对象,实现索引库的写入</span></span><br><span class="line">		<span class="keyword">for</span> (SearchItem searchItem : list) &#123;</span><br><span class="line">			<span class="comment">//创建一个文档对象,封装索引库域字段对应的值</span></span><br><span class="line">			SolrInputDocument doc = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">			<span class="comment">//封装文档域所对应的值</span></span><br><span class="line">			doc.addField(<span class="string">"id"</span>, searchItem.getId());</span><br><span class="line">			<span class="comment">//标题</span></span><br><span class="line">			doc.addField(<span class="string">"item_title"</span>, searchItem.getTitle());</span><br><span class="line">			<span class="comment">//卖点</span></span><br><span class="line">			doc.addField(<span class="string">"item_sell_point"</span>, searchItem.getSell_point());</span><br><span class="line">			<span class="comment">//价格</span></span><br><span class="line">			doc.addField(<span class="string">"item_price"</span>, searchItem.getPrice());</span><br><span class="line">			<span class="comment">//图片地址</span></span><br><span class="line">			doc.addField(<span class="string">"item_image"</span>, searchItem.getImage());</span><br><span class="line">			<span class="comment">//商品分类名称  item_category_name</span></span><br><span class="line">			doc.addField(<span class="string">"item_category_name"</span>, searchItem.getCategory_name());</span><br><span class="line">			<span class="comment">//商品描述  item_desc  </span></span><br><span class="line">			doc.addField(<span class="string">"item_desc"</span>, searchItem.getItem_desc());</span><br><span class="line">			<span class="comment">//写入索引库</span></span><br><span class="line">			solrServer.add(doc);</span><br><span class="line">		&#125;</span><br><span class="line">		solrServer.commit();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回值</span></span><br><span class="line">	<span class="keyword">return</span> E3mallResult.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Solr集群版的使用"><a href="#Solr集群版的使用" class="headerlink" title="Solr集群版的使用"></a>Solr集群版的使用</h1><h2 id="zookeeper原理"><a href="#zookeeper原理" class="headerlink" title="zookeeper原理:"></a>zookeeper原理:</h2><p>概念:zookeeper是一个服务协调者</p>
-<h3 id="1-注册中心-分布式服务"><a href="#1-注册中心-分布式服务" class="headerlink" title="1.注册中心(分布式服务)"></a>1.注册中心(分布式服务)</h3><p>​    把对象注册到注册中心,让服务消费者和服务提供者解耦合<br>​    让服务消费者和服务器提供者实现异步调用</p>
-<h3 id="2-配置中心-集群服务-本地模拟实现"><a href="#2-配置中心-集群服务-本地模拟实现" class="headerlink" title="2.配置中心(集群服务)   本地模拟实现:"></a>2.配置中心(集群服务)   本地模拟实现:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr1</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr2</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr3</span><br><span class="line">drwxr-xr-x.  6 root root      4096 12月 11 00:39 solr4</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:36 tomcat1</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat2</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat3</span><br><span class="line">drwxr-xr-x.  9 root root      4096 12月 11 00:38 tomcat4</span><br><span class="line">drwxr-xr-x. 10 git  games     4096 11月  5 2012 zookeeper1</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper2</span><br><span class="line">drwxr-xr-x. 10 root root      4096 12月 11 00:35 zookeeper3</span><br></pre></td></tr></table></figure>
-<p>配置集群redis集群<br>cd zookeeper1/conf  下<br>mv zoo_sample.cfg  zoo.cfg</p>
-<p>修改这三行:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/hadoop/clusterSolr/zookeeper1/data</span><br><span class="line">dataLogDir=/usr/local/hadoop/clusterSolr/zookeeper1/log</span><br><span class="line">clientPort=2182</span><br></pre></td></tr></table></figure>
-<p>配置集群之间通信:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.1=192.168.65.150:2881:3881</span><br><span class="line">server.2=192.168.65.150:2882:3882</span><br><span class="line">server.3=192.168.65.150:2883:3883</span><br></pre></td></tr></table></figure>
-<p>在zookeeper1下创建data和log<br>在data目录下<br> touch myid<br>  vim myid    写入:1<br>在zookeeper2下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:2<br>在zookeeper3下创建data和log<br>在data目录下<br> touch myid<br> vim myid    写入:3<br>三台同样操作</p>
-<h3 id="3-配置tomcat集群"><a href="#3-配置tomcat集群" class="headerlink" title="3.配置tomcat集群"></a>3.配置tomcat集群</h3><p>1.tomcat1<br>    vim tomcat1/conf/server.xml<br>    修给端口:  8010 9000  8011</p>
-<p>2.指定索引库的路径<br>设置tomcat启动时,启动solr,加载solr索引库的位置,还有zookeer的集群服务器地址IP<br>vim tomcat1/bin/catalina.sh<br>在catalina.sh中:<br>    export JAVA_OPTS =”-Dsolr.solr.home=/usr/local/hadoop/clusterSolr/solr1/ -DzkHost=192.168.65.150:2182,192.1<br>            68.65.150:2183,192.168.65.150:2184”<br>在配置tomcat1中的solr对应索引库solr1下:<br>vim   solr1/solr.xml<br>让监控端口和tomcat的启动端口一致</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">int</span> <span class="attr">name</span>=<span class="string">"hostPort"</span>&gt;</span>$&#123;jetty.port:9000&#125;<span class="tag">&lt;/<span class="name">int</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>重复4次上面的操作  修改相应的位置<br>8010 9001  8011<br>8012 9002  8013<br>8014 9003  8015<br>8016 9004  8017</p>
-<p>把 solr 集群配置文件交给 Zookeeper 注册中心管理<br>把仓库核心配置文件放入 Zookeeper 注册中心， 当 solr 集群需要加载配置文件，只需要从 Zookeeper 中获取配置文件。<br>./zkcli.sh -zkhost 192.168.65.150:2182,192.168.65.150:2183,192.168.65.150:2184 -cmd upconfig -confdir /usr/local/hadoop/clusterSolr/solr1/item/conf/ -confname myconf</p>
-<p>登录zookeeper集群:<br>命令:./zkCli.sh -server 192.168.65.150:2182<br>solr集群分片命令：<br><a href="http://192.168.65.150:9000/solr/admin/collections?action=CREATE&amp;name=products&amp;numShards=2&amp;replicationFactor=2&amp;maxShardsPerNode=8&amp;property.schema=schema.xml&amp;property.config=solrconfig.xml" target="_blank" rel="noopener">http://192.168.65.150:9000/solr/admin/collections?action=CREATE&amp;name=products&amp;numShards=2&amp;replicationFactor=2&amp;maxShardsPerNode=8&amp;property.schema=schema.xml&amp;property.config=solrconfig.xml</a><br>删除旧solrCloud集群分片：<br><a href="http://192.168.65.150:9000/solr/admin/collections?action=DELETE&amp;name=item" target="_blank" rel="noopener">http://192.168.65.150:9000/solr/admin/collections?action=DELETE&amp;name=item</a></p>
-<p>这样的话,solr集群就搭建完成了<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​     </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">solr</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solr集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/Solr开发/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1463,27 +1616,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">Autowired</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">垃圾回收</a>
+                <a href="javascript:void(0)" class="js-tag color4">Resource</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tomcat优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">Qualifier</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jvm参数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1495,11 +1640,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">map</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
+                <a href="javascript:void(0)" class="js-tag color5">垃圾回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tomcat优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jvm参数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1519,19 +1680,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Autowired</a>
+                <a href="javascript:void(0)" class="js-tag color4">map</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Resource</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qualifier</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
               </li>
              
               <li class="article-tag-list-item">
