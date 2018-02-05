@@ -170,6 +170,249 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Redis的五中数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/15/Redis的五中数据类型/">Redis的五种数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/15/Redis的五中数据类型/" class="archive-article-date">
+  	<time datetime="2017-12-15T03:27:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常用数据类型简介：</p>
+<h2 id="一-redis常用五种数据类型-string-hash-list-set-zset-sorted-set"><a href="#一-redis常用五种数据类型-string-hash-list-set-zset-sorted-set" class="headerlink" title="一,redis常用五种数据类型:string,hash,list,set,zset(sorted set)."></a>一,redis常用五种数据类型:string,hash,list,set,zset(sorted set).</h2><h3 id="1-String类型"><a href="#1-String类型" class="headerlink" title="1.String类型"></a>1.String类型</h3><p>String是最简单的类型，一个key对应一个value</p>
+<p>String类型的数据最大1G。<br>String类型的值可以被视作integer，从而可以让“INCR”命令族操作(incrby、decr、decrby),这种情况下，该integer的值限制在64位有符号数。<br>在list、set和zset中包含的独立的元素类型都是Redis String类型。</p>
+<h3 id="2-List类型"><a href="#2-List类型" class="headerlink" title="2.List类型"></a>2.List类型</h3><p>链表类型，主要功能是push、pop、获取一个范围的所有值等。其中的key可以理解为链表的名字。</p>
+<p>在Redis中，list就是Redis String的列表，按照插入顺序排序。比如使用LPUSH命令在list头插入一个元素，使用RPUSH命令在list的尾插入一个元素。当这两个命令之一作用于一个空的key时，一个新的list就创建出来了。</p>
+<p>List的最大长度是2^32-1个元素。</p>
+<h3 id="3-Set类型"><a href="#3-Set类型" class="headerlink" title="3.Set类型"></a>3.Set类型</h3><p>集合，和数学中的集合概念相似。操作中的key理解为集合的名字。</p>
+<p>在Redis中，set就是Redis String的无序集合，不允许有重复元素。</p>
+<p>Set的最大元素数是2^32-1。</p>
+<p>Redis中对set的操作还有交集、并集、差集等。</p>
+<h3 id="4-ZSet-Sorted-Set-类型"><a href="#4-ZSet-Sorted-Set-类型" class="headerlink" title="4.ZSet(Sorted Set)类型"></a>4.ZSet(Sorted Set)类型</h3><p>Zset是set的一个升级版本，在set的基础上增加了一个顺序属性，这一属性在添加修改元素时可以指定，每次指定后zset会自动安装指定值重新调整顺序。可以理解为一张表，一列存value，一列存顺序。操作中的key理解为zset的名字。</p>
+<p>Zset的最大元素数是2^32-1。</p>
+<p>对于已经有序的zset，仍然可以使用SORT命令，通过指定ASC|DESC参数对其进行排序。</p>
+<h3 id="5-hash类型"><a href="#5-hash类型" class="headerlink" title="5.hash类型"></a>5.hash类型</h3><p>hash是最接近关系数据库结构的数据类型，可以将数据库一条记录或程序中一个对象转换成hashmap存放在redis中。</p>
+<h2 id="二、jedis操作命令："><a href="#二、jedis操作命令：" class="headerlink" title="二、jedis操作命令："></a>二、jedis操作命令：</h2><h3 id="1-对value操作的命令"><a href="#1-对value操作的命令" class="headerlink" title="1.对value操作的命令"></a>1.对value操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> exists(key)：确认一个key是否存在</span><br><span class="line"></span><br><span class="line"> del(key)：删除一个key</span><br><span class="line"></span><br><span class="line"> type(key)：返回值的类型</span><br><span class="line"></span><br><span class="line"> keys(pattern)：返回满足给定pattern的所有key</span><br><span class="line"></span><br><span class="line"> randomkey：随机返回key空间的一个key</span><br><span class="line"></span><br><span class="line"> rename(oldname, newname)：将key由oldname重命名为newname，若newname存在则删除newname表示的key</span><br><span class="line"></span><br><span class="line"> dbsize：返回当前数据库中key的数目</span><br><span class="line"></span><br><span class="line"> expire：设定一个key的活动时间（s）</span><br><span class="line"></span><br><span class="line"> ttl：获得一个key的活动时间</span><br><span class="line"></span><br><span class="line"> select(index)：按索引查询</span><br><span class="line"></span><br><span class="line"> move(key, dbindex)：将当前数据库中的key转移到有dbindex索引的数据库</span><br><span class="line"></span><br><span class="line"> flushdb：删除当前选择数据库中的所有key</span><br><span class="line"></span><br><span class="line"> flushall：删除所有数据库中的所有key</span><br><span class="line">1234567891011121314151617181920212223242526</span><br></pre></td></tr></table></figure>
+<h3 id="2-对String操作的命令"><a href="#2-对String操作的命令" class="headerlink" title="2.对String操作的命令"></a>2.对String操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> set(key, value)：给数据库中名称为key的string赋予值value</span><br><span class="line"></span><br><span class="line"> get(key)：返回数据库中名称为key的string的value</span><br><span class="line"></span><br><span class="line"> getset(key, value)：给名称为key的string赋予上一次的value</span><br><span class="line"></span><br><span class="line"> mget(key1, key2,…, key N)：返回库中多个string（它们的名称为key1，key2…）的value     s</span><br><span class="line"></span><br><span class="line"> setnx(key, value)：如果不存在名称为key的string，则向库中添加string，名称为key，值为value</span><br><span class="line"></span><br><span class="line"> setex(key, time, value)：向库中添加string（名称为key，值为value）同时，设定过期时间time</span><br><span class="line"></span><br><span class="line"> mset(key1, value1, key2, value2,…key N, value N)：同时给多个string赋值，名称为key i的string赋值value i</span><br><span class="line"></span><br><span class="line"> msetnx(key1, value1, key2, value2,…key N, value N)：如果所有名称为key i的string都不存在，则向库中添加string，名称           key i赋值为value i</span><br><span class="line"></span><br><span class="line"> incr(key)：名称为key的string增1操作</span><br><span class="line"></span><br><span class="line"> incrby(key, integer)：名称为key的string增加integer</span><br><span class="line"></span><br><span class="line"> decr(key)：名称为key的string减1操作</span><br><span class="line"></span><br><span class="line"> decrby(key, integer)：名称为key的string减少integer</span><br><span class="line"></span><br><span class="line"> append(key, value)：名称为key的string的值附加value</span><br><span class="line"></span><br><span class="line"> substr(key, start, end)：返回名称为key的string的value的子串</span><br><span class="line">12345678910111213141516171819202122232425262728</span><br></pre></td></tr></table></figure>
+<h3 id="3-对List操作的命令"><a href="#3-对List操作的命令" class="headerlink" title="3.对List操作的命令"></a>3.对List操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> rpush(key, value)：在名称为key的list尾添加一个值为value的元素  </span><br><span class="line"></span><br><span class="line"> lpush(key, value)：在名称为key的list头添加一个值为value的 元素</span><br><span class="line"></span><br><span class="line"> llen(key)：返回名称为key的list的长度</span><br><span class="line"></span><br><span class="line"> lrange(key, start, end)：返回名称为key的list中start至end之间的元素（下标从0开始，下同）</span><br><span class="line"></span><br><span class="line"> ltrim(key, start, end)：截取名称为key的list，保留start至end之间的元素</span><br><span class="line"></span><br><span class="line"> lindex(key, index)：返回名称为key的list中index位置的元素</span><br><span class="line"></span><br><span class="line"> lset(key, index, value)：给名称为key的list中index位置的元素赋值为value</span><br><span class="line"></span><br><span class="line"> lrem(key, count, value)：删除count个名称为key的list中值为value的元素。count为0，删除所有值为value的元素，count&gt;0      从头至尾删除count个值为value的元素，count&lt;0从尾到头删除|count|个值为value的元素。</span><br><span class="line"></span><br><span class="line"> lpop(key)：返回并删除名称为key的list中的首元素</span><br><span class="line"></span><br><span class="line"> rpop(key)：返回并删除名称为key的list中的尾元素</span><br><span class="line"></span><br><span class="line"> blpop(key1, key2,… key N, timeout)：lpop 命令的block版本。即当timeout为0时，若遇到名称为key i的list不存在或该list为空，则命令结束。如果 timeout&gt;0，则遇到上述情况时，等待timeout秒，如果问题没有解决，则对key i+1开始的list执行pop操作。</span><br><span class="line"></span><br><span class="line"> brpop(key1, key2,… key N, timeout)：rpop的block版本。参考上一命令。</span><br><span class="line"></span><br><span class="line"> rpoplpush(srckey, dstkey)：返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</span><br><span class="line">1234567891011121314151617181920212223242526</span><br></pre></td></tr></table></figure>
+<h3 id="4-对Set操作的命令"><a href="#4-对Set操作的命令" class="headerlink" title="4.对Set操作的命令"></a>4.对Set操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> sadd(key, member)：向名称为key的set中添加元素member</span><br><span class="line"></span><br><span class="line"> srem(key, member) ：删除名称为key的set中的元素member</span><br><span class="line"></span><br><span class="line"> spop(key) ：随机返回并删除名称为key的set中一个元素  </span><br><span class="line"></span><br><span class="line"> smove(srckey, dstkey, member) ：将member元素从名称为srckey的集合移到名称为dstkey的集合</span><br><span class="line"></span><br><span class="line"> scard(key) ：返回名称为key的set的基数        </span><br><span class="line"></span><br><span class="line"> sismember(key, member) ：测试member是否是名称为key的set的元素</span><br><span class="line"></span><br><span class="line"> sinter(key1, key2,…key N) ：求交集</span><br><span class="line"></span><br><span class="line"> sinterstore(dstkey, key1, key2,…key N) ：求交集并将交集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line"> sunion(key1, key2,…key N) ：求并集</span><br><span class="line"></span><br><span class="line"> sunionstore(dstkey, key1, key2,…key N) ：求并集并将并集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line"> sdiff(key1, key2,…key N) ：求差集</span><br><span class="line"></span><br><span class="line"> sdiffstore(dstkey, key1, key2,…key N) ：求差集并将差集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line"> smembers(key) ：返回名称为key的set的所有元素</span><br><span class="line"></span><br><span class="line"> srandmember(key) ：随机返回名称为key的set的一个元素</span><br><span class="line">12345678910111213141516171819202122232425262728</span><br></pre></td></tr></table></figure>
+<h3 id="5-对zset（sorted-set）操作的命令"><a href="#5-对zset（sorted-set）操作的命令" class="headerlink" title="5.对zset（sorted set）操作的命令"></a>5.对zset（sorted set）操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> zadd(key, score, member)：向名称为key的zset中添加元素member，score用于排序。如果该元素已经存在，则根据score更新该元素的顺序。</span><br><span class="line"></span><br><span class="line"> zrem(key, member) ：删除名称为key的zset中的元素member</span><br><span class="line"></span><br><span class="line"> zincrby(key, increment, member) ：如果在名称为key的zset中已经存在元素member，则该元素的score增加increment；否则向集合中添加该元素，其score的值为increment</span><br><span class="line"></span><br><span class="line"> zrank(key, member) ：返回名称为key的zset（元素已按score从小到大排序）中member元素的rank（即index，从0开始），若没有member元素，返回“nil”</span><br><span class="line"></span><br><span class="line"> zrevrank(key, member) ：返回名称为key的zset（元素已按score从大到小排序）中member元素的rank（即index，从0开始），若没有member元素，返回“nil”</span><br><span class="line"></span><br><span class="line"> zrange(key, start, end)：返回名称为key的zset（元素已按score从小到大排序）中的index从start到end的所有元素</span><br><span class="line"></span><br><span class="line"> zrevrange(key, start, end)：返回名称为key的zset（元素已按score从大到小排序）中的index从start到end的所有元素</span><br><span class="line"></span><br><span class="line"> zrangebyscore(key, min, max)：返回名称为key的zset中score &gt;= min且score &lt;= max的所有元素</span><br><span class="line"></span><br><span class="line"> zcard(key)：返回名称为key的zset的基数</span><br><span class="line"></span><br><span class="line"> zscore(key, element)：返回名称为key的zset中元素element的score</span><br><span class="line"></span><br><span class="line"> zremrangebyrank(key, min, max)：删除名称为key的zset中rank &gt;= min且rank &lt;= max的所有元素</span><br><span class="line"></span><br><span class="line"> zremrangebyscore(key, min, max) ：删除名称为key的zset中score &gt;= min且score &lt;= max的所有元素</span><br><span class="line"></span><br><span class="line"> zunionstore / zinterstore(dstkeyN, key1,…,keyN, WEIGHTS w1,…wN, AGGREGATE SUM|MIN|MAX)：对N个zset求并集和交集，并将最后的集合保存在dstkeyN中。对于集合中每一个元素的score，在进行AGGREGATE运算前，都要乘以对于的WEIGHT参数。如果没有提供WEIGHT，默认为1。默认的AGGREGATE是SUM，即结果集合中元素的score是所有集合对应元素进行 SUM运算的值，而MIN和MAX是指，结果集合中元素的score是所有集合对应元素中最小值和最大值。</span><br><span class="line">1234567891011121314151617181920212223242526</span><br></pre></td></tr></table></figure>
+<h3 id="6-对Hash操作的命令"><a href="#6-对Hash操作的命令" class="headerlink" title="6.对Hash操作的命令"></a>6.对Hash操作的命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> hset(key, field, value)：向名称为key的hash中添加元素field&lt;—&gt;value</span><br><span class="line"></span><br><span class="line"> hget(key, field)：返回名称为key的hash中field对应的value</span><br><span class="line"></span><br><span class="line"> hmget(key, field1, …,field N)：返回名称为key的hash中field i对应的value</span><br><span class="line"></span><br><span class="line"> hmset(key, field1, value1,…,field N, value N)：向名称为key的hash中添加元素field i&lt;—&gt;value i</span><br><span class="line"></span><br><span class="line"> hincrby(key, field, integer)：将名称为key的hash中field的value增加integer</span><br><span class="line"></span><br><span class="line"> hexists(key, field)：名称为key的hash中是否存在键为field的域</span><br><span class="line"></span><br><span class="line"> hdel(key, field)：删除名称为key的hash中键为field的域</span><br><span class="line"></span><br><span class="line"> hlen(key)：返回名称为key的hash中元素个数</span><br><span class="line"></span><br><span class="line"> hkeys(key)：返回名称为key的hash中所有键</span><br><span class="line"></span><br><span class="line"> hvals(key)：返回名称为key的hash中所有键对应的value</span><br><span class="line"></span><br><span class="line"> hgetall(key)：返回名称为key的hash中所有的键（field）及其对应的value</span><br><span class="line">12345678910111213141516171819202122</span><br></pre></td></tr></table></figure>
+<h2 id="三、各种数据类型所对应的应用场景"><a href="#三、各种数据类型所对应的应用场景" class="headerlink" title="三、各种数据类型所对应的应用场景"></a>三、各种数据类型所对应的应用场景</h2><h3 id="1-String类型的应用场景"><a href="#1-String类型的应用场景" class="headerlink" title="1.String类型的应用场景"></a>1.String类型的应用场景</h3><p>String是最常用的一种数据类型,普通的key/value存储.</p>
+<h3 id="2-list类型的应用场景"><a href="#2-list类型的应用场景" class="headerlink" title="2.list类型的应用场景"></a>2.list类型的应用场景</h3><p>比较适用于列表式存储且顺序相对比较固定，例如：</p>
+<p>省份、城市列表</p>
+<p>品牌、厂商、车系、车型等列表</p>
+<p>拆车坊专题列表…</p>
+<h3 id="3-set类型的应用场景"><a href="#3-set类型的应用场景" class="headerlink" title="3.set类型的应用场景"></a>3.set类型的应用场景</h3><p>Set对外提供的功能与list类似,当需要存储一个列表数据,又不希望出现重复数据时,可选用set</p>
+<h3 id="4-zset-sorted-set-类型的应用场景"><a href="#4-zset-sorted-set-类型的应用场景" class="headerlink" title="4.zset(sorted set)类型的应用场景"></a>4.zset(sorted set)类型的应用场景</h3><p>zset的使用场景与set类似,区别是set不是自动有序的,而zset可以通过用户额外提供一个优先级(score)的参数来为成员排序,并且是插入有序的,即自动排序.当你需要一个有序的并且不重复的集合列表,那么可以选择zset数据结构。例如:</p>
+<p>根据PV排序的热门车系车型列表</p>
+<p>根据时间排序的新闻列表</p>
+<h3 id="5-hash类型的应用场景"><a href="#5-hash类型的应用场景" class="headerlink" title="5.hash类型的应用场景"></a>5.hash类型的应用场景</h3><p>类似于表记录的存储</p>
+<p>页面视图所需数据的存储</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nosql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/15/Redis的五中数据类型/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/mysql03/">mysql学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/mysql03/" class="archive-article-date">
+  	<time datetime="2017-11-28T06:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="01-多表查询-交叉查询【了解】"><a href="#01-多表查询-交叉查询【了解】" class="headerlink" title="01.多表查询_交叉查询【了解】"></a>01.多表查询_交叉查询【了解】</h4><pre><code>1.查询结果=左表的总记录数 * 右表的总记录数 -- 笛卡尔积
+</code></pre><h4 id="02-多表查询-内连接查询【重点掌握】"><a href="#02-多表查询-内连接查询【重点掌握】" class="headerlink" title="02.多表查询_内连接查询【重点掌握】"></a>02.多表查询_内连接查询【重点掌握】</h4><pre><code>1.隐式内连接【常用】：
+    1).格式：select 字段列表 from 表1,表2 where 表1和表2的等值关系;
+    2).例如：查询商品信息，要显示所对应类别信息
+        select * from products , category where products.category_id = catetory.cid;
+        只保留两个表的部分字段，使用表别名：
+        SELECT p.pname,p.price,c.cname FROM products p , category c WHERE p.category_id = c.cid;
+    3).练习：查询&quot;市&quot;的所有信息，并且显示对应的&quot;省名&quot;
+        SELECT c.cname AS &apos;市&apos;,p.pname AS &apos;省&apos; FROM city c,province p WHERE c.pid = p.pid;
+
+2.显示内连接：
+    1).格式：select 字段列表 from 表1 INNER JOIN 表2 ON 等值关系；
+    2).例如：查询商品信息，要显示所对应类别信息
+        select * from products p inner join category c on p.category_id = c.cid;
+    3).练习：查询&quot;市&quot;的所有信息，并且显示对应的&quot;省名&quot;
+        SELECT c.cname AS &apos;市&apos;,p.pname AS &apos;省&apos; from city c inner join province p on c.pid = p.pid;
+注意：
+1.内连接的查询结果：两个表中的等值记录；
+2.两种内连接都可以再添加其它where条件：
+    隐式内连接：select .. from 表1,表2 where 等值条件 and 其它条件...
+    显示内连接：select .. from 表1 inner join 表2 on 等值条件 where 其它条件....
+3.两种查询的格式说明：
+    隐式内连接：select .. from 表1,表2 on 等值条件//错误
+    显示内连接：select .. from 表1 inner join 表2 where 等值条件//OK的
+</code></pre><h4 id="03-多表查询-外连接查询【重点掌握】"><a href="#03-多表查询-外连接查询【重点掌握】" class="headerlink" title="03.多表查询_外连接查询【重点掌握】"></a>03.多表查询_外连接查询【重点掌握】</h4><pre><code>1.左外连接查询：
+    1).格式：select 字段列表 from 表1 left join 表2 on 等值关系;
+    2).查询结果：左表的所有记录，和右表的等值记录;
+    3).例如：需求：查询出所有商品(包括没有类别的商品)，有类别的商品要显示类别名称。
+        SELECT * FROM products p LEFT JOIN category c ON p.category_id = c.cid;
+
+2.右外连接查询：
+    1).格式：select 字段列表 from 表1 right join 表2 on 等值关系；
+    2).查询结果：右表的所有记录，和左表中的等值记录；
+    3).例如：需求：查询出所有的商品类别，如果类别下有商品的，要同时显示商品信息；
+        SELECT * FROM products p RIGHT JOIN category c ON p.category_id = c.cid;
+</code></pre><h4 id="04-子查询【重点掌握】"><a href="#04-子查询【重点掌握】" class="headerlink" title="04.子查询【重点掌握】"></a>04.子查询【重点掌握】</h4><pre><code>1.在一个查询内部，可以再写一个查询，这个写在内部的查询就叫：子查询；
+2.子查询的结果可以作为另一个查询：判断条件，表使用。
+3.例子：查询价格高于&quot;劲霸&quot;的商品信息；
+    SELECT * FROM products WHERE price &gt; (SELECT price FROM products WHERE pname = &apos;劲霸&apos;);
+4.练习：
+    1).查询化妆品类别的商品信息
+       a).使用多表连接查询：
+        select * from products p , category c where p.category_id = c.cid and c.cname = &apos;化妆品&apos;;
+       b).使用子查询(单表查询)
+        SELECT * FROM products WHERE category_id = (SELECT cid FROM category WHERE cname = &apos;化妆品&apos;);
+       c).使用子查询作为第三张表：select * from (子查询)
+        SELECT * FROM products p ,(SELECT * FROM category WHERE cname = &apos;化妆品&apos;) c WHERE p.category_id = c.cid;
+    2).查询所有&quot;家电&quot;,&quot;服饰&quot;类商品的信息：
+        select * from products where category_id = 1 or category_id = 2;
+        改进：
+        select * from products where category_id in (1,2);
+        改进：
+        select * from products where category_id in (select cid from category where cname in (&apos;家电&apos;,&apos;服饰&apos;));
+</code></pre><h4 id="学习目标总结："><a href="#学习目标总结：" class="headerlink" title="学习目标总结："></a>学习目标总结：</h4><p>1，能够使用内连接进行多表查询<br>a，    说出内连接的两种查询方式</p>
+<pre><code>1.隐式内连接
+2.显示内连接
+</code></pre><p>b，    写出显式内连接的SQL语句<br>        select <em> from products p inner join category c on p.category_id = c.cid;<br>c，    写出隐式内连接的SQL语句<br>        select </em> from products p , category c where p.category_id = c.cid;<br>2，能够使用外连接进行多表查询<br>a，    说出外连接的两种查询方式<br>        1.左外查询<br>        2.右外查询<br>b，    写出左外连接的SQL语句<br>        select <em> from products p left join category c on p.category_id = c.cid;//所有左表中的记录，和右表的等值记录<br>c，    写出右外连接的SQL语句<br>        select </em> from products p right join category c on p.category_id = c.cid;//所有右表中的记录，和左表的等值记录<br>3，能够使用子查询进行多表查询<br>    select * from products where category_id in (select cid from category where cname in (‘家电’,’服饰’));</p>
+<p>扩展：三表联查：<br>    1.隐式内连接：使用user表，role表，user_role表进行测试<br>        select <em> from users u , role r,user_role ur where u.uid = ur.uid and ur.rid = r.rid;<br>    2.显示内连接：<br>        select </em> from users u inner join user_role ur on u.uid = ur.uid inner join role r on ur.rid = r.rid;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/28/mysql03/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -566,22 +809,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Autowired</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Resource</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Qualifier</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Component</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -614,6 +841,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
               </li>
              
@@ -630,11 +865,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">map</a>
+                <a href="javascript:void(0)" class="js-tag color5">Autowired</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
+                <a href="javascript:void(0)" class="js-tag color4">Resource</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Qualifier</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Component</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
