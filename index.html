@@ -170,6 +170,413 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SpringBoot常用配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/SpringBoot常用配置/">SpringBoot常用配置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/SpringBoot常用配置/" class="archive-article-date">
+  	<time datetime="2018-03-21T06:35:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SpringBoot常用配置"><a href="#SpringBoot常用配置" class="headerlink" title="SpringBoot常用配置"></a>SpringBoot常用配置</h2><h3 id="1-SPRING-CONFIG"><a href="#1-SPRING-CONFIG" class="headerlink" title="1. SPRING CONFIG"></a>1. SPRING CONFIG</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.config.name    </span><br><span class="line"># 配置文件名称，默认为application </span><br><span class="line">spring.config.location  </span><br><span class="line">#配置文件存放位置，默认为classpath目录下</span><br></pre></td></tr></table></figure>
+<h3 id="2-mvc"><a href="#2-mvc" class="headerlink" title="2.mvc"></a>2.mvc</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">spring.mvc.async.request-timeout </span><br><span class="line">#设定async请求的超时时间，以毫秒为单位，如果没有设置的话，以具体实现的超时时间为准，比如tomcat的servlet3的话是10秒. </span><br><span class="line">spring.mvc.date-format = yyyy-MM-dd HH:mm:ss</span><br><span class="line">#设定日期的格式，比如dd/MM/yyyy或者yyyy-MM-dd HH:mm:ss</span><br><span class="line">spring.mvc.favicon.enabled </span><br><span class="line">#是否支持favicon.ico，默认为: true </span><br><span class="line">spring.mvc.ignore-default-model-on-redirect </span><br><span class="line">#在重定向时是否忽略默认model的内容，默认为true </span><br><span class="line">spring.mvc.locale </span><br><span class="line">#指定使用的Locale. </span><br><span class="line">spring.mvc.message-codes-resolver-format </span><br><span class="line">#指定message codes的格式化策略(PREFIX_ERROR_CODE,POSTFIX_ERROR_CODE). </span><br><span class="line">spring.mvc.view.prefix </span><br><span class="line">#指定mvc视图的前缀. </span><br><span class="line">spring.mvc.view.suffix </span><br><span class="line">#指定mvc视图的后缀.</span><br></pre></td></tr></table></figure>
+<h3 id="3-view"><a href="#3-view" class="headerlink" title="3.view"></a>3.view</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.view.prefix </span><br><span class="line">#设定mvc视图的前缀. </span><br><span class="line">spring.view.suffix </span><br><span class="line">#设定mvc视图的后缀.</span><br></pre></td></tr></table></figure>
+<h3 id="4-resource"><a href="#4-resource" class="headerlink" title="4.resource"></a>4.resource</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">spring.resources.add-mappings </span><br><span class="line">#是否开启默认的资源处理，默认为true </span><br><span class="line">spring.resources.cache-period </span><br><span class="line">#设定资源的缓存时效，以秒为单位. </span><br><span class="line">spring.resources.chain.cache </span><br><span class="line">#是否开启缓存，默认为: true </span><br><span class="line">spring.resources.chain.enabled </span><br><span class="line">#是否开启资源 handling chain，默认为false </span><br><span class="line">spring.resources.chain.html-application-cache </span><br><span class="line">#是否开启h5应用的cache manifest重写，默认为: false </span><br><span class="line">spring.resources.chain.strategy.content.enabled </span><br><span class="line">#是否开启内容版本策略，默认为false </span><br><span class="line">spring.resources.chain.strategy.content.paths </span><br><span class="line">#指定要应用的版本的路径，多个以逗号分隔，默认为:[/**] </span><br><span class="line">spring.resources.chain.strategy.fixed.enabled </span><br><span class="line">#是否开启固定的版本策略，默认为false </span><br><span class="line">spring.resources.chain.strategy.fixed.paths </span><br><span class="line">#指定要应用版本策略的路径，多个以逗号分隔 </span><br><span class="line">spring.resources.chain.strategy.fixed.version </span><br><span class="line">#指定版本策略使用的版本号 </span><br><span class="line">spring.resources.static-locations </span><br><span class="line">#指定静态资源路径，默认为classpath:[/META-INF/resources/,/resources/, /static/, /public/]以及context:/</span><br></pre></td></tr></table></figure>
+<h3 id="5-multipart"><a href="#5-multipart" class="headerlink" title="5.multipart"></a>5.multipart</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">multipart.enabled </span><br><span class="line">#是否开启文件上传支持，默认为true </span><br><span class="line">multipart.file-size-threshold </span><br><span class="line">#设定文件写入磁盘的阈值，单位为MB或KB，默认为0 </span><br><span class="line">multipart.location </span><br><span class="line">#指定文件上传路径. </span><br><span class="line">multipart.max-file-size </span><br><span class="line">#指定文件大小最大值，默认1MB </span><br><span class="line">multipart.max-request-size </span><br><span class="line">#指定每次请求的最大值，默认为10MB</span><br></pre></td></tr></table></figure>
+<h3 id="6-freemarker"><a href="#6-freemarker" class="headerlink" title="6.freemarker"></a>6.freemarker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">spring.freemarker.allow-request-override </span><br><span class="line">#指定HttpServletRequest的属性是否可以覆盖controller的model的同名项 </span><br><span class="line">spring.freemarker.allow-session-override </span><br><span class="line">#指定HttpSession的属性是否可以覆盖controller的model的同名项 </span><br><span class="line">spring.freemarker.cache </span><br><span class="line">#是否开启template caching. </span><br><span class="line">spring.freemarker.charset </span><br><span class="line">#设定Template的编码. </span><br><span class="line">spring.freemarker.check-template-location </span><br><span class="line">#是否检查templates路径是否存在. </span><br><span class="line">spring.freemarker.content-type </span><br><span class="line">#设定Content-Type. </span><br><span class="line">spring.freemarker.enabled </span><br><span class="line">#是否允许mvc使用freemarker. </span><br><span class="line">spring.freemarker.expose-request-attributes </span><br><span class="line">#设定所有request的属性在merge到模板的时候，是否要都添加到model中. </span><br><span class="line">spring.freemarker.expose-session-attributes </span><br><span class="line">#设定所有HttpSession的属性在merge到模板的时候，是否要都添加到model中. </span><br><span class="line">spring.freemarker.expose-spring-macro-helpers </span><br><span class="line">#设定是否以springMacroRequestContext的形式暴露RequestContext给Spring’s macro library使用 </span><br><span class="line">spring.freemarker.prefer-file-system-access </span><br><span class="line">#是否优先从文件系统加载template，以支持热加载，默认为true </span><br><span class="line">spring.freemarker.prefix </span><br><span class="line">#设定freemarker模板的前缀. </span><br><span class="line">spring.freemarker.request-context-attribute </span><br><span class="line">#指定RequestContext属性的名. </span><br><span class="line">spring.freemarker.settings </span><br><span class="line">#设定FreeMarker keys. </span><br><span class="line">spring.freemarker.suffix </span><br><span class="line">#设定模板的后缀. </span><br><span class="line">spring.freemarker.template-loader-path </span><br><span class="line">#设定模板的加载路径，多个以逗号分隔，默认: [“classpath:/templates/”] </span><br><span class="line">spring.freemarker.view-names </span><br><span class="line">#指定使用模板的视图列表.</span><br></pre></td></tr></table></figure>
+<h3 id="7-http"><a href="#7-http" class="headerlink" title="7.http"></a>7.http</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring.hateoas.apply-to-primary-object-mapper </span><br><span class="line">#设定是否对object mapper也支持HATEOAS，默认为: true </span><br><span class="line">spring.http.converters.preferred-json-mapper </span><br><span class="line">#是否优先使用JSON mapper来转换. </span><br><span class="line">spring.http.encoding.charset </span><br><span class="line">#指定http请求和相应的Charset，默认: UTF-8 </span><br><span class="line">spring.http.encoding.enabled </span><br><span class="line">#是否开启http的编码支持，默认为true </span><br><span class="line">spring.http.encoding.force </span><br><span class="line">#是否强制对http请求和响应进行编码，默认为true</span><br></pre></td></tr></table></figure>
+<h3 id="8-json"><a href="#8-json" class="headerlink" title="8.json"></a>8.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">spring.jackson.date-format </span><br><span class="line">#指定日期格式，比如yyyy-MM-dd HH:mm:ss，或者具体的格式化类的全限定名 </span><br><span class="line">spring.jackson.deserialization </span><br><span class="line">#是否开启Jackson的反序列化 </span><br><span class="line">spring.jackson.generator </span><br><span class="line">#是否开启json的generators. </span><br><span class="line">spring.jackson.joda-date-time-format </span><br><span class="line">#指定Joda date/time的格式，比如yyyy-MM-dd HH:mm:ss). 如果没有配置的话，dateformat会作为backup </span><br><span class="line">spring.jackson.locale </span><br><span class="line">#指定json使用的Locale. </span><br><span class="line">spring.jackson.mapper </span><br><span class="line">#是否开启Jackson通用的特性. </span><br><span class="line">spring.jackson.parser </span><br><span class="line">#是否开启jackson的parser特性. </span><br><span class="line">spring.jackson.property-naming-strategy </span><br><span class="line">#指定PropertyNamingStrategy (CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES)或者指定PropertyNamingStrategy子类的全限定类名. </span><br><span class="line">spring.jackson.serialization </span><br><span class="line">#是否开启jackson的序列化. </span><br><span class="line">spring.jackson.serialization-inclusion </span><br><span class="line">#指定序列化时属性的inclusion方式，具体查看JsonInclude.Include枚举. </span><br><span class="line">spring.jackson.time-zone </span><br><span class="line">#指定日期格式化时区，比如America/Los_Angeles或者GMT+10.</span><br></pre></td></tr></table></figure>
+<h4 id="9-LOGGING"><a href="#9-LOGGING" class="headerlink" title="9.LOGGING"></a>9.LOGGING</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logging.path=/var/logs </span><br><span class="line">logging.file=myapp.log </span><br><span class="line">logging.config= # location of config file (default classpath:logback.xml for logback) </span><br><span class="line">logging.level.*= # levels for loggers, e.g. “logging.level.org.springframework=DEBUG” (TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF)</span><br></pre></td></tr></table></figure>
+<h4 id="10-IDENTITY-ContextIdApplicationContextInitializer"><a href="#10-IDENTITY-ContextIdApplicationContextInitializer" class="headerlink" title="10.IDENTITY (ContextIdApplicationContextInitializer)"></a>10.IDENTITY (ContextIdApplicationContextInitializer)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.application.name= </span><br><span class="line">spring.application.index=</span><br></pre></td></tr></table></figure>
+<h4 id="11-EMBEDDED-SERVER-CONFIGURATION-ServerProperties"><a href="#11-EMBEDDED-SERVER-CONFIGURATION-ServerProperties" class="headerlink" title="11.EMBEDDED SERVER CONFIGURATION (ServerProperties)"></a>11.EMBEDDED SERVER CONFIGURATION (ServerProperties)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">server.port=8080 </span><br><span class="line">server.address= # bind to a specific NIC </span><br><span class="line">server.session-timeout= # session timeout in seconds </span><br><span class="line">server.context-parameters.*= # Servlet context init parameters, e.g. server.context-parameters.a=alpha </span><br><span class="line">server.context-path= # the context path, defaults to ‘/’ </span><br><span class="line">server.servlet-path= # the servlet path, defaults to ‘/’ </span><br><span class="line">server.ssl.enabled=true # if SSL support is enabled </span><br><span class="line">server.ssl.client-auth= # want or need </span><br><span class="line">server.ssl.key-alias= </span><br><span class="line">server.ssl.ciphers= # supported SSL ciphers </span><br><span class="line">server.ssl.key-password= </span><br><span class="line">server.ssl.key-store= </span><br><span class="line">server.ssl.key-store-password= </span><br><span class="line">server.ssl.key-store-provider= </span><br><span class="line">server.ssl.key-store-type= </span><br><span class="line">server.ssl.protocol=TLS </span><br><span class="line">server.ssl.trust-store= </span><br><span class="line">server.ssl.trust-store-password= </span><br><span class="line">server.ssl.trust-store-provider= </span><br><span class="line">server.ssl.trust-store-type= </span><br><span class="line">server.tomcat.access-log-pattern= # log pattern of the access log </span><br><span class="line">server.tomcat.access-log-enabled=false # is access logging enabled </span><br><span class="line">server.tomcat.internal-proxies=10\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;|\ </span><br><span class="line">192\.168\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;|\ </span><br><span class="line">169\.254\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;|\ </span><br><span class="line">127\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125; # regular expression matching trusted IP addresses </span><br><span class="line">server.tomcat.protocol-header=x-forwarded-proto # front end proxy forward header </span><br><span class="line">server.tomcat.port-header= # front end proxy port header </span><br><span class="line">server.tomcat.remote-ip-header=x-forwarded-for </span><br><span class="line">server.tomcat.basedir=/tmp # base dir (usually not needed, defaults to tmp) </span><br><span class="line">server.tomcat.background-processor-delay=30; # in seconds </span><br><span class="line">server.tomcat.max-http-header-size= # maximum size in bytes of the HTTP message header </span><br><span class="line">server.tomcat.max-threads = 0 # number of threads in protocol handler </span><br><span class="line">server.tomcat.uri-encoding = UTF-8 # character encoding to use for URL decoding</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/SpringBoot常用配置/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringBoot热部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/SpringBoot热部署/">SpringBoot热部署</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/SpringBoot热部署/" class="archive-article-date">
+  	<time datetime="2018-03-21T06:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SpringBoot热部署"><a href="#SpringBoot热部署" class="headerlink" title="SpringBoot热部署"></a>SpringBoot热部署</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">是在发现代码有更改之后，重新启动应用，但是速度比手动停止后再启动更快。其深层原理是使</span><br><span class="line">用了两个ClassLoader，一个Classloader加载那些不会改变的类(第三方Jar包),另一个ClassLoa</span><br><span class="line">der加载会更改的类，称为restart ClassLoader,这样在有代码更改的时候，原来的restart</span><br><span class="line">ClassLoader被丢弃，重新创建一个restart ClassLoader，由于需要加载的类相比较少，所以实现了较快的重启时间。</span><br><span class="line">即devtools会监听classpath下的文件变动，并且会立即重启应用（发生在保存时机）</span><br></pre></td></tr></table></figure>
+<h3 id="IDEA开启SpringBoot热启动"><a href="#IDEA开启SpringBoot热启动" class="headerlink" title="IDEA开启SpringBoot热启动"></a>IDEA开启SpringBoot热启动</h3><h4 id="一、开启idea自动make功能"><a href="#一、开启idea自动make功能" class="headerlink" title="一、开启idea自动make功能"></a>一、开启idea自动make功能</h4><p>1、CTRL + SHIFT + A –&gt; 查找make project automatically –&gt; 选中</p>
+<p><img src="http://ozaomob5f.bkt.clouddn.com/images/180202/5D2jHikmkd.png?imageslim" alt="mark"></p>
+<p>2、CTRL + SHIFT + A –&gt; 查找Registry –&gt; 找到并勾选compiler.automake.allow.when.app.running <img src="http://ozaomob5f.bkt.clouddn.com/images/180202/ECEEA18F3I.png?imageslim" alt="mark"></p>
+<ol>
+<li>最后重启idea</li>
+</ol>
+<h3 id="二、使用spring-boot-1-3开始有的热部署功能"><a href="#二、使用spring-boot-1-3开始有的热部署功能" class="headerlink" title="二、使用spring-boot-1.3开始有的热部署功能"></a>二、使用spring-boot-1.3开始有的热部署功能</h3><h4 id="1、加maven依赖"><a href="#1、加maven依赖" class="headerlink" title="1、加maven依赖"></a>1、加maven依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、开启热部署"><a href="#2、开启热部署" class="headerlink" title="2、开启热部署"></a>2、开启热部署</h4><p>复制代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span>//该配置必须</span><br><span class="line">             <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/SpringBoot热部署/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/Mybatis03/">Mybatis03</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/Mybatis03/" class="archive-article-date">
+  	<time datetime="2018-03-21T06:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="动态的sql"><a href="#动态的sql" class="headerlink" title="动态的sql"></a>动态的sql</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.itheima.dao.UserMapper"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        sql: 定义sql片段,抽取公共的sql</span></span><br><span class="line"><span class="comment">        id: 定义sql片段的唯一标识</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"userSqlWhere"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">	 		<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"user.sex !=null and user.sex !='' "</span>&gt;</span></span><br><span class="line">	 			sex = #&#123;user.sex&#125;</span><br><span class="line">	 		<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	 		<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"user.username !=null and user.username !=''  "</span>&gt;</span></span><br><span class="line">				and username like "%"#&#123;user.username&#125;"%"</span><br><span class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	 	<span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 查询姓张的用户,性别为男 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		不使用where标签</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- &lt;select id="findUserWithSexAndUsername" parameterType="QueryVo" resultType="user"&gt;</span></span><br><span class="line"><span class="comment">		select * from user </span></span><br><span class="line"><span class="comment">		where 1=1</span></span><br><span class="line"><span class="comment">		&lt;if test="user.sex !=null and user.sex !='' "&gt;</span></span><br><span class="line"><span class="comment">			sex=#&#123;user.sex&#125; </span></span><br><span class="line"><span class="comment">		&lt;/if&gt;</span></span><br><span class="line"><span class="comment">		&lt;if test="user.username !=null and user.username !=''  "&gt;</span></span><br><span class="line"><span class="comment">			and username like "%"#&#123;user.username&#125;"%"</span></span><br><span class="line"><span class="comment">		&lt;/if&gt; </span></span><br><span class="line"><span class="comment">	&lt;/select&gt; --&gt;</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		使用where标签</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithSexAndUsername"</span> <span class="attr">parameterType</span>=<span class="string">"QueryVo"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">		select * from user </span><br><span class="line">		<span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">	 		<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"user.sex !=null and user.sex !='' "</span>&gt;</span></span><br><span class="line">	 			sex = #&#123;user.sex&#125;</span><br><span class="line">	 		<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	 		<span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"user.username !=null and user.username !=''  "</span>&gt;</span></span><br><span class="line">				and username like "%"#&#123;user.username&#125;"%"</span><br><span class="line">			<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	 	<span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 	查询性别为男,姓张的用户的总条数</span></span><br><span class="line"><span class="comment">	 	where标签 :自动生成where条件,不需要的时候自动去掉and</span></span><br><span class="line"><span class="comment">	  --&gt;</span></span><br><span class="line">	</span><br><span class="line">	 <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithCount"</span> <span class="attr">parameterType</span>=<span class="string">"QueryVo"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">	 	select count(1) from user</span><br><span class="line">		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			include: 引入sql片段</span></span><br><span class="line"><span class="comment">			id: 通过id引入sql片段</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"userSqlWhere"</span>/&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	 </span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 	需求: </span></span><br><span class="line"><span class="comment">	 	 	向sql传递数组或List，mybatis使用foreach解析，</span></span><br><span class="line"><span class="comment">	 	 如下：</span></span><br><span class="line"><span class="comment">	 	 	SELECT * FROM USER  WHERE id= 24 OR id =25 OR id =39;</span></span><br><span class="line"><span class="comment">			SELECT * FROM USER  WHERE id IN (24,25,39);</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			SELECT * FROM USERS WHERE username LIKE '%张%' AND (id =10 OR id =89 OR id=16)</span></span><br><span class="line"><span class="comment">			SELECT * FROM USERS WHERE username LIKE '%张%'  id IN (10,89,16)</span></span><br><span class="line"><span class="comment">	  --&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithListOr"</span> <span class="attr">parameterType</span>=<span class="string">"queryVo"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">	  	  SELECT * FROM user</span><br><span class="line">	  	  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">	  	  	 <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ids!= null and ids.size &gt; 0"</span>&gt;</span></span><br><span class="line">	  	  	 	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	  	  	 		foreach:循环遍历标签,此时foreach用来循环遍历queryVo里面的ids集合</span></span><br><span class="line"><span class="comment">	  	  	 		item:临时遍量,把每次获取的值存储在item中</span></span><br><span class="line"><span class="comment">	  	  	 		open:以什么开始,循环以什么开始</span></span><br><span class="line"><span class="comment">	  	  	 		separator:循环的间隔符号</span></span><br><span class="line"><span class="comment">	  	  	 		close:循环以什么结束</span></span><br><span class="line"><span class="comment">	  	  	 	 --&gt;</span></span><br><span class="line">	  	  	 	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span>  <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">separator</span>=<span class="string">"OR"</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">	  	  	 		id=#&#123;id&#125;</span><br><span class="line">	  	  	 	<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">	  	  	 <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	  	  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	  </span><br><span class="line">	  </span><br><span class="line">	   <span class="comment">&lt;!--  SELECT * FROM USER  WHERE id IN (24,25,39); --&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithListIn"</span> <span class="attr">parameterType</span>=<span class="string">"queryVo"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">	  	  SELECT * FROM user</span><br><span class="line">	  	  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">	  	  	 <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ids!= null and ids.size &gt; 0"</span>&gt;</span></span><br><span class="line">	  	  	 	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span>  <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"and id in("</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">	  	  	 		#&#123;id&#125;</span><br><span class="line">	  	  	 	<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">	  	  	 <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">	  	  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/Mybatis03/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/Mybatis02/">Mybatis02</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/Mybatis02/" class="archive-article-date">
+  	<time datetime="2018-03-05T03:14:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mybatis参数传递"><a href="#Mybatis参数传递" class="headerlink" title="Mybatis参数传递"></a>Mybatis参数传递</h2><hr>
+<h3 id="1-传递简单类型"><a href="#1-传递简单类型" class="headerlink" title="1.传递简单类型"></a>1.传递简单类型</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 根据id查询 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithID"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"com.itheima.pojo.User"</span>&gt;</span></span><br><span class="line">	select * from user where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span>	</span><br><span class="line">	</span><br><span class="line"><span class="comment">&lt;!-- 根据用户名模糊查询  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithLikeUsername"</span> <span class="attr">parameterType</span>=<span class="string">"string"</span> <span class="attr">resultType</span>=<span class="string">"com.itheima.pojo.User"</span>&gt;</span></span><br><span class="line">	select * from user where username like "%"#&#123;username&#125;"%"</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 根据用户名模糊查询  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithLikeUsername"</span> <span class="attr">parameterType</span>=<span class="string">"string"</span> <span class="attr">resultType</span>=<span class="string">"com.itheima.pojo.User"</span>&gt;</span></span><br><span class="line">	select * from user where username like "%"#&#123;username&#125;"%"</span><br><span class="line">	// 最好不要使用 *  来查询 </span><br><span class="line">	select * from  user where username like concat('%',#&#123;username&#125;,'%')</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-传递多个参数类型-不同类型时"><a href="#2-传递多个参数类型-不同类型时" class="headerlink" title="2.传递多个参数类型,不同类型时"></a>2.传递多个参数类型,不同类型时</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Param("page") Integer page</span><br><span class="line"></span><br><span class="line">@Param("pageSize") Integer pageSize</span><br><span class="line"></span><br><span class="line">@Param("username") String  username</span><br></pre></td></tr></table></figure>
+<h3 id="3-传递pojo对象"><a href="#3-传递pojo对象" class="headerlink" title="3.传递pojo对象"></a>3.传递pojo对象</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"saveUser2"</span> <span class="attr">parameterType</span>=<span class="string">"com.itheima.pojo.User"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			selectKey:查询用户主键,保存时候查询</span></span><br><span class="line"><span class="comment">			keyProperty:查询结果映射主键的名称</span></span><br><span class="line"><span class="comment">			order:主键生成策略,主键是sql语句执行后生成的</span></span><br><span class="line"><span class="comment">			resultType:指定返回的类型</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span> <span class="attr">order</span>=<span class="string">"AFTER"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">			SELECT LAST_INSERT_ID()</span><br><span class="line">		<span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line">		insert into user values(#&#123;id&#125;,#&#123;username&#125;,#&#123;birthday&#125;,#&#123;sex&#125;,#&#123;address&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-传递pojo包装对象"><a href="#4-传递pojo包装对象" class="headerlink" title="4.传递pojo包装对象"></a>4.传递pojo包装对象</h3><p>开发中通过pojo传递查询条件 ，查询条件是综合的查询条件，不仅包括用户查询条件还包括其它的查询条件（比如将用户购买商品信息也作为查询条件），这时可以使用包装对象传递输入参数。Pojo类中包含pojo。</p>
+<p>需求：根据用户名查询用户信息，查询条件放到QueryVo的user属性中</p>
+<p>POJO类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueryVo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> User user;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.user = user;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mapper文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    使用包装类型查询用户使用ognl从对象中取属性值，</span></span><br><span class="line"><span class="comment">    如果是包装对象可以使用.操作符来取内容部的属性</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserByQueryVo"</span> <span class="attr">parameterType</span>=<span class="string">"queryvo"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user where username like '%$&#123;user.username&#125;%'</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Mybatis返回参数"><a href="#Mybatis返回参数" class="headerlink" title="Mybatis返回参数"></a>Mybatis返回参数</h2><h3 id="1-resultType"><a href="#1-resultType" class="headerlink" title="1. resultType"></a>1. resultType</h3><h4 id="1-1-输出简单类型——resultType"><a href="#1-1-输出简单类型——resultType" class="headerlink" title="1.1 输出简单类型——resultType"></a>1.1 输出简单类型——resultType</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithCount"</span> <span class="attr">parameterType</span>=<span class="string">"QueryVo"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">	 	select count(1) from user</span><br><span class="line">	 	where sex = #&#123;user.sex&#125;</span><br><span class="line">	 	and username  like  "%"#&#123;user.username&#125;"%" </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 注意使用 concat('%',#&#123;...&#125;,'%')  --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithCount"</span> <span class="attr">parameterType</span>=<span class="string">"QueryVo"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">	 	select count(1) from user</span><br><span class="line">	 	where sex = #&#123;user.sex&#125;</span><br><span class="line">	 	and username  like  concat('%',#&#123;user.username&#125;,'%')</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-2-输出POJO类型——resultType"><a href="#1-2-输出POJO类型——resultType" class="headerlink" title="1.2 输出POJO类型——resultType"></a>1.2 输出POJO类型——resultType</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 需求:查询订单,关联查询用户,实现一对一关联查询,使用resultType进行关系映射 --&gt;</span>	  </span><br><span class="line">	 <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findOrderswithUserOneToOne"</span>     <span class="attr">resultType</span>=<span class="string">"OrderCustomer"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		orders.id,</span><br><span class="line">		orders.user_id userId,</span><br><span class="line">		orders.number,</span><br><span class="line">		orders.createtime createTime,</span><br><span class="line">		orders.note,</span><br><span class="line">		user.*</span><br><span class="line">		FROM orders,USER </span><br><span class="line">		WHERE orders.user_id = user.id;</span><br><span class="line">	 <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-3-输出POJO类型——-输出pojo列表"><a href="#1-3-输出POJO类型——-输出pojo列表" class="headerlink" title="1.3 输出POJO类型——-输出pojo列表"></a>1.3 输出POJO类型——-输出pojo列表</h4><p>需求:查询订单,关联查询用户,实现一对一关联查询,使用resultType进行关系映射</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.itheima.dao.OrdersMapper"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		需求:查询订单,关联查询用户,实现一对一关联查询,使用resultType进行关系映射</span></span><br><span class="line"><span class="comment">	 --&gt;</span>	  </span><br><span class="line">	 <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findOrderswithUserOneToOne"</span>  <span class="attr">resultType</span>=<span class="string">"OrderCustomer"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		orders.id,</span><br><span class="line">		orders.user_id userId,</span><br><span class="line">		orders.number,</span><br><span class="line">		orders.createtime createTime,</span><br><span class="line">		orders.note,</span><br><span class="line">		user.*</span><br><span class="line">		FROM orders,USER </span><br><span class="line">		WHERE orders.user_id = user.id;</span><br><span class="line">	 <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	 </span><br><span class="line">	 </span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 	定义map关系映射</span></span><br><span class="line"><span class="comment">	 	resultMap: 定义查询列名和javabean属性名称一一对应关系映射标签</span></span><br><span class="line"><span class="comment">	 	type:查询结果返回值类型</span></span><br><span class="line"><span class="comment">	 	id:resultMap的唯一</span></span><br><span class="line"><span class="comment">	  --&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"orders"</span> <span class="attr">id</span>=<span class="string">"orderMap"</span>&gt;</span></span><br><span class="line">	 	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 		id:定义主键映射关系</span></span><br><span class="line"><span class="comment">	 		column:查询列表</span></span><br><span class="line"><span class="comment">	 		property:javabean属性名称</span></span><br><span class="line"><span class="comment">	 	 --&gt;</span></span><br><span class="line">	 	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 	 	result :定义普通属性的关系映射</span></span><br><span class="line"><span class="comment">	 	 	column :查询列名</span></span><br><span class="line"><span class="comment">	 	 	property:javabean属性名称</span></span><br><span class="line"><span class="comment">	 	 --&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span>  <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span>  <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span>  <span class="attr">property</span>=<span class="string">"createTime"</span>/&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span>  <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">	 	 </span><br><span class="line">	 	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	 	 	association:用户描述一对一关系映射属性</span></span><br><span class="line"><span class="comment">	 	 	property: 指定映射的属性</span></span><br><span class="line"><span class="comment">	 	 	javaType: 指定映射属性类型</span></span><br><span class="line"><span class="comment">	 	  --&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span> <span class="attr">javaType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"birthday"</span> <span class="attr">property</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line">	 	 <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">	 	 </span><br><span class="line">	 <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line">	 </span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		需求:查询订单,关联查询用户,实现一对一关联查询,使用resultMap进行关系映射</span></span><br><span class="line"><span class="comment">	 --&gt;</span>	  </span><br><span class="line">	 <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findOrderswithUserOneToOneMap"</span>  <span class="attr">resultMap</span>=<span class="string">"orderMap"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		*</span><br><span class="line">		FROM orders,user </span><br><span class="line">		WHERE orders.user_id = user.id;</span><br><span class="line">	 <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-ResultMap"><a href="#2-ResultMap" class="headerlink" title="2.ResultMap"></a>2.ResultMap</h3><h4 id="2-1-输出POJO类型"><a href="#2-1-输出POJO类型" class="headerlink" title="2.1 输出POJO类型"></a>2.1 输出POJO类型</h4><p>需求: 查询用户关联查询订单</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.itheima.dao.UserMapper"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		需求:查询用户关联查询订单</span></span><br><span class="line"><span class="comment">		只能使用resultMap进行关系映射,不能使用ResultType</span></span><br><span class="line"><span class="comment">	 --&gt;</span>	</span><br><span class="line">	 <span class="comment">&lt;!-- 定义关系映射的Map --&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"user"</span> <span class="attr">id</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"birthday"</span> <span class="attr">property</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line"> 	 	</span><br><span class="line"> 	 	<span class="comment">&lt;!-- 一个用户对应多个订单 --&gt;</span></span><br><span class="line"> 	 	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment"> 	 		collection:定义一对多的关系映射</span></span><br><span class="line"><span class="comment"> 	 		property:表示映射user中的那个属性</span></span><br><span class="line"><span class="comment"> 	 		ofType:指定映射对象最终类型</span></span><br><span class="line"><span class="comment"> 	 	 --&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"oList"</span> <span class="attr">ofType</span>=<span class="string">"orders"</span>&gt;</span></span><br><span class="line"> 	 		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"oid"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span>  <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span>  <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span>  <span class="attr">property</span>=<span class="string">"createTime"</span>/&gt;</span></span><br><span class="line">	 	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span>  <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line"> 	 	<span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line">	 </span><br><span class="line">	   </span><br><span class="line">	 <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserWithOrders"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">	 	 SELECT </span><br><span class="line">	 	 user.*,</span><br><span class="line">	 	 orders.id oid ,</span><br><span class="line">	 	 orders.user_id,</span><br><span class="line">	 	 orders.number,</span><br><span class="line">	 	 orders.createtime,</span><br><span class="line">	 	 orders.user_id</span><br><span class="line">	 	 FROM USER ,orders</span><br><span class="line">	 	 WHERE user.id = orders.user_id;</span><br><span class="line">	 <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>User类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> Date birthday;</span><br><span class="line">	<span class="keyword">private</span> String sex;</span><br><span class="line">	<span class="keyword">private</span> String address;</span><br><span class="line">	<span class="comment">//一个用户对应多个订单</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Orders&gt; oList;</span><br><span class="line">	.....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Orders类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Orders</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="keyword">private</span> Integer userId;</span><br><span class="line">	<span class="keyword">private</span> String number;</span><br><span class="line">	<span class="keyword">private</span> Date createTime;</span><br><span class="line">	<span class="keyword">private</span> String note;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/Mybatis02/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/Mybatis01/">Mybatis01</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/Mybatis01/" class="archive-article-date">
+  	<time datetime="2018-02-05T03:14:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Mybatis中-select"><a href="#1-Mybatis中-select" class="headerlink" title="1.Mybatis中 select"></a>1.Mybatis中 select</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"selectByChannelCode"</span> resultType=<span class="string">"com.zhongfl.tiejun.api.channel.model.ChannelVisitDetail"</span>&gt;        </span><br><span class="line">    SELECT</span><br><span class="line">    &lt;include refid=<span class="string">"Base_Column_List"</span>/&gt;</span><br><span class="line">    FROM  channel_visit_detail</span><br><span class="line">    WHERE   channel_code = #&#123;channelCode&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Mybatis中-insert"><a href="#2-Mybatis中-insert" class="headerlink" title="2. Mybatis中 insert"></a>2. Mybatis中 insert</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"insert"</span> parameterType=<span class="string">"com.zhongfl.tiejun.api.channel.model.ChannelOperationLog"</span>&gt;</span><br><span class="line">    insert into channel_operationlog_log</span><br><span class="line">    &lt;trim prefix=<span class="string">"("</span> suffix=<span class="string">")"</span> suffixOverrides=<span class="string">","</span>&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"channelId != null"</span>&gt;</span><br><span class="line">        channel_id,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"operType != null"</span>&gt;</span><br><span class="line">        oper_type,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"sourceLevel != null"</span>&gt;</span><br><span class="line">        source_level,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"targetLevel != null"</span>&gt;</span><br><span class="line">        target_level,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"remark != null"</span>&gt;</span><br><span class="line">        remark,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"modifiedBy != null"</span>&gt;</span><br><span class="line">        modified_by,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">        oper_time,</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">    &lt;trim prefix=<span class="string">"values ("</span> suffix=<span class="string">")"</span> suffixOverrides=<span class="string">","</span>&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"channelId != null"</span>&gt;</span><br><span class="line">        #&#123;channelId&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"operType != null"</span>&gt;</span><br><span class="line">        #&#123;operType&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"sourceLevel != null"</span>&gt;</span><br><span class="line">        #&#123;sourceLevel&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"targetLevel != null"</span>&gt;</span><br><span class="line">        #&#123;targetLevel&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"remark != null"</span>&gt;</span><br><span class="line">        #&#123;remark&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">      &lt;<span class="keyword">if</span> test=<span class="string">"modifiedBy != null"</span>&gt;</span><br><span class="line">        #&#123;modifiedBy&#125;,</span><br><span class="line">      &lt;/if&gt;</span><br><span class="line">        now(),</span><br><span class="line">    &lt;/trim&gt;</span><br><span class="line">  &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-注意模糊查询-concat-‘-’-custName-’-’-的使用"><a href="#3-注意模糊查询-concat-‘-’-custName-’-’-的使用" class="headerlink" title="3.注意模糊查询 concat(‘%’,#{custName},’%’)的使用"></a>3.注意模糊查询 concat(‘%’,#{custName},’%’)的使用</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 根据分页条件查询 客户信息 --&gt;</span><br><span class="line">    &lt;select id=<span class="string">"findByConditions"</span></span><br><span class="line">            parameterType=<span class="string">"com.example.demo.domain.QueryVo"</span></span><br><span class="line">            resultType=<span class="string">"com.example.demo.domain.Customer"</span>&gt;</span><br><span class="line">        SELECT</span><br><span class="line">        a.cust_id custId,</span><br><span class="line">        a.cust_createtime custCreatetime,</span><br><span class="line">        a.cust_linkman custLinkman,</span><br><span class="line">        a.cust_address custAddress,</span><br><span class="line">        a.cust_name custName,</span><br><span class="line">        b.dict_item_name custSource,</span><br><span class="line">        c.dict_item_name custIndustry,</span><br><span class="line">        d.dict_item_name custLevel,</span><br><span class="line">        a.cust_phone custPhone,</span><br><span class="line">        a.cust_mobile custMobile</span><br><span class="line">        FROM customer a ,base_dict b ,base_dict c , base_dict d</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            a.cust_source = b.dict_id</span><br><span class="line">            AND a.cust_industry= c.dict_id</span><br><span class="line">            AND a.cust_level = d.dict_id</span><br><span class="line">            &lt;<span class="keyword">if</span> test=<span class="string">"custName != null and custName != '' "</span>&gt;</span><br><span class="line">                AND a.<span class="function">cust_name LIKE <span class="title">concat</span><span class="params">(<span class="string">'%'</span>,#&#123;custName&#125;,<span class="string">'%'</span>)</span></span></span><br><span class="line"><span class="function">            &lt;/<span class="keyword">if</span>&gt;</span></span><br><span class="line"><span class="function">            &lt;<span class="keyword">if</span> test</span>=<span class="string">"custSource != null and custSource != '' "</span>&gt;</span><br><span class="line">                AND a.cust_source = #&#123;custSource&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;<span class="keyword">if</span> test=<span class="string">"custIndustry != null and custIndustry != '' "</span>&gt;</span><br><span class="line">                AND a.cust_industry = #&#123;custIndustry&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;<span class="keyword">if</span> test=<span class="string">"custLevel != null  and custLevel != '' "</span>&gt;</span><br><span class="line">                AND a.cust_level = #&#123;custLevel&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">        &lt;<span class="keyword">if</span> test=<span class="string">"startNum != null "</span>&gt;</span><br><span class="line">            LIMIT #&#123;page&#125;,#&#123;pageSize&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/Mybatis01/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-oracle04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -934,594 +1341,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/设计模式/">设计模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/28/设计模式/" class="archive-article-date">
-  	<time datetime="2017-12-28T15:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-单列设计模式"><a href="#1-单列设计模式" class="headerlink" title="1.单列设计模式"></a>1.单列设计模式</h1><p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
-<p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
-<p><strong>注意：</strong></p>
-<p>1、单例类只能有一个实例。</p>
-<p>2、单例类必须自己创建自己的唯一实例。</p>
-<p>3、单例类必须给所有其他对象提供这一实例。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><strong>意图：</strong>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
-<p><strong>主要解决：</strong>一个全局使用的类频繁地创建与销毁。</p>
-<p><strong>何时使用：</strong>当您想控制实例数目，节省系统资源的时候。</p>
-<p><strong>如何解决：</strong>判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</p>
-<p><strong>关键代码：</strong>构造函数是私有的。</p>
-<p><strong>应用实例：</strong> 1、一个党只能有一个主席。 2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。 3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</p>
-<p><strong>优点：</strong> 1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。 2、避免对资源的多重占用（比如写文件操作）。</p>
-<p><strong>缺点：</strong>没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p>
-<p><strong>使用场景：</strong> 1、要求生产唯一序列号。 2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。 3、创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</p>
-<p><strong>注意事项：</strong>getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test1;</span><br><span class="line"></span><br><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *类一加载,单列初始化已经完成,保证getInstance的时候,单列已经是存在的了</span></span><br><span class="line"><span class="comment"> *所有懒汉式是线程安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</span><br><span class="line">	<span class="comment">//直接创建对象</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> SingleTon instance = <span class="keyword">new</span> SingleTon();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//私有化构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span></span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//返回对象实列</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> * 只有当调用getInstance的时候,才去初始化单列,是线程非安全的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleTon</span> </span>&#123;</span><br><span class="line">	<span class="comment">//声明变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> SingleTon singleton = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//私有化构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">SingleTon</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//提供对方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleTon <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (SingleTon.class) &#123;</span><br><span class="line">				singleton = <span class="keyword">new</span> SingleTon();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-装饰模式"><a href="#2-装饰模式" class="headerlink" title="2.装饰模式"></a>2.装饰模式</h1><p>装饰者模式</p>
-<p>Decorator模式（别名Wrapper）：动态将职责附加到对象上，若要扩展功能，装饰者提供了比继承更具弹性的代替方案。</p>
-<p>意图：</p>
-<p>动态地给一个对象添加一些额外的职责。就增加功能来说，Decorator模式相比生成子类更为灵活。</p>
-<p>设计原则：</p>
-<ol>
-<li>多用组合，少用继承。</li>
-</ol>
-<p>利用继承设计子类的行为，是在编译时静态决定的，而且所有的子类都会继承到相同的行为。然而，如果能够利用组合的做法扩展对象的行为，就可以在运行时动态地进行扩展。</p>
-<ol>
-<li>类应设计的对扩展开放，对修改关闭。</li>
-</ol>
-<p>要点：</p>
-<p>1． 装饰者和被装饰对象有相同的超类型。</p>
-<p>2． 可以用一个或多个装饰者包装一个对象。</p>
-<p>3． 装饰者可以在所委托被装饰者的行为之前或之后，加上自己的行为，以达到特定的目的。</p>
-<p>4． 对象可以在任何时候被装饰，所以可以在运行时动态的，不限量的用你喜欢的装饰者来装饰对象。</p>
-<p>5． 装饰模式中使用继承的关键是想达到装饰者和被装饰对象的类型匹配，而不是获得其行为。</p>
-<p>6． 装饰者一般对组件的客户是透明的，除非客户程序依赖于组件的具体类型。在实际项目中可以根据需要为装饰者添加新的行为，做到“半透明”装饰者。</p>
-<p>7． 适配器模式的用意是改变对象的接口而不一定改变对象的性能，而装饰模式的用意是保持接口并增加对象的职责。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Component：</span><br><span class="line"></span><br><span class="line">定义一个对象接口，可以给这些对象动态地添加职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Component</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Concrete Component：</span><br><span class="line"></span><br><span class="line">定义一个对象，可以给这个对象添加一些职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteComponent</span> <span class="keyword">implements</span> <span class="title">Component</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">// Write your code here</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Decorator：</span><br><span class="line"></span><br><span class="line">维持一个指向Component对象的引用，并定义一个与 Component接口一致的接口。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">implements</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Component component)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.component = component;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		component.operation();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Component component;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Concrete Decorator：</span><br><span class="line"></span><br><span class="line">在Concrete Component的行为之前或之后，加上自己的行为，以“贴上”附加的职责。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//addBehavior也可以在前面</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">super</span>.operation();</span><br><span class="line">		</span><br><span class="line">		addBehavior();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addBehavior</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//your code</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/28/设计模式/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-map集合遍历的四种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/map集合遍历的四种方式/">map集合遍历的四种方式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/28/map集合遍历的四种方式/" class="archive-article-date">
-  	<time datetime="2017-12-28T15:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="map集合遍历的方式"><a href="#map集合遍历的方式" class="headerlink" title="map集合遍历的方式"></a>map集合遍历的方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">        map.put(<span class="number">1</span>, <span class="string">"a"</span>);</span><br><span class="line">        map.put(<span class="number">2</span>, <span class="string">"b"</span>);</span><br><span class="line">        map.put(<span class="number">3</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);</span><br><span class="line">        map.put(<span class="number">4</span>, <span class="string">"ab"</span>);<span class="comment">// 和上面相同 ， 会自己筛选</span></span><br><span class="line">        System.out.println(map.size());</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 第一种：</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Set&lt;Integer&gt; set = map.keySet(); //得到所有key的集合</span></span><br><span class="line"><span class="comment">         * </span></span><br><span class="line"><span class="comment">         * for (Integer in : set) &#123; String str = map.get(in);</span></span><br><span class="line"><span class="comment">         * System.out.println(in + "     " + str); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"第一种：通过Map.keySet遍历key和value："</span>);</span><br><span class="line">        <span class="keyword">for</span> (Integer in : map.keySet()) &#123;</span><br><span class="line">            <span class="comment">//map.keySet()返回的是所有key的值</span></span><br><span class="line">            String str = map.get(in);<span class="comment">//得到每个key多对用value的值</span></span><br><span class="line">            System.out.println(in + <span class="string">"     "</span> + str);</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第二种：</span></span><br><span class="line">        System.out.println(<span class="string">"第二种：通过Map.entrySet使用iterator遍历key和value："</span>);</span><br><span class="line">        Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; it = map.entrySet().iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">             Map.Entry&lt;Integer, String&gt; entry = it.next();</span><br><span class="line">               System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第三种：推荐，尤其是容量大时</span></span><br><span class="line">        System.out.println(<span class="string">"第三种：通过Map.entrySet遍历key和value"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            <span class="comment">//Map.entry&lt;Integer,String&gt; 映射项（键-值对）  有几个方法：用上面的名字entry</span></span><br><span class="line">            <span class="comment">//entry.getKey() ;entry.getValue(); entry.setValue();</span></span><br><span class="line">            <span class="comment">//map.entrySet()  返回此映射中包含的映射关系的 Set视图。</span></span><br><span class="line">            System.out.println(<span class="string">"key= "</span> + entry.getKey() + <span class="string">" and value= "</span></span><br><span class="line">                    + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 第四种：</span></span><br><span class="line">        System.out.println(<span class="string">"第四种：通过Map.values()遍历所有的value，但不能遍历key"</span>);</span><br><span class="line">        <span class="keyword">for</span> (String v : map.values()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"value= "</span> + v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">map遍历</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/28/map集合遍历的四种方式/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Autowired-Resource-Qualifier的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/Autowired-Resource-Qualifier的区别/">@Autowired @Resource @Qualifier的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/28/Autowired-Resource-Qualifier的区别/" class="archive-article-date">
-  	<time datetime="2017-12-28T12:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Spring中Bean的配置"><a href="#Spring中Bean的配置" class="headerlink" title="Spring中Bean的配置"></a>Spring中Bean的配置</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">id:名称 保证唯一 不要出现特殊符号</span><br><span class="line">class:类的全限定名(不论是继承类还是类本身都可以)</span><br><span class="line">scope:声明bean的作用范围</span><br><span class="line">常见值:</span><br><span class="line">        singlton:单例 (默认值)</span><br><span class="line">        prototype:多例</span><br></pre></td></tr></table></figure>
-<h1 id="Spring常用的注解"><a href="#Spring常用的注解" class="headerlink" title="Spring常用的注解"></a>Spring常用的注解</h1><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171228/GeDba62BeJ.png?imageslim" alt="mark"></p>
-<p>  <img src="http://ozaomob5f.bkt.clouddn.com/images/171228/lm1faI8clm.png?imageslim" alt="mark"></p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171228/3D5fjCHiGi.png?imageslim" alt="mark"></p>
-<h1 id="Spring中-Autowired-Resource-Qualifie"><a href="#Spring中-Autowired-Resource-Qualifie" class="headerlink" title="Spring中@Autowired,@Resource ,@Qualifie"></a>Spring中@Autowired,@Resource ,@Qualifie</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span> <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd "</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 配置注解代替xml配置Bean开关</span></span><br><span class="line"><span class="comment">		 base-package: 指定扫描哪些包中的注解</span></span><br><span class="line"><span class="comment">		 	1.可以使用逗号分隔多个包名</span></span><br><span class="line"><span class="comment">		 	2.cn.itcast =&gt; 所有以cn.itcast开头的包都包含</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.itcast"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"car1"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.domain.Car"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"布加迪威航"</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"color"</span> <span class="attr">value</span>=<span class="string">"绿色"</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"car2"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.domain.Car"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"兰博基尼"</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"color"</span> <span class="attr">value</span>=<span class="string">"粉色"</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这种情况自动注入就会失败</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span> </span><br><span class="line"><span class="keyword">private</span>  Car  car ;</span><br><span class="line">报错: 自动注入失败,没有找到唯一的car对象</span><br></pre></td></tr></table></figure>
-<p>解决1 :</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span> </span><br><span class="line"><span class="meta">@Qualifie</span>(<span class="string">"car1"</span>)</span><br><span class="line"><span class="keyword">private</span>  Car  car ;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Autowired</span> </span><br><span class="line"><span class="meta">@Qualifie</span>(<span class="string">"car2"</span>)</span><br><span class="line"><span class="keyword">private</span>  Car  car ;</span><br></pre></td></tr></table></figure>
-<p>解决2 :</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span>(name=<span class="string">"car"</span>)</span><br><span class="line"><span class="keyword">private</span>  Car  car ;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Autowired</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Resource</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Qualifier</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Component</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/28/Autowired-Resource-Qualifier的区别/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM参数设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/JVM参数设置/">JVM参数设置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/24/JVM参数设置/" class="archive-article-date">
-  	<time datetime="2017-12-24T07:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-tomcat调优"><a href="#1-tomcat调优" class="headerlink" title="1.tomcat调优:"></a>1.tomcat调优:</h2><p>通过优化tomcat提高网站的并发能力。</p>
-<p>1.优化配置在conf/ tomcat-users.xml下添加用户：</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"manager"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">rolerolename="manager-gui"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">"admin"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">rolerolename="admin-gui"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">"tomcat"</span> <span class="attr">password</span>=<span class="string">"tomcat"</span><span class="attr">roles</span>=<span class="string">"admin-gui,admin,manager-gui,manager"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>启动tomcat，登录查看信息：<a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a></p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/4JG15lBAf3.png?imageslim" alt="mark"></p>
-<p>tomcat的运行模式有3种：</p>
-<p>1、  bio<br>默认的模式,性能非常低下,没有经过任何优化处理和支持.</p>
-<p>2、  nio<br>==nio(new I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性能。==</p>
-<p>3、  apr<br>安装起来最困难,但是从操作系统级别来解决异步的IO问题,大幅度的提高性能.</p>
-<h2 id="2-启动NIO模式"><a href="#2-启动NIO模式" class="headerlink" title="2 .启动NIO模式"></a>2 .启动NIO模式</h2><p>修改server.xml里的Connector节点,修改protocol为org.apache.coyote.http11.Http11NioProtocol</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span>   <span class="attr">protocol</span>=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span>    <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span>  <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-执行器（线程池）"><a href="#3-执行器（线程池）" class="headerlink" title="3.执行器（线程池）"></a>3.执行器（线程池）</h2><p>在tomcat中每一个用户请求都是一个线程，所以可以使用线程池提高性能。</p>
-<p>开启并且使用</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/4m3bhaFHK2.png?imageslim" alt="mark"></p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/G3JAla02a2.png?imageslim" alt="mark"></p>
-<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>threadPriority  （优先级）</td>
-<td>(int) The thread priority for threads in the executor,  the default is <code>5</code> (the value of the<code>Thread.NORM_PRIORITY</code> constant)</td>
-</tr>
-<tr>
-<td>daemon（守护进程）</td>
-<td>(boolean) Whether the threads should be daemon threads or  not, the default is <code>true</code></td>
-</tr>
-<tr>
-<td>namePrefix（名称前缀）</td>
-<td>(String) The name prefix for each thread created by the  executor. The thread name for an individual thread will be <code>namePrefix+threadNumber</code></td>
-</tr>
-<tr>
-<td>maxThreads（最大线程数）</td>
-<td>(int) The max number of active threads in this pool,  default is <code>200</code></td>
-</tr>
-<tr>
-<td>minSpareThreads（最小活跃线程数）</td>
-<td>(int) The minimum number of threads always kept alive,  default is <code>25</code></td>
-</tr>
-<tr>
-<td>maxIdleTime(空闲线程等待时间)</td>
-<td>(int) The number of milliseconds before an idle thread  shutsdown, unless the number of active threads are less or equal to  minSpareThreads. Default value is <code>60000</code>(1 minute)</td>
-</tr>
-<tr>
-<td>maxQueueSize（最大的等待队里数，超过则请求拒绝）</td>
-<td>(int) The maximum number of runnable tasks that can queue  up awaiting execution before we reject them. Default value is <code>Integer.MAX_VALUE</code></td>
-</tr>
-<tr>
-<td>prestartminSpareThreads（是否在启动时就生成minSpareThreads个线程）</td>
-<td>(boolean) Whether minSpareThreads should be started when  starting the Executor or not, the default is <code>false</code></td>
-</tr>
-<tr>
-<td>threadRenewalDelay（重建线程的时间间隔）</td>
-<td>(long) If a <a href="http://127.0.0.1:8080/docs/config/listeners.html" target="_blank" rel="noopener">ThreadLocalLeakPreventionListener</a> is configured, it will notify this  executor about stopped contexts. After a context is stopped, threads in the  pool are renewed. To avoid renewing all threads at the same time, this option  sets a delay between renewal of any 2 threads. The value is in ms, default  value is <code>1000</code> ms. If value is negative, threads  are not renewed.  。重建线程池内的线程时，为了避免线程同时重建，每隔threadRenewalDelay（单位： ms ）重建一个线程。默认值为1000 ，设置为负则不重建</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-连接器（Connector）"><a href="#4-连接器（Connector）" class="headerlink" title="4. 连接器（Connector）"></a>4. 连接器（Connector）</h2><p>Connector是Tomcat接收请求的入口，每个Connector有自己专属的监听端口</p>
-<p>Connector有两种：HTTP Connector和AJPConnector</p>
-<p>…….</p>
-<p>这里东西很多   具体看 文档</p>
-<h2 id="5-禁用AJP连接器"><a href="#5-禁用AJP连接器" class="headerlink" title="5.禁用AJP连接器    "></a>5.禁用AJP连接器    </h2><p>AJP（Apache JServerProtocol）</p>
-<p>AJPv13协议是面向包的。WEB服务器和Servlet容器通过TCP连接来交互；为了节省SOCKET创建的昂贵代价，WEB服务器会尝试维护一个永久TCP连接到servlet容器，并且在多个请求和响应周期过程会重用连接。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/g3mc2K6aHg.png?imageslim" alt="mark"></p>
-<p>我们一般是使用Nginx+tomcat的架构，所以用不着AJP协议，所以把AJP连接器禁用。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/meDmH1D599.png?imageslim" alt="mark"></p>
-<p>在管理界面中看不到ajp了：</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/kHaGCDg8Kk.png?imageslim" alt="mark"></p>
-<h2 id="6-JVM参数的优化"><a href="#6-JVM参数的优化" class="headerlink" title="6.JVM参数的优化"></a>6.JVM参数的优化</h2><p>适当调整Tomcat的运行JVM参数可以提升整体性能</p>
-<h3 id="6-1-JVM内存模型"><a href="#6-1-JVM内存模型" class="headerlink" title="6.1 JVM内存模型"></a>6.1 JVM内存模型</h3><h4 id="6-1-1-Java栈"><a href="#6-1-1-Java栈" class="headerlink" title="6.1.1.  Java栈"></a>6.1.1.  Java栈</h4><p>​    Java栈是与每一个线程关联的，JVM在创建每一个线程的时候，会分配一定的栈空间给线程。它主要用来存储线程执行过程中的局部变量，方法的返回值，以及方法调用上下文。栈空间随着线程的终止而释放。</p>
-<h4 id="6-1-2-Java堆"><a href="#6-1-2-Java堆" class="headerlink" title="6.1.2.  Java堆"></a>6.1.2.  Java堆</h4><p>​    Java中堆是由所有的线程共享的一块内存区域，堆用来保存各种JAVA对象，比如数组，线程对象等。</p>
-<h4 id="6-1-3-Java堆的分区"><a href="#6-1-3-Java堆的分区" class="headerlink" title="6.1.3.  Java堆的分区"></a>6.1.3.  Java堆的分区</h4><p>​    JVM堆一般又可以分为以下三部分：</p>
-<p>​    <img src="http://ozaomob5f.bkt.clouddn.com/images/171224/mH4k11bkBl.png?imageslim" alt="mark"></p>
-<p>◆ Young 年轻区（代）</p>
-<p>Young区被划分为三部分，Eden区和两个大小严格相同的Survivor区，其中，Survivor区间中，某一时刻只有其中一个是被使用的，另外一个留做垃圾收集时复制对象用，在Eden区间变满的时候， GC就会将存活的对象移到空闲的Survivor区间中，根据JVM的策略，在经过几次垃圾收集后，任然存活于Survivor的对象将被移动到Tenured区间。</p>
-<p>◆ Tenured 年老区</p>
-<p>Tenued区主要保存生命周期长的对象，一般是一些老的对象，当一些对象在Young复制转移一定的次数以后，对象就会被转移到Tenured区，一般如果系统中用了application级别的缓存，缓存中的对象往往会被转移到这一区间。</p>
-<p>◆ Perm 永久区</p>
-<p>Perm代主要保存class,method,filed对象，这部份的空间一般不会溢出，除非一次性加载了很多的类，不过在涉及到热部署的应用服务器的时候，有时候会遇到java.lang.OutOfMemoryError : PermGen space 的错误，造成这个错误的很大原因就有可能是每次都重新部署，但是重新部署后，类的class没有被卸载掉，这样就造成了大量的class对象保存在了perm中，这种情况下，一般重新启动应用服务器可以解决问题。</p>
-<p>Virtual区：</p>
-<p>最大内存和初始内存的差值，就是Virtual区。</p>
-<h4 id="6-1-4-设置区大小"><a href="#6-1-4-设置区大小" class="headerlink" title="6.1.4.设置区大小"></a>6.1.4.设置区大小</h4><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/d862eA712H.png?imageslim" alt="mark"></p>
-<p>◆ Total Heap</p>
-<p>-Xms ：指定了JVM初始启动以后初始化内存</p>
-<p>-Xmx：指定JVM堆得最大内存，在JVM启动以后，会分配-Xmx参数指定大小的内存给JVM，但是不一定全部使,JVM会根据-Xms参数来调节真正用于JVM的内存</p>
-<p>-Xmx -Xms之差就是三个Virtual空间的大小</p>
-<p>◆ Young Generation</p>
-<p>-XX:NewRatio=8意味着tenured 和 young的比值8：1，这样eden+2*survivor=1/9</p>
-<p>堆内存</p>
-<p>-XX:SurvivorRatio=32意味着eden和一个survivor的比值是32：1，这样一个Survivor就占Young区的1/34.</p>
-<p>-Xmn 参数设置了年轻代的大小</p>
-<p>◆ Perm Generation</p>
-<p>-XX:PermSize=16M -XX:MaxPermSize=64M</p>
-<p>Thread Stack</p>
-<p>-XX:Xss=128K</p>
-<h3 id="6-2-常用参数"><a href="#6-2-常用参数" class="headerlink" title="6.2. 常用参数"></a>6.2. 常用参数</h3><p>修改文件：bin/catalina.sh</p>
-<p>JAVA_OPTS=”-Dfile.encoding=UTF-8-server -Xms1024m -Xmx1024m -XX:NewSize=512m -XX:MaxNewSize=512m-XX:PermSize=256m -XX:MaxPermSize=256m -XX:NewRatio=2-XX:MaxTenuringThreshold=50 -XX:+DisableExplicitGC”</p>
-<p>参数说明：</p>
-<p>1、  file.encoding 默认文件编码</p>
-<p>2、  -Xmx1024m  设置JVM最大可用内存为1024MB</p>
-<p>3、  -Xms1024m  设置JVM最小内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。</p>
-<p>4、  -XX:NewSize  设置年轻代大小</p>
-<p>5、  XX:MaxNewSize 设置最大的年轻代大小</p>
-<p>6、  -XX:PermSize  设置永久代大小</p>
-<p>7、  -XX:MaxPermSize 设置最大永久代大小</p>
-<p>8、  -XX:NewRatio=4:设置年轻代（包括Eden和两个Survivor区）与终身代的比值（除去永久代）。设置为4，则年轻代与终身代所占比值为1：4，年轻代占整个堆栈的1/5</p>
-<p>9、  -XX:MaxTenuringThreshold=0：设置垃圾最大年龄，默认为：15。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概论。</p>
-<p>10、             -XX:+DisableExplicitGC这个将会忽略手动调用GC的代码使得System.gc()的调用就会变成一个空调用，完全不会触发任何GC</p>
-<h3 id="6-3-在tomcat中设置JVM参数"><a href="#6-3-在tomcat中设置JVM参数" class="headerlink" title="6.3. 在tomcat中设置JVM参数"></a>6.3. 在tomcat中设置JVM参数</h3><h4 id="6-3-1-linux"><a href="#6-3-1-linux" class="headerlink" title="6.3.1.  linux"></a>6.3.1.  linux</h4><p>修改bin/catalina.sh文件参数（第一行）</p>
-<p>JAVA_OPTS=”-Dfile.encoding=UTF-8-server -Xms1024m -Xmx2048m -XX:NewSize=512m -XX:MaxNewSize=1024m-XX:PermSize=256m -XX:MaxPermSize=256m -XX:MaxTenuringThreshold=10-XX:NewRatio=2 -XX:+DisableExplicitGC”</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/9Hhig3kk9B.png?imageslim" alt="mark"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">垃圾回收</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tomcat优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">jvm参数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/24/JVM参数设置/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM垃圾回收" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/JVM垃圾回收/">Java垃圾回收机制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/24/JVM垃圾回收/" class="archive-article-date">
-  	<time datetime="2017-12-24T02:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java垃圾回收机制"><a href="#Java垃圾回收机制" class="headerlink" title="Java垃圾回收机制"></a>Java垃圾回收机制</h1><h2 id="1-对于Java的GC哪些内存需要回收"><a href="#1-对于Java的GC哪些内存需要回收" class="headerlink" title="1.对于Java的GC哪些内存需要回收"></a>1.对于Java的GC哪些内存需要回收</h2><p>​    内存运行时JVM会有一个运行时数据区来管理内存.主要包括5大部分: 程序计数器(Program Counter Register) ,虚拟机栈(JVM Stack) , 本地方法栈(Native Method Stack), 方法区(Method Area) , 堆(Heap) .</p>
-<p>​    而其中程序计数器,虚拟机栈,本地方法栈是每个线程私有的内存空间,随线程而生,随线程而死亡.列如栈中的每一个栈帧中分配多少内存基本上在类结构确定是哪个就已知了,因此3个区域的内存分配和回收都是确定的,无需考虑内存回收的问题.</p>
-<p>​    但是方法区和堆就不同了,一个接口的多个实现类需要的内存可能不一样,我们在运行期间才会知道会创建哪些对象,这部分内存的分配和回收都是动态的,GC主要关注的就是这部分内存</p>
-<p>​    </p>
-<h2 id="2-Java-的-GC-什么时候回收垃圾"><a href="#2-Java-的-GC-什么时候回收垃圾" class="headerlink" title="2.Java 的 GC 什么时候回收垃圾 "></a>2.Java 的 GC 什么时候回收垃圾 </h2><p>在面试中经常会碰到这样一个问题（事实上笔者也碰到过） ：如何判断一个对象已经死去？<br>很容易想到的一个答案是：对一个对象添加引用计数器。每当有地方引用它时，计数器值加 1；当引用失效时，计<br>数器值减 1.而当计数器的值为 0 时这个对象就不会再被使用，判断为已死。是不是简单又直观。然而，很遗憾。这种做法是错误的！为什么是错的呢？事实上，用引用计数法确实在大部分情况下是一个不错的解决方案，而在实际的应用中也有不少案例，但它却无法解决对象之间的循环引用问题。比如对象 A 中有一个字段指向了对象 B，而对象 B 中也有一个字段指向了对象 A，而事实上他们俩都不再使用，但计数器的值永远都不可能为 0，也就不会被回收，然后就发生了内存泄露。<br>所以，正确的做法应该是怎样呢？</p>
-<p>在 Java， C#等语言中，比较主流的判定一个对象已死的方法是：可达性分析(Reachability Analysis).<br>所有生成的对象都是一个称为”GC Roots”的根的子树。从 GC Roots 开始向下搜索，搜索所经过的路径称为引用链<br>(Reference Chain)，当一个对象到 GC Roots 没有任何引用链可以到达时，就称这个对象是不可达的（不可引用的），也就是可以被 GC 回收了。</p>
-<p>无论是引用计数器还是可达性分析，判定对象是否存活都与引用有关！那么，如何定义对象的引用呢？<br>我们希望给出这样一类描述：当内存空间还够时，能够保存在内存中；如果进行了垃圾回收之后内存空间仍旧非<br>常紧张，则可以抛弃这些对象。所以根据不同的需求，给出如下四种引用，根据引用类型的不同， GC 回收时也会有不同的操作：<br>1)强引用(Strong Reference):Object obj = new Object();只要强引用还存在， GC 永远不会回收掉被引用的对象。</p>
-<p>2)软引用(Soft Reference)：描述一些还有用但非必需的对象。在系统将会发生内存溢出之前，会把这些对象列入<br>回收范围进行二次回收（即系统将会发生内存溢出了，才会对他们进行回收。</p>
-<p>3)弱引用(Weak Reference):程度比软引用还要弱一些。这些对象只能生存到下次 GC 之前。当 GC 工作时，无论内<br>存是否足够都会将其回收（即只要进行 GC，就会对他们进行回收)</p>
-<p>4)虚引用(Phantom Reference):一个对象是否存在虚引用，完全不会对其生存时间构成影响。<br>关于方法区中需要回收的是一些废弃的常量和无用的类。</p>
-<p>1.废弃的常量的回收。这里看引用计数就可以了。没有对象引用该常量就可以放心的回收了。<br>2.无用的类的回收。什么是无用的类呢？<br>A.该类所有的实例都已经被回收。也就是 Java 堆中不存在该类的任何实例；<br>B.加载该类的 ClassLoader 已经被回收；<br>C.该类对应的 java.lang.Class 对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</p>
-<p>总而言之:<br>​    对于堆中的对象，主要用可达性分析判断一个对象是否还存在引用，如果该对象没有任何引用就应该被回收。而根据我们实际对引用的不同需求，又分成了 4 中引用，每种引用的回收机制也是不同的。对于方法区中的常量和类，当一个常量没有任何对象引用它，它就可以被回收了。而对于类，如果可以判定它为无用类，就可以被回收了。 </p>
-<h2 id="3-JVM内存模型"><a href="#3-JVM内存模型" class="headerlink" title="3. JVM内存模型"></a>3. JVM内存模型</h2><p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/l2CbHmh9GL.png?imageslim" alt="mark"></p>
-<h2 id="4-java虚拟机JVM垃圾收集算法有四种："><a href="#4-java虚拟机JVM垃圾收集算法有四种：" class="headerlink" title="4. java虚拟机JVM垃圾收集算法有四种："></a>4. java虚拟机JVM垃圾收集算法有四种：</h2><ol>
-<li><p>标记-清除算法</p>
-<p> 这是JVM最基础的垃圾收集算法。 该算法分为两个阶段：“标记”和“清除”。首先标记处所有需要回收的对象，然后统一清除被标记的对象。 该算法，标记和清除两个阶段的效率不高。此外，回收后会产生大量的不连续的内存碎片，进一步会导致垃圾回收次数的增加。</p>
-<p> <img src="http://ozaomob5f.bkt.clouddn.com/images/171224/k2emL7Bg3k.png?imageslim" alt="mark"></p>
-</li>
-<li><p>复制算法</p>
-<p>​     为了解决标记-清除算法的效率问题，出现了复制算法，如下图： 该算法的思想是将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这块的内存用完了，则将还存活的对象复制到另外一块内存上去，然后再把刚使用过的内存空间一次清理掉。从而达到了每次垃圾回收时只是针对其中一块，避免了产生内存碎片等情况。该算法的代价是只是使用了其中一本的内存，代价有点高。</p>
-<p>​      随着研究的不断发现，商业虚拟机在该算法中不断进行优化尝试。比如在HotSpot虚拟机中，新生代中Eden和Survivor的大小比例为8：:1，因为新生代的对象需要回收的概率大（对象的生命周期短，存活率低），所以内存的可用率达到了90%（新生代分为：Eden和两块Survivor）。每次都是把Eden和Survivor中存活的对象拷贝到另一块Survivor中，然后清理掉Eden和Survivor空间。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/Bl47HFhdl2.png?imageslim" alt="mark"></p>
-</li>
-<li><p>标记-整理算法</p>
-<p>  当复制收集算法面对的回收对象为存活率较高的情况时，要执行较多的复制操作，效率会变低。为了提高这些对象垃圾回收效率，充分利用可用内存，标记-整理算法出现了。如下图：</p>
-<p>​        <img src="http://ozaomob5f.bkt.clouddn.com/images/171224/BjjDaB3i30.png?imageslim" alt="mark"></p>
-<p>​      该算法集成了标记-清除和复制收集算法的优点。第一个阶段仍是进行标记，第二个阶段是把所有存活的对象都向一端移动，按顺序排放，然后直接清理掉端边界意外的内存。该算法避免了标记-清除的内存碎片问题以及复制算法的空间问题。该算法适合于老年代对象的回收。</p>
-</li>
-<li><p>分代收集算法</p>
-<p>  这是目前大多数虚拟机采用的垃圾回收算法。基于对象的生命周期划分为新生代、老年代以及持久代。比如新生代就采用复制收集算法，而老年代就采用标记-清除或者标记-整理算法。如下图： 对于分代收集，虚拟机需要区分对象的分配年代，是放在新生代还是否放在老年代？。解决的办法是：jvm为每个对象定义了一个对象年龄计数器。如果对象在Eden出生并且经过第一次新生代GC（Minor GC）后仍然存活并且能被Survivor容纳，则该对象将被移动到另一块Survivor空间，并将对象年龄计数器加1。对象在Survivor区中每经历过一次Minor GC，年龄计数器就加1，当它的年龄达到设定的阈值（默认是15）时，则被移动到老年代中。阈值的设置通过参数-XX：MaxTenuringThreshold设置。</p>
-<p>​      当然，并不是一定达到阈值才被移动到老年代，为了适应复杂的情况，动态的判定对象年龄，虚拟机规定：如果Survivor空间中相同年龄的所有对象大小的总和大于Survivor空间的一半，对象的年龄大于或者等于该年龄的对象就可以直接进入老年代，不必等到达到设定的阈值。</p>
-<p><img src="http://ozaomob5f.bkt.clouddn.com/images/171224/kg7ggAJBj0.png?imageslim" alt="mark"></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">垃圾回收</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/24/JVM垃圾回收/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1632,19 +1454,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">solr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solr集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">垃圾回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">solr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">solr集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1672,11 +1498,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1685,6 +1507,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">map遍历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
