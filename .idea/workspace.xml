@@ -2,8 +2,197 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a3dc44-ae07-4ed4-a09b-a8bb68d21baf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_admin-config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_travis.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scaffolds/draft.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scaffolds/page.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Autowired-Resource-Qualifier的区别.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/JVM参数设置.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/JVM垃圾回收.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Mybatis01.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Mybatis02.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Mybatis03.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Redis的五中数据类型.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Solr开发.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/Solr的原理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/SpringBoot常用配置.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/SpringBoot热部署.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/map集合遍历的四种方式.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/mysql01.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/mysql02.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/mysql03.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/oracle01.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/oracle02.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/oracle03.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/oracle04.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/排序方式.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/设计模式.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/baidu_verify_Ja1VXyZnb7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/tags/随笔/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/Gruntfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/_config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/default.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/fr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/nl.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/no.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/ru.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/zh-CN.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/languages/zh-TW.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/after-footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/archive-post.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/archive.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/article.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/google-analytics.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/head.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/header.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/mobile-nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/category.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/date.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/gallery.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/tag.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/post/title.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_partial/sidebar.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_widget/archive.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_widget/category.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_widget/recent_posts.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_widget/tag.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/_widget/tagcloud.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/archive.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/category.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/layout.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/page.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/post.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/layout/tag.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/scripts/fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_extend.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/archive.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/article.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/comment.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/footer.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/header.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/highlight.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/mobile.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/sidebar-aside.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/sidebar-bottom.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_partial/sidebar.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_util/grid.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_util/mixin.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/_variables.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/images/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/css/style.styl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/blank.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/fancybox_loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/fancybox_loading@2x.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/fancybox_overlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/fancybox_sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/fancybox_sprite@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/fancybox_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/jquery.fancybox-buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/jquery.fancybox-buttons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/jquery.fancybox-media.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/jquery.fancybox-thumbs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/helpers/jquery.fancybox-thumbs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/jquery.fancybox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/jquery.fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/fancybox/jquery.fancybox.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/landscape/source/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/yilia" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/11/26/mysql01/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/11/27/mysql02/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/11/28/mysql03/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/15/Redis的五中数据类型/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/15/Solr开发/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/15/Solr的原理/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/24/JVM参数设置/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/24/JVM垃圾回收/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/28/Autowired-Resource-Qualifier的区别/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/28/map集合遍历的四种方式/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/28/设计模式/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2017/12/29/排序方式/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/01/13/oracle01/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/01/13/oracle02/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/02/05/Mybatis01/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/02/05/oracle03/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/02/05/oracle04/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/03/05/Mybatis02/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/03/21/Mybatis03/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/03/21/SpringBoot常用配置/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2018/03/21/SpringBoot热部署/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNAME" beforeDir="false" afterPath="$PROJECT_DIR$/source/CNAME" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2017/11/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2017/12/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2017/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2017/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2018/01/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2018/02/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2018/03/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/2018/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archives/page/3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/baidu_verify_Ja1VXyZnb7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/Oracle/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/default-skin.b257fa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/iconfont.16acc2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/iconfont.45d7ee.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/iconfont.8c627f.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/iconfont.b322fa.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/tooltip.4004ff.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/default-skin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/preloader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/scrollbar_arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.0cf68a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.0cf68a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile.992cbe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/slider.e37972.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Autowired/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Component/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Lucene/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Mybatis/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Qualifier/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/Resource/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/java/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/jvm参数/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/map/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/map遍历/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/mysql/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/nosql/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/oracle/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/redis/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/solr/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/solr集群/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/springboot/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/sql/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/tomcat优化/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/倒排索引/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/垃圾回收/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/排序/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags/随笔/index.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,12 +205,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+    <leaf>
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="410">
+              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_travis.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_travis.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -41,6 +239,8 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/_travis.sh" />
       </list>
     </option>
   </component>
@@ -50,8 +250,15 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+      <path value="$PROJECT_DIR$/themes/landscape/package.json" />
+      <path value="$PROJECT_DIR$/themes/yilia/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-1722" />
@@ -119,7 +326,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1943000" />
+    <option name="totallyTimeSpent" value="3290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1722" y="-24" width="1680" height="971" extended-state="0" />
@@ -137,9 +344,9 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -147,16 +354,42 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32902467" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32902467" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="4" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -192,8 +425,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_travis.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
         </state>
       </provider>
     </entry>

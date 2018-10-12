@@ -1,0 +1,28 @@
+language: node_js  #设置语言
+
+node_js: stable  #设置相应的版本
+
+cache:
+  directories:
+    - node_modules # 缓存不经常更改的内容
+
+before_install:
+  - export TZ='Asia/Shanghai' # 更改时区
+  - chmod +x _travis.sh
+
+install:
+  - npm install  #安装hexo及插件
+
+script:
+  - hexo clean  #清除
+  - hexo g #生成
+
+after_script:
+  - ./_travis.sh
+
+branches:
+  only:
+    - hexo  #只监测master分支，master是我的分支的名称，可根据自己情况设置
+env:
+ global:
+   - GH_REF: github.com/Nageren/Nageren.github.io.git  #设置GH_REF，注意更改yourname
