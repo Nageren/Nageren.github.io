@@ -38,7 +38,7 @@ Job NUM  | $TRAVIS_JOB_NUMBER |
 EOF
 
   git init
-  git config user.name "Nageren"
+  git config user.name "mawenlei"
   git config user.email "13552500697@163.com"
   git add .
   git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
