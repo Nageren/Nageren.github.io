@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## 主题分支
+该分支存放的是hexo源文件，用于生产主分支博客静态文件。
 
-You can use the [editor on GitHub](https://github.com/Nageren/Nageren.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## 使用的主题
+主题采用hexo-theme-Hueman
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 使用Travis-CI持续集成
+Travis-CI是一个开源的持续构建项目，能够测试和部署；Travis-CI会同步你在GitHub上托管的项目，每当你Commit Push之后，就会在几分钟内开始按照你的要求测试部署你的项目。
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Nageren/Nageren.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+官方文档: [https://docs.travis-ci.com/](https://docs.travis-ci.com/)
+部署状态 | 集成结果 | 参考值
+---|---|---
+完成时间 | 2018-10-12 19:37:47 | yyyy-mm-dd hh:mm:ss
+部署环境 | linux + stable | window \| linux + stable
+部署类型 | push | push \| pull_request \| api \| cron
+启用Sudo | true | false \| true
+仓库地址 | Nageren/Nageren.github.io | owner_name/repo_name
+提交分支 | 00da98ac53357af500cbececdafd7244ff1a1e7e | hash 16位
+提交信息 | .travis.sh修改 |
+Job ID   | 440586437 |
+Job NUM  | 7.1 |
