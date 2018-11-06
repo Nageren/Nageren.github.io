@@ -170,6 +170,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-自定义注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/05/自定义注解/">自定义注解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/05/自定义注解/" class="archive-article-date">
+  	<time datetime="2018-11-05T06:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-JAVA中的元注解"><a href="#1-JAVA中的元注解" class="headerlink" title="1. JAVA中的元注解"></a>1. JAVA中的元注解</h1><h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><p>Java中的元注解专职负责注解其他注解的，用来标示其他注解的适用范围和作用域。</p>
+<p>Java中有四个元注解</p>
+<p>1.@Target<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">表示该注解可以用于什么地方，可能的ElementType参数有：</span><br><span class="line">CONSTRUCTOR：构造器的声明</span><br><span class="line">FIELD：域声明（包括<span class="keyword">enum</span>实例）</span><br><span class="line">LOCAL_VARIABLE：局部变量声明</span><br><span class="line">METHOD：方法声明</span><br><span class="line">PACKAGE：包声明</span><br><span class="line">PARAMETER：参数声明</span><br><span class="line">TYPE：类、接口（包括注解类型）或<span class="keyword">enum</span>声明</span><br></pre></td></tr></table></figure></p>
+<p>2.@Retention<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表示需要在什么级别保存该注解信息。可选的RetentionPolicy参数包括：</span><br><span class="line">SOURCE：注解将被编译器丢弃</span><br><span class="line">CLASS：注解在<span class="class"><span class="keyword">class</span>文件中可用，但会被<span class="title">VM</span>丢弃</span></span><br><span class="line"><span class="class"><span class="title">RUNTIME</span>：<span class="title">VM</span>将在运行期间保留注解，因此可以通过反射机制读取注解的信息</span></span><br></pre></td></tr></table></figure></p>
+<p>3.@Document<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将注解包含在Javadoc中</span><br></pre></td></tr></table></figure></p>
+<p>4.@Inherited<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许子类继承父类的注解</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-自定义注解的使用"><a href="#2-自定义注解的使用" class="headerlink" title="2. 自定义注解的使用"></a>2. 自定义注解的使用</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/05/自定义注解/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SpringBoot常用配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1264,83 +1343,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-排序方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/29/排序方式/">排序方式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/29/排序方式/" class="archive-article-date">
-  	<time datetime="2017-12-28T17:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Array;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> arr[]=&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] sort = bubbleSort(arr);</span><br><span class="line">        <span class="comment">//System.out.println(Arrays.toString(sort));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] sort1 = selectionSort(arr);</span><br><span class="line">        System.out.println(Arrays.toString(sort1));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 冒泡排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] a)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;a.length-<span class="number">1</span>-i;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    temp=a[j];</span><br><span class="line">                    a[j]=a[j+<span class="number">1</span>];</span><br><span class="line">                    a[j+<span class="number">1</span>]=temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] a) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> index = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; a.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[index] &gt; a[j]) &#123;</span><br><span class="line">                    index = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = a[index];</span><br><span class="line">            a[index] = a[i];</span><br><span class="line">            a[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>快速排序的原理：选择一个关键值作为基准值。比基准值小的都在左边序列（一般是无序的），比基准值大的都在右边（一般是无序的）。一般选择序列的第一个元素。</p>
-<p>一次循环：从后往前比较，用基准值和最后一个值比较，如果比基准值小的交换位置，如果没有继续比较下一个，直到找到第一个比基准值小的值才交换。找到这个值之后，又从前往后开始比较，如果有比基准值大的，交换位置，如果没有继续比较下一个，直到找到第一个比基准值大的值才交换。直到从前往后的比较索引&gt;从后往前比较的索引，结束第一次循环，此时，对于基准值来说，左右两边就是有序的了。</p>
-<p>接着分别比较左右两边的序列，重复上述的循环。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastSort</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] a = &#123;<span class="number">12</span>,<span class="number">20</span>,<span class="number">5</span>,<span class="number">16</span>,<span class="number">15</span>,<span class="number">1</span>,<span class="number">30</span>,<span class="number">45</span>,<span class="number">23</span>,<span class="number">9</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = a.length-<span class="number">1</span>;</span><br><span class="line">        sort(a,start,end);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;a.length; i++)&#123;</span><br><span class="line">             System.out.println(a[i]);</span><br><span class="line">         &#125;</span><br><span class="line">        </span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">         <span class="keyword">int</span> start = low;</span><br><span class="line">         <span class="keyword">int</span> end = high;</span><br><span class="line">         <span class="keyword">int</span> key = a[low];</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line">         <span class="keyword">while</span>(end&gt;start)&#123;</span><br><span class="line">             <span class="comment">//从后往前比较</span></span><br><span class="line">             <span class="keyword">while</span>(end&gt;start&amp;&amp;a[end]&gt;=key)  <span class="comment">//如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较</span></span><br><span class="line">                 end--;</span><br><span class="line">             <span class="keyword">if</span>(a[end]&lt;=key)&#123;</span><br><span class="line">                 <span class="keyword">int</span> temp = a[end];</span><br><span class="line">                 a[end] = a[start];</span><br><span class="line">                 a[start] = temp;</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="comment">//从前往后比较</span></span><br><span class="line">             <span class="keyword">while</span>(end&gt;start&amp;&amp;a[start]&lt;=key)<span class="comment">//如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置</span></span><br><span class="line">                start++;</span><br><span class="line">             <span class="keyword">if</span>(a[start]&gt;=key)&#123;</span><br><span class="line">                 <span class="keyword">int</span> temp = a[start];</span><br><span class="line">                 a[start] = a[end];</span><br><span class="line">                 a[end] = temp;</span><br><span class="line">             &#125;</span><br><span class="line">         <span class="comment">//此时第一次循环比较结束，关键值的位置已经确定了。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用</span></span><br><span class="line">         &#125;</span><br><span class="line">         <span class="comment">//递归</span></span><br><span class="line">         <span class="keyword">if</span>(start&gt;low) sort(a,low,start-<span class="number">1</span>);<span class="comment">//左边序列。第一个索引位置到关键值索引-1</span></span><br><span class="line">         <span class="keyword">if</span>(end&lt;high) sort(a,end+<span class="number">1</span>,high);<span class="comment">//右边序列。从关键值索引+1到最后一个</span></span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/29/排序方式/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1479,6 +1481,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
               </li>
              
               <li class="article-tag-list-item">

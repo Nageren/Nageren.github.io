@@ -12,12 +12,12 @@ Travis-CI是一个开源的持续构建项目，能够测试和部署；Travis-C
 
 部署状态 | 集成结果 | 参考值
 ---|---|---
-完成时间 | 2018-10-12 20:32:10 | yyyy-mm-dd hh:mm:ss
+完成时间 | 2018-11-06 20:10:37 | yyyy-mm-dd hh:mm:ss
 部署环境 | linux + stable | window \| linux + stable
 部署类型 | push | push \| pull_request \| api \| cron
 启用Sudo | true | false \| true
 仓库地址 | Nageren/Nageren.github.io | owner_name/repo_name
-提交分支 | 588d7d12a6552577bfb0d50763785c1cebabb9f9 | hash 16位
-提交信息 | 修改README文件 |
-Job ID   | 440610116 |
-Job NUM  | 10.1 |
+提交分支 | edde2f58118b5bfc8268dd2c8a689e8f45784e51 | hash 16位
+提交信息 | 自定义注解 |
+Job ID   | 451339955 |
+Job NUM  | 11.1 |

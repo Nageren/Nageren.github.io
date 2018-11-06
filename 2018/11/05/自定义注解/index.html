@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.top.com">
-  <title>Tag: springboot | 个人博客</title>
+  <title>自定义注解 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一点一滴的成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://www.top.com/tags/springboot/index.html">
+  <meta name="description" content="1. JAVA中的元注解元注解Java中的元注解专职负责注解其他注解的，用来标示其他注解的适用范围和作用域。 Java中有四个元注解 1.@Target12345678表示该注解可以用于什么地方，可能的ElementType参数有：CONSTRUCTOR：构造器的声明FIELD：域声明（包括enum实例）LOCAL_VARIABLE：局部变量声明METHOD：方法声明PACKAGE：包声明PARA">
+<meta name="keywords" content="annotation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义注解">
+<meta property="og:url" content="http://www.top.com/2018/11/05/自定义注解/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="一点一滴的成长">
+<meta property="og:description" content="1. JAVA中的元注解元注解Java中的元注解专职负责注解其他注解的，用来标示其他注解的适用范围和作用域。 Java中有四个元注解 1.@Target12345678表示该注解可以用于什么地方，可能的ElementType参数有：CONSTRUCTOR：构造器的声明FIELD：域声明（包括enum实例）LOCAL_VARIABLE：局部变量声明METHOD：方法声明PACKAGE：包声明PARA">
+<meta property="og:updated_time" content="2018-11-06T12:10:14.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="一点一滴的成长">
+<meta name="twitter:title" content="自定义注解">
+<meta name="twitter:description" content="1. JAVA中的元注解元注解Java中的元注解专职负责注解其他注解的，用来标示其他注解的适用范围和作用域。 Java中有四个元注解 1.@Target12345678表示该注解可以用于什么地方，可能的ElementType参数有：CONSTRUCTOR：构造器的声明FIELD：域声明（包括enum实例）LOCAL_VARIABLE：局部变量声明METHOD：方法声明PACKAGE：包声明PARA">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -168,98 +170,193 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-自定义注解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/21/SpringBoot常用配置/" class="archive-article-date">
-  	<time datetime="2018-03-21T06:35:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/21/SpringBoot常用配置/">SpringBoot常用配置</a>
+    <h1 class="article-title" itemprop="name">
+      自定义注解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/11/05/自定义注解/" class="archive-article-date">
+  	<time datetime="2018-11-05T06:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-JAVA中的元注解"><a href="#1-JAVA中的元注解" class="headerlink" title="1. JAVA中的元注解"></a>1. JAVA中的元注解</h1><h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><p>Java中的元注解专职负责注解其他注解的，用来标示其他注解的适用范围和作用域。</p>
+<p>Java中有四个元注解</p>
+<p>1.@Target<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">表示该注解可以用于什么地方，可能的ElementType参数有：</span><br><span class="line">CONSTRUCTOR：构造器的声明</span><br><span class="line">FIELD：域声明（包括<span class="keyword">enum</span>实例）</span><br><span class="line">LOCAL_VARIABLE：局部变量声明</span><br><span class="line">METHOD：方法声明</span><br><span class="line">PACKAGE：包声明</span><br><span class="line">PARAMETER：参数声明</span><br><span class="line">TYPE：类、接口（包括注解类型）或<span class="keyword">enum</span>声明</span><br></pre></td></tr></table></figure></p>
+<p>2.@Retention<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表示需要在什么级别保存该注解信息。可选的RetentionPolicy参数包括：</span><br><span class="line">SOURCE：注解将被编译器丢弃</span><br><span class="line">CLASS：注解在<span class="class"><span class="keyword">class</span>文件中可用，但会被<span class="title">VM</span>丢弃</span></span><br><span class="line"><span class="class"><span class="title">RUNTIME</span>：<span class="title">VM</span>将在运行期间保留注解，因此可以通过反射机制读取注解的信息</span></span><br></pre></td></tr></table></figure></p>
+<p>3.@Document<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将注解包含在Javadoc中</span><br></pre></td></tr></table></figure></p>
+<p>4.@Inherited<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许子类继承父类的注解</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-自定义注解的使用"><a href="#2-自定义注解的使用" class="headerlink" title="2. 自定义注解的使用"></a>2. 自定义注解的使用</h1>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozaomob5f.bkt.clouddn.com/images/171125/ef9KcFa8H3.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.top.com/2018/11/05/自定义注解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/21/SpringBoot热部署/" class="archive-article-date">
-  	<time datetime="2018-03-21T06:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/21/SpringBoot常用配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot常用配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/21/SpringBoot热部署/">SpringBoot热部署</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://www.top.com/2018/11/05/自定义注解/",
+  owner: 'Nageren',
+  repo: 'pinglun',
+  oauth: {
+    client_id: 'c64ab6a271cb9680007d',
+    client_secret: '83a9109b4b0f5f8f30480e90390fb3fe55a2f651',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -282,9 +379,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
