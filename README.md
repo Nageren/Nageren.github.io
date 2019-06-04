@@ -12,7 +12,7 @@ Travis-CI是一个开源的持续构建项目，能够测试和部署；Travis-C
 
 部署状态 | 集成结果 | 参考值
 ---|---|---
-完成时间 | 2018-11-06 20:10:37 | yyyy-mm-dd hh:mm:ss
+完成时间 | 2019-06-04 15:39:10 | yyyy-mm-dd hh:mm:ss
 部署环境 | linux + stable | window \| linux + stable
 部署类型 | push | push \| pull_request \| api \| cron
 启用Sudo | true | false \| true
